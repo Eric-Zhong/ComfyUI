@@ -1,0 +1,277 @@
+base:
+  root: C:\Users\zhong\git\ComfyUI
+channels:
+  huggingface: false
+  civitai: false
+  modelscope: true
+models:
+  siglip-so400m-patch14-384:
+    name: siglip-so400m-patch14-384
+    category: I2T
+    type: siglip
+    description: siglip-so400m-patch14-384
+    save_as: models/clip/siglip-so400m-patch14-384
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        # git clone https://www.modelscope.cn/<namespace>/<model-name>.git
+        # thomas/siglip-so400m-patch14-384
+        url: https://www.modelscope.cn/thomas/siglip-so400m-patch14-384.git
+  Meta-Llama-3.1-8B-bnb-4bit:
+    name: Meta-Llama-3.1-8B-Instruct-bnb-4bit
+    category: LLM
+    type: LLM
+    description: LLM-Research/Meta-Llama-3.1-8B-Instruct-bnb-4bit
+    save_as: models/LLM/Meta-Llama-3.1-8B-Instruct-bnb-4bit
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/LLM-Research/Meta-Llama-3.1-8B-Instruct-bnb-4bit.git
+  joy-caption-alpha-two:
+    name: joy-caption-alpha-two
+    category: LLM
+    type: LLM
+    description: fireicewolf/joy-caption-alpha-two
+    save_as: models/Joy_caption_two
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/fireicewolf/joy-caption-alpha-two.git
+  t5-v1_1:
+    name: joy-caption-alpha-two
+    category: CLIP
+    type: CLIP
+    save_as: models/clip
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/city96/t5-v1_1-xxl-encoder-gguf/resolve/master/t5-v1_1-xxl-encoder-Q5_K_M.gguf
+        file_name: t5-v1_1-xxl-encoder-Q5_K_M.gguf
+    description: google t5 (Text-To-Text Transfer Transformer)
+  FLUX-film-foto-lora:
+    name: FLUX-film-foto-lora
+    category: lora
+    type: lora
+    save_as: models/loras
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/sd_lora/flux_film_foto/resolve/master/araminta_k_flux_film_foto.safetensors
+        file_name: araminta_k_flux_film_foto.safetensors
+    description: google t5 (Text-To-Text Transfer Transformer)
+  omost-llama-3-8b-4bits:
+    name: omost-llama-3-8b-4bits
+    category: 
+    type: 
+    save_as: custom_nodes/comfyui_LLM_party/model/LLM/omost-llama-3-8b-4bits
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/cjc1887415157/omost-llama-3-8b-4bits.git
+        file_name: 
+    description: modelscope cjc1887415157/omost-llama-3-8b-4bits
+  Anything-V3.0:
+    name: Anything-V3.0
+    category: checkpoint
+    type: ckpt
+    save_as: models/checkpoints
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/AI-ModelScope/anything-v3.0/resolve/master/Anything-V3.0.ckpt
+        file_name: Anything-V3.0.ckpt
+    description: https://modelscope.cn/models/AI-ModelScope/anything-v3.0/summary
+  AOM31B:
+    name: AbyssOrangeMix3 (AOM3)
+    category: checkpoint
+    type: safetensors
+    save_as: models/checkpoints
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/MusePublic/60_ckpt_SD_1_5/resolve/297/297.safetensors
+        file_name: Anything-V3.0.ckpt
+    description: https://modelscope.cn/models/MusePublic/60_ckpt_SD_1_5/summary
+  vae-ft-mse-840000-ema-pruned:
+    name: vae-ft-mse-840000-ema-pruned
+    category: 
+    type: 
+    save_as: models/loras
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/MusePublic/37_VAE_SD_1_5/resolve/124/124.safetensors
+        file_name: vae-ft-mse-840000-ema-pruned.safetensors
+    description: sssssssssssssssssssssssssssss
+  kl-f8-anime2:
+    name: kl-f8-anime2
+    category: 
+    type: 
+    save_as: models/vae
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/MusePublic/36_VAE_SD_1_5/resolve/123/123.safetensors
+        file_name: kl-f8-anime2.safetensors
+    description: https://modelscope.cn/models/MusePublic/36_VAE_SD_1_5
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_zoedepth_sd15v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_depth_sd15v2.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_openpose_sd14v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_style_sd14v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_sketch_sd15v2.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_canny_sd15v2.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_keypose_sd14v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_color_sd14v1.pth
+  stable-cascade:
+    name: stable-cascade
+    category: checkpoint
+    type: 
+    save_as: wget
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/stabilityai/stable-cascade/resolve/master/stage_c_bf16.safetensors
+        file_name: stable_cascade_stage_c_bf16.safetensors
+    description: https://modelscope.cn/models/stabilityai/stable-cascade/files
+  flux1-fill-dev:
+    name: flux1-fill-dev
+    category: checkpoint
+    type: 
+    save_as: models/unet
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/AI-ModelScope/FLUX.1-Fill-dev/resolve/master/flux1-fill-dev.safetensors
+        file_name: flux1-fill-dev.safetensors
+    description: https://modelscope.cn/models/AI-ModelScope/FLUX.1-Fill-dev
+
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:
+    name: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    category: 
+    type: 
+    save_as: <git clone to fold>|<wget download and save to fold>
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git|wget
+        url: ttttttttttttttttttttttttttttttttttttttttt
+        # url: https://www.modelscope.cn/<xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>.git
+        file_name: tttttttttttttt
+    description: sssssssssssssssssssssssssssss
+custom_nodes:
+  ComfyUI_SLK_joy_caption_two:
+    method: git
+    url: https://github.com/EvilBT/ComfyUI_SLK_joy_caption_two.git
+    save_as: ComfyUI_SLK_joy_caption_two
+    name: ComfyUI_SLK_joy_caption_two
+    description: 图片转提示词
+    models:
+      - joy-caption-alpha-two
+      - Meta-Llama-3.1-8B-Instruct-bnb-4bit
+      - siglip-so400m-patch14-384
+  ComfyUI-IC-Light:
+    method: git
+    url: https://github.com/kijai/ComfyUI-IC-Light.git
+    save_as: ComfyUI-IC-Light
+    name: ComfyUI-IC-Light
+    description: 打光
+    models:
+  ComfyUI-IC-Light-Native:
+    method: git
+    url: https://github.com/huchenlei/ComfyUI-IC-Light-Native.git
+    save_as: ComfyUI-IC-Light-Native
+    name: ComfyUI-IC-Light-Native
+    description: 打光
+    models:
+  ComfyUI-Gaffer:
+    method: git
+    url: https://github.com/huagetai/ComfyUI-Gaffer.git
+    save_as: ComfyUI-Gaffer
+    name: ComfyUI-Gaffer
+    description: 打光
+    models:
+  ComfyUI-Impact-Pack:
+    method: git
+    url: https://github.com/ltdrdata/ComfyUI-Impact-Pack.git
+    save_as: ComfyUI-Impact-Pack
+    name: ComfyUI-Impact-Pack
+    description: 
+    models:
+  ComfyUI-to-Python-Extension:
+    method: git
+    url: https://github.com/pydn/ComfyUI-to-Python-Extension.git
+    save_as: ComfyUI-to-Python-Extension
+    name: ComfyUI-to-Python-Extension
+    description: 
+    models:
+  ComfyUI-to-Python-Extension:
+    method: git
+    url: https://github.com/heshengtao/comfyui_LLM_party.git
+    save_as: comfyui_LLM_party
+    name: comfyui_LLM_party
+    description: aims to develop a complete set of nodes for LLM workflow construction
+    models:
+  comfyui-browser:
+    method: git
+    url: https://github.com/talesofai/comfyui-browser.git
+    save_as: comfyui-browser
+    name: comfyui-browser
+    description: 
+    models:
+  ComfyUI-PhotoMaker-ZHO:
+    method: git
+    url: https://github.com/ZHO-ZHO-ZHO/ComfyUI-PhotoMaker-ZHO.git
+    save_as: ComfyUI-PhotoMaker-ZHO
+    name: ComfyUI-PhotoMaker-ZHO
+    description: 
+    models:
+
+  Comfyui_Prompt_styler:
+    method: git
+    url: https://github.com/chakib-belgaid/Comfyui_Prompt_styler.git
+    save_as: Comfyui_Prompt_styler
+    name: Comfyui_Prompt_styler
+    description: 
+    models:
+  ComfyUI-DragNUWA:
+    method: git
+    url: https://github.com/chaojie/ComfyUI-DragNUWA.git
+    save_as: ComfyUI-DragNUWA
+    name: ComfyUI-DragNUWA
+    description: 
+    models:
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxx:
+    method: xxxx
+    url: xxxxxxxxxxxxxxxxxxxxxxxxxxx
+    save_as: xxxxxxxxxxxxxxx
+    name: xxxxxxxxxxxxxx
+    description: 
+    models:
+
+
+      

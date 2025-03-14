@@ -102,6 +102,13 @@ class CustomNodeManager:
                 for file in glob.glob(
                     os.path.join(folder, "*/example_workflows/*.json")
                 )
+            ] + [
+                # change: xuzhong 2025-03-12 增加 custom_nodes 插件加载的路径
+                file
+                for folder in folder_paths.get_folder_paths("custom_nodes")
+                for file in glob.glob(
+                    os.path.join(folder, "*/workflows/*.json")
+                )
             ]
             workflow_templates_dict = (
                 {}

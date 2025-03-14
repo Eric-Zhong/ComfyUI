@@ -1788,7 +1788,7 @@ class LoadImageOutput(LoadImage):
     FUNCTION = "load_image_output"
 
     def load_image_output(self, image):
-        return self.load_image(f"{image} [output]")
+        return self.load_image(f"{image}")
 
     @classmethod
     def VALIDATE_INPUTS(s, image):
