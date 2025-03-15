@@ -1,0 +1,1633 @@
+{
+  "last_node_id": 136,
+  "last_link_id": 250,
+  "nodes": [
+    {
+      "id": 113,
+      "type": "LatentUpscaleBy",
+      "pos": [
+        2028.651123046875,
+        -569.80712890625
+      ],
+      "size": [
+        271.0564270019531,
+        82
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 195
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            196
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LatentUpscaleBy"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1.5
+      ]
+    },
+    {
+      "id": 122,
+      "type": "Note",
+      "pos": [
+        1016.7518920898438,
+        895.70263671875
+      ],
+      "size": [
+        706.3902587890625,
+        210.89053344726562
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "需要复制SDXL模型和SDXL加速LORA，在萝卜FLUX整合包网盘的067_SDXL模型目录下有SDXL大模型，LORA在LORAS目录。\n\n萝卜整合包是B站UP“程序员萝卜”基于COMFYUI官方便携包集成常用插件模型制做而成的，免费提供给大家用来学习COMFYUI，凡是有销售该整合包的均不是萝卜本人所为，大家不要上当。\n\n流程应用中有问题可以加QQ群：170213691\n\nB站萝卜教程第20集有FLUX整合包下载，28G大小，解压即用。\nhttps://www.bilibili.com/video/BV1b2zPYvEY9/?share_source=copy_web&vd_source=a27420d3f5553487fb610ba7e944630f\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 79,
+      "type": "Anything Everywhere3",
+      "pos": [
+        1464.23583984375,
+        589.3406982421875
+      ],
+      "size": [
+        252,
+        66
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "*",
+          "link": 213,
+          "shape": 7,
+          "color_on": "#B39DDB"
+        },
+        {
+          "name": "CLIP",
+          "type": "*",
+          "link": 227,
+          "shape": 7,
+          "color_on": "#FFD500"
+        },
+        {
+          "name": "VAE",
+          "type": "*",
+          "link": 171,
+          "shape": 7,
+          "color_on": "#FF6E6E"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere3",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 84,
+      "type": "VAEDecode",
+      "pos": [
+        1476.9217529296875,
+        357.17010498046875
+      ],
+      "size": [
+        243.64886474609375,
+        46
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 197
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            231
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 81,
+      "type": "Prompts Everywhere",
+      "pos": [
+        1218.8045654296875,
+        -272.47930908203125
+      ],
+      "size": [
+        164.11500549316406,
+        46
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "*",
+          "link": 175,
+          "shape": 7,
+          "color_on": "#FFA931"
+        },
+        {
+          "name": "CONDITIONING",
+          "type": "*",
+          "link": 177,
+          "shape": 7,
+          "color_on": "#FFA931"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Prompts Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 107,
+      "type": "CLIPTextEncode",
+      "pos": [
+        950.126708984375,
+        -201.03529357910156
+      ],
+      "size": [
+        210,
+        54
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 226,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            177
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 106,
+      "type": "CLIPTextEncode",
+      "pos": [
+        949.3762817382812,
+        -343.2433166503906
+      ],
+      "size": [
+        210,
+        54
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 225,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            175
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 77,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1007.9302368164062,
+        -557.176025390625
+      ],
+      "size": [
+        290.84234619140625,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            127
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        720,
+        1280,
+        1
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 129,
+      "type": "FaceDetailer",
+      "pos": [
+        2803.983154296875,
+        -566.7388916015625
+      ],
+      "size": [
+        403.15924072265625,
+        1200.94287109375
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 231,
+          "label": "image"
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null,
+          "label": "model"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "clip"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "label": "vae"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "negative"
+        },
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 229,
+          "label": "bbox_detector"
+        },
+        {
+          "name": "sam_model_opt",
+          "type": "SAM_MODEL",
+          "link": 230,
+          "shape": 7,
+          "label": "sam_model_opt"
+        },
+        {
+          "name": "segm_detector_opt",
+          "type": "SEGM_DETECTOR",
+          "link": null,
+          "shape": 7,
+          "label": "segm_detector_opt"
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null,
+          "shape": 7,
+          "label": "detailer_hook"
+        },
+        {
+          "name": "scheduler_func_opt",
+          "type": "SCHEDULER_FUNC",
+          "link": null,
+          "shape": 7,
+          "label": "scheduler_func_opt"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            232
+          ],
+          "slot_index": 0,
+          "label": "image"
+        },
+        {
+          "name": "cropped_refined",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6,
+          "label": "cropped_refined"
+        },
+        {
+          "name": "cropped_enhanced_alpha",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6,
+          "label": "cropped_enhanced_alpha"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 3,
+          "label": "mask"
+        },
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "links": null,
+          "label": "detailer_pipe"
+        },
+        {
+          "name": "cnet_images",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6,
+          "label": "cnet_images"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceDetailer"
+      },
+      "widgets_values": [
+        512,
+        true,
+        1024,
+        257796982251292,
+        "randomize",
+        10,
+        1,
+        "euler",
+        "sgm_uniform",
+        0.5,
+        5,
+        true,
+        true,
+        0.5,
+        10,
+        3,
+        "center-1",
+        0,
+        0.93,
+        0,
+        0.7,
+        "False",
+        10,
+        "",
+        1,
+        false,
+        20,
+        false,
+        false
+      ]
+    },
+    {
+      "id": 114,
+      "type": "KSampler",
+      "pos": [
+        1980.5322265625,
+        -403.4564208984375
+      ],
+      "size": [
+        377.2745056152344,
+        770.6680297851562
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": null,
+          "slot_index": 2,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 196,
+          "slot_index": 3,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            197
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        196257007133097,
+        "randomize",
+        11,
+        1,
+        "euler",
+        "ddim_uniform",
+        0.7000000000000001
+      ]
+    },
+    {
+      "id": 105,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        943.821044921875,
+        589.4364013671875
+      ],
+      "size": [
+        428.135009765625,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            191
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            192
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            171
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "juggernautXL_XI.safetensors"
+      ]
+    },
+    {
+      "id": 103,
+      "type": "SaveImage",
+      "pos": [
+        200.68577575683594,
+        152.6353759765625
+      ],
+      "size": [
+        674.6682739257812,
+        1004.6224975585938
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 232
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 112,
+      "type": "LoraLoader",
+      "pos": [
+        947.8927612304688,
+        301.9990539550781
+      ],
+      "size": [
+        411.79998779296875,
+        126
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 191
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 192
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            213
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            227
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "Hyper-SDXL-8steps-UNIT.safetensors",
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "id": 124,
+      "type": "easy portraitMaster",
+      "pos": [
+        -389.5092468261719,
+        -552.7601928710938
+      ],
+      "size": [
+        512.0780029296875,
+        1579.7021484375
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "prompt_start",
+          "type": "STRING",
+          "link": 235,
+          "widget": {
+            "name": "prompt_start"
+          }
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "link": 233,
+          "widget": {
+            "name": "negative_prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "links": [
+            223
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": [
+            224
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy portraitMaster"
+      },
+      "widgets_values": [
+        "Head portrait",
+        0,
+        "Woman",
+        18,
+        "Chinese",
+        "Russian",
+        0.6,
+        "Overweight",
+        0.6,
+        "-",
+        "-",
+        "-",
+        0,
+        "-",
+        0,
+        0,
+        "-",
+        "-",
+        0,
+        "-",
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        "-",
+        "-",
+        0,
+        "disable",
+        ",top, tight pants,outdoor,",
+        "",
+        "",
+        "(worst quality:1.2),(low quality:1.2),(normal quality:1.2),lowres,bad anatomy,bad hands,signature,watermarks,ugly,imperfect eyes,skewed eyes,unnatural face,unnatural body,error,extra limb,missing limbs,painting by bad-artist,(nsfw:1.9),"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 62,
+      "type": "KSampler",
+      "pos": [
+        1426.2926025390625,
+        -572.6100463867188
+      ],
+      "size": [
+        315.9678649902344,
+        728.2249755859375
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": null,
+          "slot_index": 2,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 127,
+          "slot_index": 3,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            195
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        483850274737494,
+        "randomize",
+        10,
+        1,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 128,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        2516.153076171875,
+        -466.10693359375
+      ],
+      "size": [
+        226.8000030517578,
+        78
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            229
+          ],
+          "slot_index": 0,
+          "label": "BBOX_DETECTOR"
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null,
+          "label": "SEGM_DETECTOR"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "bbox/face_yolov8m.pt"
+      ]
+    },
+    {
+      "id": 127,
+      "type": "SAMLoader",
+      "pos": [
+        2515.667236328125,
+        -296.582763671875
+      ],
+      "size": [
+        230.96923828125,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAM_MODEL",
+          "type": "SAM_MODEL",
+          "links": [
+            230
+          ],
+          "label": "SAM_MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SAMLoader"
+      },
+      "widgets_values": [
+        "sam_vit_b_01ec64.pth",
+        "AUTO"
+      ]
+    },
+    {
+      "id": 126,
+      "type": "easy showAnything",
+      "pos": [
+        -908.9391479492188,
+        479.04339599609375
+      ],
+      "size": [
+        430.5323181152344,
+        535.683349609375
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 228,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "comic Beauty, ancient Greek costume. . graphic illustration, comic art, graphic novel art, vibrant, highly detailed, neonpunk style  . cyberpunk, vaporwave, neon, vibes, vibrant, stunningly beautiful, crisp, detailed, sleek, ultramodern, magenta highlights, dark purple shadows, high contrast, cinematic, ultra detailed, intricate, professional, uncanny caliginous vision of , created by remarkable underground artist. best quality, high resolution. raw and brutal art, careless but impressive style. inspired by darkness and chaos"
+      ]
+    },
+    {
+      "id": 125,
+      "type": "easy stylesSelector",
+      "pos": [
+        212.7729034423828,
+        -551.4400634765625
+      ],
+      "size": [
+        656.58740234375,
+        590.7996826171875
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "link": 223,
+          "widget": {
+            "name": "positive"
+          },
+          "shape": 7
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "link": 224,
+          "widget": {
+            "name": "negative"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "links": [
+            225,
+            228
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": [
+            226
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy stylesSelector",
+        "values": [
+          "sai-comic book",
+          "sai-neonpunk",
+          "mre-underground"
+        ]
+      },
+      "widgets_values": [
+        "fooocus_styles",
+        "",
+        "",
+        "sai-comic book,sai-neonpunk,mre-underground"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 135,
+      "type": "Text_Translation_V2_Full",
+      "pos": [
+        -907.5784301757812,
+        -557.5016479492188
+      ],
+      "size": [
+        419.165283203125,
+        618.205810546875
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            235
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text_Translation_V2_Full"
+      },
+      "widgets_values": [
+        true,
+        "美女，古希腊服装。",
+        "Baidu",
+        "auto",
+        "English(en)",
+        "button_hide"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 134,
+      "type": "easy negative",
+      "pos": [
+        -906.937744140625,
+        146.09384155273438
+      ],
+      "size": [
+        425.12298583984375,
+        253.91500854492188
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": [
+            233
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy negative"
+      },
+      "widgets_values": [
+        "(nsfw:1.9),(worst quality:1.2),(low quality:1.2),(normal quality:1.2),lowres,bad anatomy,bad hands,signature,watermarks,ugly,imperfect eyes,skewed eyes,unnatural face,unnatural body,error,extra limb,missing limbs,painting by bad-artist,"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    }
+  ],
+  "links": [
+    [
+      127,
+      77,
+      0,
+      62,
+      3,
+      "LATENT"
+    ],
+    [
+      171,
+      105,
+      2,
+      79,
+      2,
+      "VAE"
+    ],
+    [
+      175,
+      106,
+      0,
+      81,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      177,
+      107,
+      0,
+      81,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      191,
+      105,
+      0,
+      112,
+      0,
+      "MODEL"
+    ],
+    [
+      192,
+      105,
+      1,
+      112,
+      1,
+      "CLIP"
+    ],
+    [
+      195,
+      62,
+      0,
+      113,
+      0,
+      "LATENT"
+    ],
+    [
+      196,
+      113,
+      0,
+      114,
+      3,
+      "LATENT"
+    ],
+    [
+      197,
+      114,
+      0,
+      84,
+      0,
+      "LATENT"
+    ],
+    [
+      213,
+      112,
+      0,
+      79,
+      0,
+      "MODEL"
+    ],
+    [
+      214,
+      112,
+      0,
+      62,
+      0,
+      "MODEL"
+    ],
+    [
+      215,
+      106,
+      0,
+      62,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      216,
+      107,
+      0,
+      62,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      217,
+      112,
+      0,
+      114,
+      0,
+      "MODEL"
+    ],
+    [
+      218,
+      106,
+      0,
+      114,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      219,
+      107,
+      0,
+      114,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      220,
+      105,
+      2,
+      84,
+      1,
+      "VAE"
+    ],
+    [
+      221,
+      105,
+      1,
+      107,
+      0,
+      "CLIP"
+    ],
+    [
+      222,
+      105,
+      1,
+      106,
+      0,
+      "CLIP"
+    ],
+    [
+      223,
+      124,
+      0,
+      125,
+      0,
+      "STRING"
+    ],
+    [
+      224,
+      124,
+      1,
+      125,
+      1,
+      "STRING"
+    ],
+    [
+      225,
+      125,
+      0,
+      106,
+      1,
+      "STRING"
+    ],
+    [
+      226,
+      125,
+      1,
+      107,
+      1,
+      "STRING"
+    ],
+    [
+      227,
+      112,
+      1,
+      79,
+      1,
+      "CLIP"
+    ],
+    [
+      228,
+      125,
+      0,
+      126,
+      0,
+      "*"
+    ],
+    [
+      229,
+      128,
+      0,
+      129,
+      6,
+      "BBOX_DETECTOR"
+    ],
+    [
+      230,
+      127,
+      0,
+      129,
+      7,
+      "SAM_MODEL"
+    ],
+    [
+      231,
+      84,
+      0,
+      129,
+      0,
+      "IMAGE"
+    ],
+    [
+      232,
+      129,
+      0,
+      103,
+      0,
+      "IMAGE"
+    ],
+    [
+      233,
+      134,
+      0,
+      124,
+      1,
+      "STRING"
+    ],
+    [
+      235,
+      135,
+      0,
+      124,
+      0,
+      "STRING"
+    ],
+    [
+      237,
+      105,
+      2,
+      84,
+      1,
+      "VAE"
+    ],
+    [
+      238,
+      112,
+      1,
+      107,
+      0,
+      "CLIP"
+    ],
+    [
+      239,
+      112,
+      1,
+      106,
+      0,
+      "CLIP"
+    ],
+    [
+      240,
+      112,
+      0,
+      129,
+      1,
+      "MODEL"
+    ],
+    [
+      241,
+      112,
+      1,
+      129,
+      2,
+      "CLIP"
+    ],
+    [
+      242,
+      105,
+      2,
+      129,
+      3,
+      "VAE"
+    ],
+    [
+      243,
+      106,
+      0,
+      129,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      244,
+      107,
+      0,
+      129,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      245,
+      112,
+      0,
+      114,
+      0,
+      "MODEL"
+    ],
+    [
+      246,
+      106,
+      0,
+      114,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      247,
+      107,
+      0,
+      114,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      248,
+      112,
+      0,
+      62,
+      0,
+      "MODEL"
+    ],
+    [
+      249,
+      106,
+      0,
+      62,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      250,
+      107,
+      0,
+      62,
+      2,
+      "CONDITIONING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 5,
+      "title": "067 超级文生图（请到B站UP“程序员萝卜”第20集视频教程网盘下载模型和LORA）",
+      "bounding": [
+        -987.1094970703125,
+        -675.9257202148438,
+        2814.455078125,
+        1911.5989990234375
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "二次采样放大",
+      "bounding": [
+        1899.9984130859375,
+        -681.1900634765625,
+        515.784423828125,
+        1158.81103515625
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "修脸",
+      "bounding": [
+        2478.792724609375,
+        -681.8744506835938,
+        779.8113403320312,
+        1405.1851806640625
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.2940834937056071,
+      "offset": [
+        2580.8023388026163,
+        1569.8168543531222
+      ]
+    },
+    "workspace_info": {
+      "id": "2zFfThTiJqdB5Zd1s42k6"
+    },
+    "ue_links": [
+      {
+        "downstream": 84,
+        "downstream_slot": 1,
+        "upstream": "105",
+        "upstream_slot": 2,
+        "controller": 79,
+        "type": "VAE"
+      },
+      {
+        "downstream": 107,
+        "downstream_slot": 0,
+        "upstream": "112",
+        "upstream_slot": 1,
+        "controller": 79,
+        "type": "CLIP"
+      },
+      {
+        "downstream": 106,
+        "downstream_slot": 0,
+        "upstream": "112",
+        "upstream_slot": 1,
+        "controller": 79,
+        "type": "CLIP"
+      },
+      {
+        "downstream": 129,
+        "downstream_slot": 1,
+        "upstream": "112",
+        "upstream_slot": 0,
+        "controller": 79,
+        "type": "MODEL"
+      },
+      {
+        "downstream": 129,
+        "downstream_slot": 2,
+        "upstream": "112",
+        "upstream_slot": 1,
+        "controller": 79,
+        "type": "CLIP"
+      },
+      {
+        "downstream": 129,
+        "downstream_slot": 3,
+        "upstream": "105",
+        "upstream_slot": 2,
+        "controller": 79,
+        "type": "VAE"
+      },
+      {
+        "downstream": 129,
+        "downstream_slot": 4,
+        "upstream": "106",
+        "upstream_slot": 0,
+        "controller": 81,
+        "type": "CONDITIONING"
+      },
+      {
+        "downstream": 129,
+        "downstream_slot": 5,
+        "upstream": "107",
+        "upstream_slot": 0,
+        "controller": 81,
+        "type": "CONDITIONING"
+      },
+      {
+        "downstream": 114,
+        "downstream_slot": 0,
+        "upstream": "112",
+        "upstream_slot": 0,
+        "controller": 79,
+        "type": "MODEL"
+      },
+      {
+        "downstream": 114,
+        "downstream_slot": 1,
+        "upstream": "106",
+        "upstream_slot": 0,
+        "controller": 81,
+        "type": "CONDITIONING"
+      },
+      {
+        "downstream": 114,
+        "downstream_slot": 2,
+        "upstream": "107",
+        "upstream_slot": 0,
+        "controller": 81,
+        "type": "CONDITIONING"
+      },
+      {
+        "downstream": 62,
+        "downstream_slot": 0,
+        "upstream": "112",
+        "upstream_slot": 0,
+        "controller": 79,
+        "type": "MODEL"
+      },
+      {
+        "downstream": 62,
+        "downstream_slot": 1,
+        "upstream": "106",
+        "upstream_slot": 0,
+        "controller": 81,
+        "type": "CONDITIONING"
+      },
+      {
+        "downstream": 62,
+        "downstream_slot": 2,
+        "upstream": "107",
+        "upstream_slot": 0,
+        "controller": 81,
+        "type": "CONDITIONING"
+      }
+    ],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

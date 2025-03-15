@@ -146,14 +146,14 @@ models:
     name: stable-cascade
     category: checkpoint
     type: 
-    save_as: wget
+    save_as: models\checkpoints\Cascade
     channels:
       huggingface:
       civitai:
       modelscope:
         method: wget
         url: https://modelscope.cn/models/stabilityai/stable-cascade/resolve/master/stage_c_bf16.safetensors
-        file_name: stable_cascade_stage_c_bf16.safetensors
+        file_name: stable_cascade_stage_b.safetensors
     description: https://modelscope.cn/models/stabilityai/stable-cascade/files
   flux1-fill-dev:
     name: flux1-fill-dev
@@ -168,6 +168,21 @@ models:
         url: https://modelscope.cn/models/AI-ModelScope/FLUX.1-Fill-dev/resolve/master/flux1-fill-dev.safetensors
         file_name: flux1-fill-dev.safetensors
     description: https://modelscope.cn/models/AI-ModelScope/FLUX.1-Fill-dev
+  ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF:
+    name: ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF
+    category: clip
+    type: 
+    save_as: models/unet
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/AI-ModelScope/CLIP-GmP-ViT-L-14/resolve/master/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors
+        file_name: ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors
+    description: https://modelscope.cn/models/AI-ModelScope/CLIP-GmP-ViT-L-14
+
+
 
   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:
     name: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -265,6 +280,22 @@ custom_nodes:
     name: ComfyUI-DragNUWA
     description: 
     models:
+  ComfyUI-disty-Flow:
+    method: git
+    url: https://github.com/diStyApps/ComfyUI-disty-Flow.git
+    save_as: ComfyUI-disty-Flow
+    name: ComfyUI-disty-Flow
+    description: 
+    models:
+  ComfyUI-CLIPSeg:
+    method: xxxx
+    url: https://github.com/biegert/ComfyUI-CLIPSeg
+    save_as: ComfyUI-CLIPSeg
+    name: ComfyUI-CLIPSeg
+    description: 通过语义文本识别图片中的元素，并输出遮罩，支持输出热成像图
+    models:
+
+
   xxxxxxxxxxxxxxxxxxxxxxxxxxxx:
     method: xxxx
     url: xxxxxxxxxxxxxxxxxxxxxxxxxxx

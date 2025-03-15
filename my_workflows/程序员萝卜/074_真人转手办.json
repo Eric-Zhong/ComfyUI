@@ -1,0 +1,1589 @@
+{
+  "last_node_id": 179,
+  "last_link_id": 270,
+  "nodes": [
+    {
+      "id": 155,
+      "type": "LayerMask: LoadFlorence2Model",
+      "pos": [
+        -1998.134521484375,
+        -89.1335678100586
+      ],
+      "size": [
+        375.1592102050781,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FLORENCE2",
+          "links": [
+            236
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerMask: LoadFlorence2Model"
+      },
+      "widgets_values": [
+        "base"
+      ],
+      "color": "rgba(27, 80, 119, 0.7)"
+    },
+    {
+      "id": 154,
+      "type": "LayerUtility: Florence2Image2Prompt",
+      "pos": [
+        -1525.610107421875,
+        -87.94979095458984
+      ],
+      "size": [
+        378,
+        198
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "florence2_model",
+          "type": "FLORENCE2",
+          "link": 236
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            237
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "preview_image",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerUtility: Florence2Image2Prompt"
+      },
+      "widgets_values": [
+        "more detailed caption",
+        "",
+        1024,
+        3,
+        false,
+        false
+      ],
+      "color": "rgba(38, 73, 116, 0.7)"
+    },
+    {
+      "id": 174,
+      "type": "ControlNetLoader",
+      "pos": [
+        -856.6077880859375,
+        -41.41121292114258
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            249
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetLoader"
+      },
+      "widgets_values": [
+        "F.1Dev通用Controlnet Union_Pro.safetensors"
+      ]
+    },
+    {
+      "id": 171,
+      "type": "SetUnionControlNetType",
+      "pos": [
+        -853.5447998046875,
+        130.7889404296875
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 249
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            250
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetUnionControlNetType"
+      },
+      "widgets_values": [
+        "openpose"
+      ]
+    },
+    {
+      "id": 126,
+      "type": "DualCLIPLoaderGGUF",
+      "pos": [
+        -1298.5560302734375,
+        -1168.6265869140625
+      ],
+      "size": [
+        329.5392150878906,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            212
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoaderGGUF"
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "t5-v1_1-xxl-encoder-Q4_K_S.gguf",
+        "flux"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        -472.4142761230469,
+        -1153.3226318359375
+      ],
+      "size": [
+        274.2151184082031,
+        46
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 176
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 137
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            153
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 170,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [
+        -452.81103515625,
+        -51.133995056152344
+      ],
+      "size": [
+        310.4141540527344,
+        187.17897033691406
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 252
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 254
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 250
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 265
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 262,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            255
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            256
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "widgets_values": [
+        0.5,
+        0,
+        0.8
+      ]
+    },
+    {
+      "id": 173,
+      "type": "SaveImage",
+      "pos": [
+        -448.860107421875,
+        196.80824279785156
+      ],
+      "size": [
+        304.4855041503906,
+        393.4981994628906
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 264
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 176,
+      "type": "easy imageSize",
+      "pos": [
+        -2010.6978759765625,
+        -609.0092163085938
+      ],
+      "size": [
+        253.25750732421875,
+        99.99299621582031
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width_int",
+          "type": "INT",
+          "links": [
+            260,
+            263
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "height_int",
+          "type": "INT",
+          "links": [
+            261
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy imageSize"
+      },
+      "widgets_values": [
+        "Width: 687 , Height: 1221"
+      ]
+    },
+    {
+      "id": 179,
+      "type": "DWPreprocessor",
+      "pos": [
+        -850.728759765625,
+        299.2335510253906
+      ],
+      "size": [
+        315,
+        222
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "link": 263,
+          "widget": {
+            "name": "resolution"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            264,
+            265
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "POSE_KEYPOINT",
+          "type": "POSE_KEYPOINT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DWPreprocessor"
+      },
+      "widgets_values": [
+        "enable",
+        "enable",
+        "disable",
+        512,
+        "yolox_l.onnx",
+        "dw-ll_ucoco_384_bs5.torchscript.pt",
+        "disable"
+      ]
+    },
+    {
+      "id": 137,
+      "type": "CLIPTextEncodeFlux",
+      "pos": [
+        -1686.0343017578125,
+        -593.6285400390625
+      ],
+      "size": [
+        315.2893981933594,
+        111.21540069580078
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 212
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "link": 240,
+          "widget": {
+            "name": "t5xxl"
+          }
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "link": 266,
+          "widget": {
+            "name": "clip_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            252,
+            253
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "",
+        "",
+        3.5
+      ]
+    },
+    {
+      "id": 113,
+      "type": "SaveImage",
+      "pos": [
+        -459.2565612792969,
+        -1034.195068359375
+      ],
+      "size": [
+        391.9091796875,
+        723.2694091796875
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 153
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 169,
+      "type": "Anything Everywhere",
+      "pos": [
+        -1521.712158203125,
+        803.7302856445312
+      ],
+      "size": [
+        365.0198059082031,
+        36.379737854003906
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "*",
+          "link": 247,
+          "shape": 7,
+          "color_on": "#64B5F6"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 156,
+      "type": "Text_Translation_V2_Full",
+      "pos": [
+        -1520.50634765625,
+        190.51478576660156
+      ],
+      "size": [
+        366.5669250488281,
+        186.8098907470703
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "trans_text",
+          "type": "STRING",
+          "link": 237,
+          "widget": {
+            "name": "trans_text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            238
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text_Translation_V2_Full"
+      },
+      "widgets_values": [
+        true,
+        "",
+        "Alibaba",
+        "English(en)",
+        "中文(zh)",
+        "button_hide"
+      ]
+    },
+    {
+      "id": 178,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -2008.919677734375,
+        -376.3036193847656
+      ],
+      "size": [
+        239.7985076904297,
+        78
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 260,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 261,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            259
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 149,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        -1679.3701171875,
+        -346.553955078125
+      ],
+      "size": [
+        273.47991943359375,
+        38.666656494140625
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 253
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            254
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 122,
+      "type": "KSampler",
+      "pos": [
+        -895.96044921875,
+        -1144.7757568359375
+      ],
+      "size": [
+        342.5091552734375,
+        711.4973754882812
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 235
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 255
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 256
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 259
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            176
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        599226688277952,
+        "randomize",
+        4,
+        1,
+        "euler",
+        "sgm_uniform",
+        1
+      ]
+    },
+    {
+      "id": 157,
+      "type": "easy showAnything",
+      "pos": [
+        -1517.529052734375,
+        459.7140808105469
+      ],
+      "size": [
+        364.6090087890625,
+        249.86090087890625
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 238,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "该图像是一名年轻女子站在公园人行道上的肖像。她穿着一件白色t恤，上面印有红色和蓝色字母的 “GOOPNAL JAMAGT” 字样。她有长长的黑发，穿着浅蓝色的牛仔裤。她的肩膀上还斜挎着一个棕色的斜挎包。该名女子摆姿势，一只手放在臀部，另一只手放在头上。背景显示树木和建筑物。"
+      ]
+    },
+    {
+      "id": 118,
+      "type": "LoadImage",
+      "pos": [
+        -2000.629150390625,
+        28.426334381103516
+      ],
+      "size": [
+        416.5527038574219,
+        633.5591430664062
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            231
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00276_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 158,
+      "type": "Text_Translation_V2_Full",
+      "pos": [
+        -1699.888916015625,
+        -1178.8319091796875
+      ],
+      "size": [
+        350.7177734375,
+        471.72430419921875
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            240,
+            266
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text_Translation_V2_Full"
+      },
+      "widgets_values": [
+        true,
+        "超萌的粘土Q版玩偶，简单背景，\n一个女孩穿着一件白色t恤，上面印有红色和蓝色字母的 “GOOPNAL JAMAGT” 字样。她有长长的黑发，穿着浅蓝色的牛仔裤。她还斜挎着一个棕色的斜挎包。该名女子摆姿势，一只手放在臀部，另一只手放在头上。",
+        "Alibaba",
+        "中文(zh)",
+        "English(en)",
+        "button_hide"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 151,
+      "type": "MZ_Flux1PartialLoad_Patch",
+      "pos": [
+        -1289.97509765625,
+        -973.894775390625
+      ],
+      "size": [
+        315.7317199707031,
+        82.67565155029297
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 267
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            235
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MZ_Flux1PartialLoad_Patch"
+      },
+      "widgets_values": [
+        7,
+        7
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 109,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        -1292.9835205078125,
+        -700.4161987304688
+      ],
+      "size": [
+        333.09710693359375,
+        61.48937225341797
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            267
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "shuttle-3-diffusion-Q4_K_S.gguf"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        -1301.4388427734375,
+        -433.5015869140625
+      ],
+      "size": [
+        323.65252685546875,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            137,
+            262
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 152,
+      "type": "Note",
+      "pos": [
+        -2030.853271484375,
+        -1175.4107666015625
+      ],
+      "size": [
+        301.33880615234375,
+        467.9400939941406
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "真人转手办，流程说明：\n\n萝卜整合包是B站UP“程序员萝卜”基于COMFYUI官方便携包集成常用插件模型制做而成的，免费提供给大家用来学习COMFYUI，凡是有销售该整合包的均不是萝卜本人所为，大家不要上当。\n\n流程应用中有问题可以加QQ群：170213691\n\nB站萝卜教程第20集有FLUX整合包下载，28G大小，解压即用。\nhttps://www.bilibili.com/video/BV1b2zPYvEY9/?share_source=copy_web&vd_source=a27420d3f5553487fb610ba7e944630f\n\n流程设计原理：\n图生图，利用反推提示词和CN控制生成人偶造型。\n\n安装说明：（教学视频为萝卜COMFYUI教程第74集）\n1，运行萝卜FLUX整合包\n2，需要安装网盘上070_ControlNet模型\n3，打开网盘工作流目录: 074_真人转手办.JSON\n\n使用说明:\n\n红色节点：\nMinusZone - Flux1PartialLoad_Patch：分层加载节点，大幅降低显存占用，但是会减慢速度，大显存用户可以关闭该节点以提升速度。\n\n\n保存的图像在：COMFYUI的图像文件输出目录，默认为：\\ComfyUI\\output\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 150,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        -1978.7252197265625,
+        742.0078125
+      ],
+      "size": [
+        388.6358947753906,
+        91.92217254638672
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 231
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            247
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "bicubic",
+        0.8
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    }
+  ],
+  "links": [
+    [
+      137,
+      10,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      153,
+      8,
+      0,
+      113,
+      0,
+      "IMAGE"
+    ],
+    [
+      176,
+      122,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      212,
+      126,
+      0,
+      137,
+      0,
+      "CLIP"
+    ],
+    [
+      231,
+      118,
+      0,
+      150,
+      0,
+      "IMAGE"
+    ],
+    [
+      235,
+      151,
+      0,
+      122,
+      0,
+      "MODEL"
+    ],
+    [
+      236,
+      155,
+      0,
+      154,
+      0,
+      "FLORENCE2"
+    ],
+    [
+      237,
+      154,
+      0,
+      156,
+      0,
+      "STRING"
+    ],
+    [
+      238,
+      156,
+      0,
+      157,
+      0,
+      "*"
+    ],
+    [
+      240,
+      158,
+      0,
+      137,
+      1,
+      "STRING"
+    ],
+    [
+      247,
+      150,
+      0,
+      169,
+      0,
+      "IMAGE"
+    ],
+    [
+      249,
+      174,
+      0,
+      171,
+      0,
+      "CONTROL_NET"
+    ],
+    [
+      250,
+      171,
+      0,
+      170,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      252,
+      137,
+      0,
+      170,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      253,
+      137,
+      0,
+      149,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      254,
+      149,
+      0,
+      170,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      255,
+      170,
+      0,
+      122,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      256,
+      170,
+      1,
+      122,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      259,
+      178,
+      0,
+      122,
+      3,
+      "LATENT"
+    ],
+    [
+      260,
+      176,
+      0,
+      178,
+      0,
+      "INT"
+    ],
+    [
+      261,
+      176,
+      1,
+      178,
+      1,
+      "INT"
+    ],
+    [
+      262,
+      10,
+      0,
+      170,
+      4,
+      "VAE"
+    ],
+    [
+      263,
+      176,
+      0,
+      179,
+      1,
+      "INT"
+    ],
+    [
+      264,
+      179,
+      0,
+      173,
+      0,
+      "IMAGE"
+    ],
+    [
+      265,
+      179,
+      0,
+      170,
+      3,
+      "IMAGE"
+    ],
+    [
+      266,
+      158,
+      0,
+      137,
+      2,
+      "STRING"
+    ],
+    [
+      267,
+      109,
+      0,
+      151,
+      0,
+      "MODEL"
+    ],
+    [
+      268,
+      150,
+      0,
+      154,
+      1,
+      "IMAGE"
+    ],
+    [
+      269,
+      150,
+      0,
+      176,
+      0,
+      "IMAGE"
+    ],
+    [
+      270,
+      150,
+      0,
+      179,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "主流程",
+      "bounding": [
+        -2061.329345703125,
+        -1287.6895751953125,
+        2055.002685546875,
+        1059.2601318359375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "参考图",
+      "bounding": [
+        -2045.4263916015625,
+        -179.72543334960938,
+        962.10693359375,
+        1066.157470703125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "姿势控制",
+      "bounding": [
+        -961.8568115234375,
+        -172.1876983642578,
+        938.0905151367188,
+        1040.73779296875
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.3452271214393145,
+      "offset": [
+        4010.346625385138,
+        1575.6237535182534
+      ]
+    },
+    "ue_links": [
+      {
+        "downstream": 154,
+        "downstream_slot": 1,
+        "upstream": "150",
+        "upstream_slot": 0,
+        "controller": 169,
+        "type": "IMAGE"
+      },
+      {
+        "downstream": 176,
+        "downstream_slot": 0,
+        "upstream": "150",
+        "upstream_slot": 0,
+        "controller": 169,
+        "type": "IMAGE"
+      },
+      {
+        "downstream": 179,
+        "downstream_slot": 0,
+        "upstream": "150",
+        "upstream_slot": 0,
+        "controller": 169,
+        "type": "IMAGE"
+      }
+    ],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "groupNodes": {
+      "ImageSize": {
+        "nodes": [
+          {
+            "id": -1,
+            "type": "easy int",
+            "pos": [
+              -144,
+              658
+            ],
+            "size": [
+              214.57180786132812,
+              58
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "name": "int",
+                "type": "INT",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "title": "height",
+            "properties": {
+              "Node name for S&R": "easy int"
+            },
+            "widgets_values": [
+              1080
+            ],
+            "index": 0
+          },
+          {
+            "id": -1,
+            "type": "easy int",
+            "pos": [
+              -143,
+              546
+            ],
+            "size": [
+              214.57180786132812,
+              58
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "name": "int",
+                "type": "INT",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "title": "width",
+            "properties": {
+              "Node name for S&R": "easy int"
+            },
+            "widgets_values": [
+              1920
+            ],
+            "index": 1
+          },
+          {
+            "id": -1,
+            "type": "EmptyLatentImage",
+            "pos": [
+              689,
+              647
+            ],
+            "size": [
+              283.5948486328125,
+              82.08377075195312
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "width",
+                "type": "INT",
+                "link": null,
+                "widget": {
+                  "name": "width"
+                }
+              },
+              {
+                "name": "height",
+                "type": "INT",
+                "link": null,
+                "widget": {
+                  "name": "height"
+                }
+              }
+            ],
+            "outputs": [
+              {
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "EmptyLatentImage"
+            },
+            "widgets_values": [
+              832,
+              1216,
+              1
+            ],
+            "index": 2
+          },
+          {
+            "id": -1,
+            "type": "ModelSamplingFlux",
+            "pos": [
+              418,
+              452
+            ],
+            "size": [
+              222.9715576171875,
+              122
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "model",
+                "type": "MODEL",
+                "link": null
+              },
+              {
+                "name": "width",
+                "type": "INT",
+                "link": null,
+                "widget": {
+                  "name": "width"
+                }
+              },
+              {
+                "name": "height",
+                "type": "INT",
+                "link": null,
+                "widget": {
+                  "name": "height"
+                }
+              }
+            ],
+            "outputs": [
+              {
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [],
+                "slot_index": 0,
+                "shape": 3
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ModelSamplingFlux"
+            },
+            "widgets_values": [
+              1.15,
+              0.5,
+              1024,
+              1024
+            ],
+            "index": 3
+          }
+        ],
+        "links": [
+          [
+            1,
+            0,
+            2,
+            0,
+            106,
+            "INT"
+          ],
+          [
+            0,
+            0,
+            2,
+            1,
+            107,
+            "INT"
+          ],
+          [
+            null,
+            1,
+            3,
+            0,
+            116,
+            "MODEL"
+          ],
+          [
+            1,
+            0,
+            3,
+            1,
+            106,
+            "INT"
+          ],
+          [
+            0,
+            0,
+            3,
+            2,
+            107,
+            "INT"
+          ]
+        ],
+        "external": [
+          [
+            2,
+            0,
+            "LATENT"
+          ],
+          [
+            3,
+            0,
+            "MODEL"
+          ]
+        ]
+      }
+    }
+  },
+  "version": 0.4
+}
