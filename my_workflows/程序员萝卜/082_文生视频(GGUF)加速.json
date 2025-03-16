@@ -1,544 +1,547 @@
 {
-  "last_node_id": 57,
-  "last_link_id": 106,
-  "nodes": [
-    {
-      "id": 7,
-      "type": "CLIPTextEncode",
-      "pos": [
-        411.13067626953125,
-        426.6423645019531
-      ],
-      "size": [
-        425.27801513671875,
-        180.6060791015625
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
+    "last_node_id": 57,
+    "last_link_id": 106,
+    "nodes": [
         {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 75
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            52
-          ],
-          "slot_index": 0
-        }
-      ],
-      "title": "CLIP Text Encode (Negative Prompt)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "色调艳丽，过曝，静态，模糊，"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": [
-        415,
-        186
-      ],
-      "size": [
-        422.84503173828125,
-        164.31304931640625
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 74
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            46
-          ],
-          "slot_index": 0
-        }
-      ],
-      "title": "CLIP Text Encode (Positive Prompt)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "一个漂亮的中国姑娘，穿着可爱的卡通T恤，微笑着向镜头摆了一个胜利的手势，"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 40,
-      "type": "EmptyHunyuanLatentVideo",
-      "pos": [
-        514.0300903320312,
-        670.7203369140625
-      ],
-      "size": [
-        315,
-        130
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            91
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyHunyuanLatentVideo"
-      },
-      "widgets_values": [
-        320,
-        576,
-        33,
-        1
-      ]
-    },
-    {
-      "id": 3,
-      "type": "KSampler",
-      "pos": [
-        926.4901733398438,
-        187
-      ],
-      "size": [
-        308.04779052734375,
-        474
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 106
+            "id": 7,
+            "type": "CLIPTextEncode",
+            "pos": [
+                411.13067626953125,
+                426.6423645019531
+            ],
+            "size": [
+                425.27801513671875,
+                180.6060791015625
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 75
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        52
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "title": "CLIP Text Encode (Negative Prompt)",
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "色调艳丽，过曝，静态，模糊，"
+            ],
+            "color": "#322",
+            "bgcolor": "#533"
         },
         {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 46
+            "id": 6,
+            "type": "CLIPTextEncode",
+            "pos": [
+                415,
+                186
+            ],
+            "size": [
+                422.84503173828125,
+                164.31304931640625
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 74
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        46
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "title": "CLIP Text Encode (Positive Prompt)",
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "一个漂亮的中国姑娘，穿着可爱的卡通T恤，微笑着向镜头摆了一个胜利的手势，"
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
         },
         {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 52
+            "id": 40,
+            "type": "EmptyHunyuanLatentVideo",
+            "pos": [
+                514.0300903320312,
+                670.7203369140625
+            ],
+            "size": [
+                315,
+                130
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        91
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "EmptyHunyuanLatentVideo"
+            },
+            "widgets_values": [
+                320,
+                576,
+                33,
+                1
+            ]
         },
         {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 91
-        }
-      ],
-      "outputs": [
+            "id": 3,
+            "type": "KSampler",
+            "pos": [
+                926.4901733398438,
+                187
+            ],
+            "size": [
+                308.04779052734375,
+                474
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 106
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 46
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 52
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 91
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        35
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+                873586042790981,
+                "randomize",
+                18,
+                5,
+                "uni_pc",
+                "simple",
+                1
+            ]
+        },
         {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            35
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        873586042790981,
-        "randomize",
-        18,
-        5,
-        "uni_pc",
-        "simple",
-        1
-      ]
-    },
-    {
-      "id": 38,
-      "type": "CLIPLoader",
-      "pos": [
-        -39.0099983215332,
-        187.97177124023438
-      ],
-      "size": [
-        390,
-        98
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
+            "id": 38,
+            "type": "CLIPLoader",
+            "pos": [
+                -39.0099983215332,
+                187.97177124023438
+            ],
+            "size": [
+                390,
+                98
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        74,
+                        75
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPLoader"
+            },
+            "widgets_values": [
+                "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+                "wan",
+                "default"
+            ]
+        },
         {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
+            "id": 8,
+            "type": "VAEDecode",
+            "pos": [
+                1029.138916015625,
+                754.8828735351562
+            ],
+            "size": [
+                210,
+                46
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 35
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 95
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        101
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEDecode"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 49,
+            "type": "VAELoader",
+            "pos": [
+                815.6087646484375,
+                -40.84919738769531
+            ],
+            "size": [
+                381.9505310058594,
+                58
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        95,
+                        102
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAELoader"
+            },
+            "widgets_values": [
+                "wan_2.1_vae_fp8_e4m3fn.safetensors"
+            ]
+        },
+        {
+            "id": 54,
+            "type": "VHS_VideoCombine",
+            "pos": [
+                1340.07861328125,
+                -42.02044677734375
+            ],
+            "size": [
+                300.5027770996094,
+                838.8798828125
+            ],
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "LATENT",
+                    "link": 101
+                },
+                {
+                    "name": "audio",
+                    "type": "AUDIO",
+                    "shape": 7,
+                    "link": null
+                },
+                {
+                    "name": "meta_batch",
+                    "type": "VHS_BatchManager",
+                    "shape": 7,
+                    "link": null
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "shape": 7,
+                    "link": 102
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "Filenames",
+                    "type": "VHS_FILENAMES",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VHS_VideoCombine"
+            },
+            "widgets_values": {
+                "frame_rate": 16,
+                "loop_count": 0,
+                "filename_prefix": "AnimateDiff",
+                "format": "video/h264-mp4",
+                "pix_fmt": "yuv420p",
+                "crf": 19,
+                "save_metadata": false,
+                "trim_to_audio": false,
+                "pingpong": false,
+                "save_output": true,
+                "videopreview": {
+                    "hidden": false,
+                    "paused": false,
+                    "params": {
+                        "filename": "AnimateDiff_00013.mp4",
+                        "subfolder": "",
+                        "type": "output",
+                        "format": "video/h264-mp4",
+                        "frame_rate": 16,
+                        "workflow": "AnimateDiff_00013.png",
+                        "fullpath": "z:\\output\\AnimateDiff_00013.mp4"
+                    }
+                }
+            }
+        },
+        {
+            "id": 56,
+            "type": "LoaderGGUF",
+            "pos": [
+                -32.87297058105469,
+                -40.038883209228516
+            ],
+            "size": [
+                363.43365478515625,
+                58.849693298339844
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        105
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LoaderGGUF"
+            },
+            "widgets_values": [
+                "wan2.1-i2v-14b-480p-q2_k.gguf"
+            ]
+        },
+        {
+            "id": 57,
+            "type": "TeaCache",
+            "pos": [
+                428.5744934082031,
+                -36.36079406738281
+            ],
+            "size": [
+                315,
+                106
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 105
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "links": [
+                        106
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "TeaCache"
+            },
+            "widgets_values": [
+                "wan2.1_i2v_480p_14B",
+                0.4,
+                3
+            ]
+        }
+    ],
+    "links": [
+        [
+            35,
+            3,
+            0,
+            8,
+            0,
+            "LATENT"
+        ],
+        [
+            46,
+            6,
+            0,
+            3,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            52,
+            7,
+            0,
+            3,
+            2,
+            "CONDITIONING"
+        ],
+        [
             74,
-            75
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPLoader"
-      },
-      "widgets_values": [
-        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
-        "wan",
-        "default"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "VAEDecode",
-      "pos": [
-        1029.138916015625,
-        754.8828735351562
-      ],
-      "size": [
-        210,
-        46
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 35
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 95
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            101
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 49,
-      "type": "VAELoader",
-      "pos": [
-        815.6087646484375,
-        -40.84919738769531
-      ],
-      "size": [
-        381.9505310058594,
-        58
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
+            38,
+            0,
+            6,
+            0,
+            "CLIP"
+        ],
+        [
+            75,
+            38,
+            0,
+            7,
+            0,
+            "CLIP"
+        ],
+        [
+            91,
+            40,
+            0,
+            3,
+            3,
+            "LATENT"
+        ],
+        [
             95,
-            102
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "wan_2.1_vae_fp8_e4m3fn.safetensors"
-      ]
-    },
-    {
-      "id": 54,
-      "type": "VHS_VideoCombine",
-      "pos": [
-        1340.07861328125,
-        -42.02044677734375
-      ],
-      "size": [
-        300.5027770996094,
-        838.8798828125
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "LATENT",
-          "link": 101
+            49,
+            0,
+            8,
+            1,
+            "VAE"
+        ],
+        [
+            101,
+            8,
+            0,
+            54,
+            0,
+            "IMAGE"
+        ],
+        [
+            102,
+            49,
+            0,
+            54,
+            3,
+            "VAE"
+        ],
+        [
+            105,
+            56,
+            0,
+            57,
+            0,
+            "MODEL"
+        ],
+        [
+            106,
+            57,
+            0,
+            3,
+            0,
+            "MODEL"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.7911157865421403,
+            "offset": [
+                613.422505868404,
+                295.488503366759
+            ]
         },
-        {
-          "name": "audio",
-          "type": "AUDIO",
-          "shape": 7,
-          "link": null
-        },
-        {
-          "name": "meta_batch",
-          "type": "VHS_BatchManager",
-          "shape": 7,
-          "link": null
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "shape": 7,
-          "link": 102
+        "VHS_latentpreview": false,
+        "VHS_latentpreviewrate": 0,
+        "VHS_MetadataImage": true,
+        "VHS_KeepIntermediate": true,
+        "workspace_info": {
+            "id": "b2e2d059-ad0b-4e41-a7b4-ebd1f4b8e426"
         }
-      ],
-      "outputs": [
-        {
-          "name": "Filenames",
-          "type": "VHS_FILENAMES",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VHS_VideoCombine"
-      },
-      "widgets_values": {
-        "frame_rate": 16,
-        "loop_count": 0,
-        "filename_prefix": "AnimateDiff",
-        "format": "video/h264-mp4",
-        "pix_fmt": "yuv420p",
-        "crf": 19,
-        "save_metadata": false,
-        "trim_to_audio": false,
-        "pingpong": false,
-        "save_output": true,
-        "videopreview": {
-          "hidden": false,
-          "paused": false,
-          "params": {
-            "filename": "AnimateDiff_00013.mp4",
-            "subfolder": "",
-            "type": "output",
-            "format": "video/h264-mp4",
-            "frame_rate": 16,
-            "workflow": "AnimateDiff_00013.png",
-            "fullpath": "z:\\output\\AnimateDiff_00013.mp4"
-          }
-        }
-      }
     },
-    {
-      "id": 56,
-      "type": "LoaderGGUF",
-      "pos": [
-        -32.87297058105469,
-        -40.038883209228516
-      ],
-      "size": [
-        363.43365478515625,
-        58.849693298339844
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            105
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoaderGGUF"
-      },
-      "widgets_values": [
-        "wan2.1-i2v-14b-480p-q2_k.gguf"
-      ]
-    },
-    {
-      "id": 57,
-      "type": "TeaCache",
-      "pos": [
-        428.5744934082031,
-        -36.36079406738281
-      ],
-      "size": [
-        315,
-        106
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 105
-        }
-      ],
-      "outputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "links": [
-            106
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TeaCache"
-      },
-      "widgets_values": [
-        "wan2.1_i2v_480p_14B",
-        0.4,
-        3
-      ]
-    }
-  ],
-  "links": [
-    [
-      35,
-      3,
-      0,
-      8,
-      0,
-      "LATENT"
-    ],
-    [
-      46,
-      6,
-      0,
-      3,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      52,
-      7,
-      0,
-      3,
-      2,
-      "CONDITIONING"
-    ],
-    [
-      74,
-      38,
-      0,
-      6,
-      0,
-      "CLIP"
-    ],
-    [
-      75,
-      38,
-      0,
-      7,
-      0,
-      "CLIP"
-    ],
-    [
-      91,
-      40,
-      0,
-      3,
-      3,
-      "LATENT"
-    ],
-    [
-      95,
-      49,
-      0,
-      8,
-      1,
-      "VAE"
-    ],
-    [
-      101,
-      8,
-      0,
-      54,
-      0,
-      "IMAGE"
-    ],
-    [
-      102,
-      49,
-      0,
-      54,
-      3,
-      "VAE"
-    ],
-    [
-      105,
-      56,
-      0,
-      57,
-      0,
-      "MODEL"
-    ],
-    [
-      106,
-      57,
-      0,
-      3,
-      0,
-      "MODEL"
-    ]
-  ],
-  "groups": [],
-  "config": {},
-  "extra": {
-    "ds": {
-      "scale": 0.7911157865421403,
-      "offset": [
-        613.422505868404,
-        295.488503366759
-      ]
-    },
-    "VHS_latentpreview": false,
-    "VHS_latentpreviewrate": 0,
-    "VHS_MetadataImage": true,
-    "VHS_KeepIntermediate": true
-  },
-  "version": 0.4
+    "version": 0.4
 }

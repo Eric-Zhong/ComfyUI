@@ -181,9 +181,19 @@ models:
         url: https://modelscope.cn/models/AI-ModelScope/CLIP-GmP-ViT-L-14/resolve/master/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors
         file_name: ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors
     description: https://modelscope.cn/models/AI-ModelScope/CLIP-GmP-ViT-L-14
-
-
-
+  ic-light:
+    name: ic-light
+    category: 
+    type: 
+    save_as: models/iclight
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/lllyasviel/ic-light.git
+        file_name: 
+    description: ic-light sd1.5
   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:
     name: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
     category: 
@@ -294,8 +304,34 @@ custom_nodes:
     name: ComfyUI-CLIPSeg
     description: 通过语义文本识别图片中的元素，并输出遮罩，支持输出热成像图
     models:
-
-
+  Comfyui-FlowChain:
+    method: git
+    url: https://github.com/numz/Comfyui-FlowChain.git
+    save_as: Comfyui-FlowChain
+    name: Comfyui-FlowChain
+    description: Node group
+    models:
+  Derfuu_ComfyUI_ModdedNodes:
+    method: git
+    url: https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes.git
+    save_as: Derfuu_ComfyUI_ModdedNodes
+    name: Derfuu_ComfyUI_ModdedNodes
+    description: Automate calculation depending on image sizes or something you want
+    models:
+  ComfyUI-TeaCache:
+    method: git
+    url: https://github.com/welltop-cn/ComfyUI-TeaCache.git
+    save_as: ComfyUI-TeaCache
+    name: ComfyUI-TeaCache
+    description: Timestep Embedding Aware Cache (TeaCache) is a training-free caching approach that estimates and leverages the fluctuating differences among model outputs across timesteps, thereby accelerating the inference. TeaCache works well for Image Diffusion models, Video Diffusion Models, and Audio Diffusion Models.
+    models:
+  ComfyUI-WanVideoWrapper:
+    method: git
+    url: https://github.com/kijai/ComfyUI-WanVideoWrapper.git
+    save_as: ComfyUI-WanVideoWrapper
+    name: ComfyUI-WanVideoWrapper
+    description: 
+    models:
   xxxxxxxxxxxxxxxxxxxxxxxxxxxx:
     method: xxxx
     url: xxxxxxxxxxxxxxxxxxxxxxxxxxx

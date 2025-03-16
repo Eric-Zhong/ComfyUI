@@ -1,1478 +1,1481 @@
 {
-  "last_node_id": 145,
-  "last_link_id": 263,
-  "nodes": [
-    {
-      "id": 125,
-      "type": "LatentUpscaleBy",
-      "pos": [
-        1562.6700439453125,
-        163.8310089111328
-      ],
-      "size": [
-        350.5680236816406,
-        82
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 4,
-      "inputs": [
+    "last_node_id": 145,
+    "last_link_id": 263,
+    "nodes": [
         {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 232
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            237
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LatentUpscaleBy"
-      },
-      "widgets_values": [
-        "bislerp",
-        2
-      ]
-    },
-    {
-      "id": 128,
-      "type": "workflow>GGUF Sampler",
-      "pos": [
-        1566,
-        366
-      ],
-      "size": [
-        355.0948181152344,
-        538.1400756835938
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": null
-        },
-        {
-          "name": "noise",
-          "type": "NOISE",
-          "link": 239
-        },
-        {
-          "name": "guider",
-          "type": "GUIDER",
-          "link": 240
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 237
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output",
-          "type": "LATENT",
-          "links": [
-            241
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "denoised_output",
-          "type": "LATENT",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "workflow>GGUF Sampler"
-      },
-      "widgets_values": [
-        "euler",
-        "sgm_uniform",
-        3,
-        0.75
-      ]
-    },
-    {
-      "id": 143,
-      "type": "ModelSamplingFlux",
-      "pos": [
-        1184.140625,
-        864.487060546875
-      ],
-      "size": [
-        282.2881164550781,
-        122
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 256
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "link": 258,
-          "widget": {
-            "name": "width"
-          }
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "link": 259,
-          "widget": {
-            "name": "height"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            253
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ModelSamplingFlux"
-      },
-      "widgets_values": [
-        1.15,
-        0.5,
-        1024,
-        1024
-      ]
-    },
-    {
-      "id": 134,
-      "type": "Anything Everywhere3",
-      "pos": [
-        1183.226806640625,
-        1047.989501953125
-      ],
-      "size": [
-        283.408935546875,
-        71.81653594970703
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "MODEL",
-          "type": "*",
-          "link": 253,
-          "shape": 7,
-          "color_on": "#B39DDB"
-        },
-        {
-          "name": "CLIP",
-          "type": "*",
-          "link": 243,
-          "shape": 7,
-          "color_on": "#FFD500"
-        },
-        {
-          "name": "VAE",
-          "type": "*",
-          "link": 244,
-          "shape": 7,
-          "color_on": "#FF6E6E"
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "Anything Everywhere3",
-        "group_restricted": 0,
-        "color_restricted": 0
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 25,
-      "type": "RandomNoise",
-      "pos": [
-        866.5997314453125,
-        107.45441436767578
-      ],
-      "size": [
-        277.30694580078125,
-        100.7570571899414
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "NOISE",
-          "type": "NOISE",
-          "links": [
-            234,
-            239
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "RandomNoise"
-      },
-      "widgets_values": [
-        706823229127294,
-        "randomize"
-      ]
-    },
-    {
-      "id": 22,
-      "type": "BasicGuider",
-      "pos": [
-        864.486083984375,
-        439.6445617675781
-      ],
-      "size": [
-        282.676513671875,
-        69.85093688964844
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": null,
-          "slot_index": 0
-        },
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 223,
-          "slot_index": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "GUIDER",
-          "type": "GUIDER",
-          "links": [
-            235,
-            240
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BasicGuider"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 130,
-      "type": "DualCLIPLoaderGGUF",
-      "pos": [
-        852.77685546875,
-        885.1282348632812
-      ],
-      "size": [
-        291.7687683105469,
-        115.6800537109375
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            243
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoaderGGUF"
-      },
-      "widgets_values": [
-        "clip_l.safetensors",
-        "t5-v1_1-xxl-encoder-Q4_K_S.gguf",
-        "flux"
-      ]
-    },
-    {
-      "id": 131,
-      "type": "VAELoader",
-      "pos": [
-        851.3543090820312,
-        1056.9310302734375
-      ],
-      "size": [
-        298.1680603027344,
-        60.420005798339844
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            244
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "ae.sft"
-      ]
-    },
-    {
-      "id": 129,
-      "type": "UnetLoaderGGUF",
-      "pos": [
-        853.6376342773438,
-        771.3973999023438
-      ],
-      "size": [
-        290.9310607910156,
-        58
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            256
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UnetLoaderGGUF"
-      },
-      "widgets_values": [
-        "shuttle-3-diffusion-Q4_K_S.gguf"
-      ]
-    },
-    {
-      "id": 127,
-      "type": "workflow>GGUF Sampler",
-      "pos": [
-        1192.3433837890625,
-        119.73146057128906
-      ],
-      "size": [
-        268.9506530761719,
-        637.960693359375
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": null
-        },
-        {
-          "name": "noise",
-          "type": "NOISE",
-          "link": 234
-        },
-        {
-          "name": "guider",
-          "type": "GUIDER",
-          "link": 235
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 257
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output",
-          "type": "LATENT",
-          "links": [
-            232
-          ]
-        },
-        {
-          "name": "denoised_output",
-          "type": "LATENT",
-          "links": null,
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "workflow>GGUF Sampler"
-      },
-      "widgets_values": [
-        "euler",
-        "sgm_uniform",
-        5,
-        1
-      ]
-    },
-    {
-      "id": 144,
-      "type": "EmptyLatentImageCustomPresets",
-      "pos": [
-        869.3540649414062,
-        560.4671630859375
-      ],
-      "size": [
-        277.20001220703125,
-        146
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "Latent",
-          "type": "LATENT",
-          "links": [
-            257
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "Width",
-          "type": "INT",
-          "links": [
-            258
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "Height",
-          "type": "INT",
-          "links": [
-            259
-          ],
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImageCustomPresets"
-      },
-      "widgets_values": [
-        "1536 - 1536x1024",
-        true,
-        1
-      ]
-    },
-    {
-      "id": 141,
-      "type": "easy promptLine",
-      "pos": [
-        62.43450164794922,
-        101.60499572753906
-      ],
-      "size": [
-        369.52874755859375,
-        872.7989501953125
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            249
-          ],
-          "slot_index": 0,
-          "shape": 6
-        },
-        {
-          "name": "COMBO",
-          "type": "*",
-          "links": null,
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "easy promptLine"
-      },
-      "widgets_values": [
-        "A Japanese girl in a softly lit room, gentle sunlight filtering through sheer curtains, her delicate features illuminated, close-up shot, dreamy atmosphere, low contrast and low saturation, showcasing a natural and serene beauty.\nA Japanese girl lounging on a plush sofa, warm light casting soft shadows on her skin, a playful smile on her lips, close-up perspective, subtle colors creating a calm mood, emphasizing her graceful curves in a private moment.\nA Japanese girl sitting on a sunlit balcony, soft rays of light highlighting her hair, an intimate gaze towards the camera, close-up composition, low saturation enhancing the serene ambiance, capturing her youthful allure in a relaxed setting.\nA Japanese girl wrapped in a light blanket, gentle morning light bathing her face, a soft and inviting expression, close-up view, muted colors adding to the tranquility, revealing her feminine charm in a cozy atmosphere.\nA Japanese girl in a delicate lace outfit, soft light enveloping her figure, a captivating look in her eyes, close-up framing, low contrast and soft tones creating an ethereal vibe, emphasizing her beauty in an enchanting scene.\nA Japanese girl lying on a bed, dappled sunlight playing across her skin, a serene smile reflecting her inner peace, close-up angle, gentle color scheme enhancing the softness, showcasing her sensuality in a private moment.\nA Japanese girl standing by a window, soft evening light illuminating her silhouette, a contemplative expression on her face, close-up shot, low saturation and warm hues creating a dreamy setting, highlighting her graceful lines.\nA Japanese girl in a garden, soft light filtering through the leaves, an enchanting smile lighting up her face, close-up focus, tranquil color palette promoting a serene atmosphere, capturing her natural allure in a floral setting.\nA Japanese girl in a cozy room, warm light creating a gentle glow around her, an inviting look in her eyes, close-up perspective, subdued colors enhancing the intimacy, highlighting her beauty in a relaxed environment.\nA Japanese girl near a softly glowing lamp, gentle light casting a warm hue on her features, a serene yet alluring expression, close-up framing, low contrast and pastel colors enriching the ambiance, showcasing her delicate charm.",
-        0,
-        1000,
-        ""
-      ],
-      "color": "#008181"
-    },
-    {
-      "id": 122,
-      "type": "workflow>Save Latent",
-      "pos": [
-        462.876708984375,
-        107.35816955566406
-      ],
-      "size": [
-        382.2966613769531,
-        885.44873046875
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 241
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": null
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "workflow>Save Latent"
-      },
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
-    {
-      "id": 119,
-      "type": "CLIPTextEncodeFlux",
-      "pos": [
-        868.625732421875,
-        256.1361083984375
-      ],
-      "size": [
-        279.797607421875,
-        130.46963500976562
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": null
-        },
-        {
-          "name": "t5xxl",
-          "type": "STRING",
-          "link": 249,
-          "widget": {
-            "name": "t5xxl"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            223
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncodeFlux"
-      },
-      "widgets_values": [
-        "IMG1024.CR2, Realistic,a 3D China beauty-like appearance",
-        "elegant Asian woman with delicate features,\ngraceful East Asian face with almond-shaped eyes,\nbeautiful oriental features with high cheekbones and slim nose.",
-        4
-      ]
-    }
-  ],
-  "links": [
-    [
-      223,
-      119,
-      0,
-      22,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      232,
-      127,
-      0,
-      125,
-      0,
-      "LATENT"
-    ],
-    [
-      234,
-      25,
-      0,
-      127,
-      1,
-      "NOISE"
-    ],
-    [
-      235,
-      22,
-      0,
-      127,
-      2,
-      "GUIDER"
-    ],
-    [
-      237,
-      125,
-      0,
-      128,
-      3,
-      "LATENT"
-    ],
-    [
-      239,
-      25,
-      0,
-      128,
-      1,
-      "NOISE"
-    ],
-    [
-      240,
-      22,
-      0,
-      128,
-      2,
-      "GUIDER"
-    ],
-    [
-      241,
-      128,
-      0,
-      122,
-      0,
-      "LATENT"
-    ],
-    [
-      243,
-      130,
-      0,
-      134,
-      1,
-      "CLIP"
-    ],
-    [
-      244,
-      131,
-      0,
-      134,
-      2,
-      "VAE"
-    ],
-    [
-      249,
-      141,
-      0,
-      119,
-      1,
-      "STRING"
-    ],
-    [
-      253,
-      143,
-      0,
-      134,
-      0,
-      "MODEL"
-    ],
-    [
-      256,
-      129,
-      0,
-      143,
-      0,
-      "MODEL"
-    ],
-    [
-      257,
-      144,
-      0,
-      127,
-      3,
-      "LATENT"
-    ],
-    [
-      258,
-      144,
-      1,
-      143,
-      1,
-      "INT"
-    ],
-    [
-      259,
-      144,
-      2,
-      143,
-      2,
-      "INT"
-    ],
-    [
-      260,
-      143,
-      0,
-      22,
-      0,
-      "MODEL"
-    ],
-    [
-      261,
-      143,
-      0,
-      "127:1",
-      "0",
-      "MODEL"
-    ],
-    [
-      262,
-      131,
-      0,
-      "122:0",
-      "1",
-      "VAE"
-    ],
-    [
-      263,
-      130,
-      0,
-      119,
-      0,
-      "CLIP"
-    ]
-  ],
-  "groups": [
-    {
-      "id": 1,
-      "title": "主流程",
-      "bounding": [
-        37.141326904296875,
-        25.09195899963379,
-        1452.0064697265625,
-        1121.8160400390625
-      ],
-      "color": "#3f789e",
-      "font_size": 24,
-      "flags": {}
-    },
-    {
-      "id": 2,
-      "title": "放大",
-      "bounding": [
-        1504.43115234375,
-        27.690359115600586,
-        505.5497741699219,
-        1118.65869140625
-      ],
-      "color": "#3f789e",
-      "font_size": 24,
-      "flags": {}
-    }
-  ],
-  "config": {},
-  "extra": {
-    "ds": {
-      "scale": 0.5730855330116957,
-      "offset": [
-        823.232349579881,
-        174.87996595838732
-      ]
-    },
-    "groupNodes": {
-      "Load GUFF": {
-        "nodes": [
-          {
-            "id": -1,
-            "type": "VAELoader",
+            "id": 125,
+            "type": "LatentUpscaleBy",
             "pos": [
-              47,
-              584
+                1562.6700439453125,
+                163.8310089111328
             ],
             "size": [
-              215.61520385742188,
-              58
+                350.5680236816406,
+                82
             ],
             "flags": {},
-            "order": 4,
-            "mode": 0,
-            "inputs": [],
+            "order": 11,
+            "mode": 4,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 232
+                }
+            ],
             "outputs": [
-              {
-                "name": "VAE",
-                "type": "VAE",
-                "links": [],
-                "slot_index": 0,
-                "shape": 3
-              }
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        237
+                    ],
+                    "slot_index": 0
+                }
             ],
             "properties": {
-              "Node name for S&R": "VAELoader"
+                "Node name for S&R": "LatentUpscaleBy"
             },
             "widgets_values": [
-              "ae.sft"
-            ],
-            "index": 0
-          },
-          {
-            "id": -1,
-            "type": "UnetLoaderGGUF",
+                "bislerp",
+                2
+            ]
+        },
+        {
+            "id": 128,
+            "type": "workflow>GGUF Sampler",
             "pos": [
-              34,
-              477
+                1566,
+                366
             ],
             "size": [
-              237.6295623779297,
-              58
+                355.0948181152344,
+                538.1400756835938
             ],
             "flags": {},
-            "order": 5,
-            "mode": 0,
-            "inputs": [],
+            "order": 12,
+            "mode": 4,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": null
+                },
+                {
+                    "name": "noise",
+                    "type": "NOISE",
+                    "link": 239
+                },
+                {
+                    "name": "guider",
+                    "type": "GUIDER",
+                    "link": 240
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 237
+                }
+            ],
             "outputs": [
-              {
-                "name": "MODEL",
-                "type": "MODEL",
-                "links": [],
-                "slot_index": 0
-              }
+                {
+                    "name": "output",
+                    "type": "LATENT",
+                    "links": [
+                        241
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "denoised_output",
+                    "type": "LATENT",
+                    "links": null
+                }
             ],
             "properties": {
-              "Node name for S&R": "UnetLoaderGGUF"
+                "Node name for S&R": "workflow>GGUF Sampler"
             },
             "widgets_values": [
-              "shuttle-3-diffusion-Q4_K_S.gguf"
-            ],
-            "index": 1
-          },
-          {
-            "id": -1,
-            "type": "DualCLIPLoader",
+                "euler",
+                "sgm_uniform",
+                3,
+                0.75
+            ]
+        },
+        {
+            "id": 143,
+            "type": "ModelSamplingFlux",
             "pos": [
-              -156,
-              -137
+                1184.140625,
+                864.487060546875
             ],
             "size": [
-              338.1235656738281,
-              106
+                282.2881164550781,
+                122
             ],
             "flags": {},
             "order": 6,
             "mode": 0,
-            "inputs": [],
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 256
+                },
+                {
+                    "name": "width",
+                    "type": "INT",
+                    "link": 258,
+                    "widget": {
+                        "name": "width"
+                    }
+                },
+                {
+                    "name": "height",
+                    "type": "INT",
+                    "link": 259,
+                    "widget": {
+                        "name": "height"
+                    }
+                }
+            ],
             "outputs": [
-              {
-                "name": "CLIP",
-                "type": "CLIP",
-                "links": [],
-                "slot_index": 0,
-                "shape": 3
-              }
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        253
+                    ],
+                    "slot_index": 0,
+                    "shape": 3
+                }
             ],
             "properties": {
-              "Node name for S&R": "DualCLIPLoader"
+                "Node name for S&R": "ModelSamplingFlux"
             },
             "widgets_values": [
-              "t5xxl_fp8_e4m3fn.safetensors",
-              "clip_l.safetensors",
-              "flux"
-            ],
-            "index": 2
-          }
-        ],
-        "links": [],
-        "external": [
-          [
-            0,
-            0,
-            "VAE"
-          ],
-          [
-            1,
-            0,
-            "MODEL"
-          ],
-          [
-            2,
-            0,
-            "CLIP"
-          ]
-        ]
-      },
-      "PerSampler": {
-        "nodes": [
-          {
-            "id": -1,
-            "type": "KSamplerSelect",
+                1.15,
+                0.5,
+                1024,
+                1024
+            ]
+        },
+        {
+            "id": 134,
+            "type": "Anything Everywhere3",
             "pos": [
-              1324,
-              324
+                1183.226806640625,
+                1047.989501953125
             ],
             "size": [
-              283.79583740234375,
-              59.229461669921875
+                283.408935546875,
+                71.81653594970703
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "MODEL",
+                    "type": "*",
+                    "link": 253,
+                    "shape": 7,
+                    "color_on": "#B39DDB"
+                },
+                {
+                    "name": "CLIP",
+                    "type": "*",
+                    "link": 243,
+                    "shape": 7,
+                    "color_on": "#FFD500"
+                },
+                {
+                    "name": "VAE",
+                    "type": "*",
+                    "link": 244,
+                    "shape": 7,
+                    "color_on": "#FF6E6E"
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "Node name for S&R": "Anything Everywhere3",
+                "group_restricted": 0,
+                "color_restricted": 0
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 25,
+            "type": "RandomNoise",
+            "pos": [
+                866.5997314453125,
+                107.45441436767578
+            ],
+            "size": [
+                277.30694580078125,
+                100.7570571899414
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "NOISE",
+                    "type": "NOISE",
+                    "links": [
+                        234,
+                        239
+                    ],
+                    "slot_index": 0,
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "RandomNoise"
+            },
+            "widgets_values": [
+                706823229127294,
+                "randomize"
+            ]
+        },
+        {
+            "id": 22,
+            "type": "BasicGuider",
+            "pos": [
+                864.486083984375,
+                439.6445617675781
+            ],
+            "size": [
+                282.676513671875,
+                69.85093688964844
+            ],
+            "flags": {
+                "collapsed": false
+            },
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": null,
+                    "slot_index": 0
+                },
+                {
+                    "name": "conditioning",
+                    "type": "CONDITIONING",
+                    "link": 223,
+                    "slot_index": 1
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "GUIDER",
+                    "type": "GUIDER",
+                    "links": [
+                        235,
+                        240
+                    ],
+                    "slot_index": 0,
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "BasicGuider"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 130,
+            "type": "DualCLIPLoaderGGUF",
+            "pos": [
+                852.77685546875,
+                885.1282348632812
+            ],
+            "size": [
+                291.7687683105469,
+                115.6800537109375
             ],
             "flags": {},
             "order": 1,
             "mode": 0,
             "inputs": [],
             "outputs": [
-              {
-                "name": "SAMPLER",
-                "type": "SAMPLER",
-                "links": [],
-                "shape": 3
-              }
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        243
+                    ],
+                    "slot_index": 0
+                }
             ],
             "properties": {
-              "Node name for S&R": "KSamplerSelect"
+                "Node name for S&R": "DualCLIPLoaderGGUF"
             },
             "widgets_values": [
-              "euler"
-            ],
-            "index": 0
-          },
-          {
-            "id": -1,
-            "type": "RandomNoise",
+                "clip_l.safetensors",
+                "t5-v1_1-xxl-encoder-Q4_K_S.gguf",
+                "flux"
+            ]
+        },
+        {
+            "id": 131,
+            "type": "VAELoader",
             "pos": [
-              1321,
-              58
+                851.3543090820312,
+                1056.9310302734375
             ],
             "size": [
-              280.7106628417969,
-              82
+                298.1680603027344,
+                60.420005798339844
             ],
             "flags": {},
             "order": 2,
             "mode": 0,
             "inputs": [],
             "outputs": [
-              {
-                "name": "NOISE",
-                "type": "NOISE",
-                "links": [],
-                "shape": 3
-              }
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        244
+                    ],
+                    "slot_index": 0
+                }
             ],
             "properties": {
-              "Node name for S&R": "RandomNoise"
+                "Node name for S&R": "VAELoader"
             },
             "widgets_values": [
-              518907816876260,
-              "randomize"
-            ],
-            "index": 1
-          },
-          {
-            "id": -1,
-            "type": "BasicScheduler",
+                "ae.sft"
+            ]
+        },
+        {
+            "id": 129,
+            "type": "UnetLoaderGGUF",
             "pos": [
-              1326,
-              450
+                853.6376342773438,
+                771.3973999023438
             ],
             "size": [
-              282.9431457519531,
-              121.56320190429688
+                290.9310607910156,
+                58
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        256
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "UnetLoaderGGUF"
+            },
+            "widgets_values": [
+                "shuttle-3-diffusion-Q4_K_S.gguf"
+            ]
+        },
+        {
+            "id": 127,
+            "type": "workflow>GGUF Sampler",
+            "pos": [
+                1192.3433837890625,
+                119.73146057128906
+            ],
+            "size": [
+                268.9506530761719,
+                637.960693359375
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": null
+                },
+                {
+                    "name": "noise",
+                    "type": "NOISE",
+                    "link": 234
+                },
+                {
+                    "name": "guider",
+                    "type": "GUIDER",
+                    "link": 235
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 257
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "LATENT",
+                    "links": [
+                        232
+                    ]
+                },
+                {
+                    "name": "denoised_output",
+                    "type": "LATENT",
+                    "links": null,
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow>GGUF Sampler"
+            },
+            "widgets_values": [
+                "euler",
+                "sgm_uniform",
+                5,
+                1
+            ]
+        },
+        {
+            "id": 144,
+            "type": "EmptyLatentImageCustomPresets",
+            "pos": [
+                869.3540649414062,
+                560.4671630859375
+            ],
+            "size": [
+                277.20001220703125,
+                146
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "Latent",
+                    "type": "LATENT",
+                    "links": [
+                        257
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "Width",
+                    "type": "INT",
+                    "links": [
+                        258
+                    ],
+                    "slot_index": 1
+                },
+                {
+                    "name": "Height",
+                    "type": "INT",
+                    "links": [
+                        259
+                    ],
+                    "slot_index": 2
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "EmptyLatentImageCustomPresets"
+            },
+            "widgets_values": [
+                "1536 - 1536x1024",
+                true,
+                1
+            ]
+        },
+        {
+            "id": 141,
+            "type": "easy promptLine",
+            "pos": [
+                62.43450164794922,
+                101.60499572753906
+            ],
+            "size": [
+                369.52874755859375,
+                872.7989501953125
             ],
             "flags": {},
             "order": 5,
             "mode": 0,
-            "inputs": [
-              {
-                "name": "model",
-                "type": "MODEL",
-                "link": null,
-                "slot_index": 0
-              }
-            ],
+            "inputs": [],
             "outputs": [
-              {
-                "name": "SIGMAS",
-                "type": "SIGMAS",
-                "links": [],
-                "shape": 3
-              }
+                {
+                    "name": "STRING",
+                    "type": "STRING",
+                    "links": [
+                        249
+                    ],
+                    "slot_index": 0,
+                    "shape": 6
+                },
+                {
+                    "name": "COMBO",
+                    "type": "*",
+                    "links": null,
+                    "shape": 6
+                }
             ],
             "properties": {
-              "Node name for S&R": "BasicScheduler"
+                "Node name for S&R": "easy promptLine"
             },
             "widgets_values": [
-              "sgm_uniform",
-              4,
-              1
+                "A Japanese girl in a softly lit room, gentle sunlight filtering through sheer curtains, her delicate features illuminated, close-up shot, dreamy atmosphere, low contrast and low saturation, showcasing a natural and serene beauty.\nA Japanese girl lounging on a plush sofa, warm light casting soft shadows on her skin, a playful smile on her lips, close-up perspective, subtle colors creating a calm mood, emphasizing her graceful curves in a private moment.\nA Japanese girl sitting on a sunlit balcony, soft rays of light highlighting her hair, an intimate gaze towards the camera, close-up composition, low saturation enhancing the serene ambiance, capturing her youthful allure in a relaxed setting.\nA Japanese girl wrapped in a light blanket, gentle morning light bathing her face, a soft and inviting expression, close-up view, muted colors adding to the tranquility, revealing her feminine charm in a cozy atmosphere.\nA Japanese girl in a delicate lace outfit, soft light enveloping her figure, a captivating look in her eyes, close-up framing, low contrast and soft tones creating an ethereal vibe, emphasizing her beauty in an enchanting scene.\nA Japanese girl lying on a bed, dappled sunlight playing across her skin, a serene smile reflecting her inner peace, close-up angle, gentle color scheme enhancing the softness, showcasing her sensuality in a private moment.\nA Japanese girl standing by a window, soft evening light illuminating her silhouette, a contemplative expression on her face, close-up shot, low saturation and warm hues creating a dreamy setting, highlighting her graceful lines.\nA Japanese girl in a garden, soft light filtering through the leaves, an enchanting smile lighting up her face, close-up focus, tranquil color palette promoting a serene atmosphere, capturing her natural allure in a floral setting.\nA Japanese girl in a cozy room, warm light creating a gentle glow around her, an inviting look in her eyes, close-up perspective, subdued colors enhancing the intimacy, highlighting her beauty in a relaxed environment.\nA Japanese girl near a softly glowing lamp, gentle light casting a warm hue on her features, a serene yet alluring expression, close-up framing, low contrast and pastel colors enriching the ambiance, showcasing her delicate charm.",
+                0,
+                1000,
+                ""
             ],
-            "index": 2
-          },
-          {
-            "id": -1,
-            "type": "BasicGuider",
+            "color": "#008181"
+        },
+        {
+            "id": 122,
+            "type": "workflow>Save Latent",
             "pos": [
-              1322,
-              194.99998474121094
+                462.876708984375,
+                107.35816955566406
             ],
             "size": [
-              279.5748291015625,
-              73.64107513427734
-            ],
-            "flags": {
-              "collapsed": false
-            },
-            "order": 6,
-            "mode": 0,
-            "inputs": [
-              {
-                "name": "model",
-                "type": "MODEL",
-                "link": null,
-                "slot_index": 0
-              },
-              {
-                "name": "conditioning",
-                "type": "CONDITIONING",
-                "link": null,
-                "slot_index": 1
-              }
-            ],
-            "outputs": [
-              {
-                "name": "GUIDER",
-                "type": "GUIDER",
-                "links": [],
-                "slot_index": 0,
-                "shape": 3
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "BasicGuider"
-            },
-            "index": 3
-          }
-        ],
-        "links": [
-          [
-            null,
-            1,
-            2,
-            0,
-            120,
-            "MODEL"
-          ],
-          [
-            null,
-            1,
-            3,
-            0,
-            120,
-            "MODEL"
-          ],
-          [
-            null,
-            0,
-            3,
-            1,
-            119,
-            "CONDITIONING"
-          ]
-        ],
-        "external": [
-          [
-            0,
-            0,
-            "SAMPLER"
-          ],
-          [
-            1,
-            0,
-            "NOISE"
-          ],
-          [
-            2,
-            0,
-            "SIGMAS"
-          ],
-          [
-            3,
-            0,
-            "GUIDER"
-          ]
-        ]
-      },
-      "Save Latent": {
-        "nodes": [
-          {
-            "id": -1,
-            "type": "VAEDecode",
-            "pos": [
-              870,
-              656
-            ],
-            "size": [
-              306.376220703125,
-              46
+                382.2966613769531,
+                885.44873046875
             ],
             "flags": {},
-            "order": 5,
+            "order": 13,
             "mode": 0,
             "inputs": [
-              {
-                "name": "samples",
-                "type": "LATENT",
-                "link": null
-              },
-              {
-                "name": "vae",
-                "type": "VAE",
-                "link": null
-              }
-            ],
-            "outputs": [
-              {
-                "name": "IMAGE",
-                "type": "IMAGE",
-                "links": [],
-                "slot_index": 0
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "VAEDecode"
-            },
-            "index": 0
-          },
-          {
-            "id": -1,
-            "type": "SaveImage",
-            "pos": [
-              1380,
-              55
-            ],
-            "size": [
-              472.2284851074219,
-              659.024658203125
-            ],
-            "flags": {},
-            "order": 6,
-            "mode": 0,
-            "inputs": [
-              {
-                "name": "images",
-                "type": "IMAGE",
-                "link": null
-              }
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 241
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": null
+                }
             ],
             "outputs": [],
             "properties": {
-              "Node name for S&R": "SaveImage"
+                "Node name for S&R": "workflow>Save Latent"
             },
             "widgets_values": [
-              "ComfyUI"
-            ],
-            "index": 1
-          }
-        ],
-        "links": [
-          [
-            null,
-            0,
-            0,
-            0,
-            13,
-            "LATENT"
-          ],
-          [
-            null,
-            0,
-            0,
-            1,
-            116,
-            "VAE"
-          ],
-          [
-            0,
-            0,
-            1,
-            0,
-            8,
-            "IMAGE"
-          ]
-        ],
-        "external": []
-      },
-      "GGUF Sampler": {
-        "nodes": [
-          {
-            "id": -1,
-            "type": "KSamplerSelect",
+                "ComfyUI"
+            ]
+        },
+        {
+            "id": 119,
+            "type": "CLIPTextEncodeFlux",
             "pos": [
-              800,
-              -69
+                868.625732421875,
+                256.1361083984375
             ],
             "size": [
-              283.79583740234375,
-              59.229461669921875
+                279.797607421875,
+                130.46963500976562
             ],
             "flags": {},
-            "order": 2,
-            "mode": 0,
-            "inputs": [],
-            "outputs": [
-              {
-                "name": "SAMPLER",
-                "type": "SAMPLER",
-                "links": [],
-                "shape": 3
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "KSamplerSelect"
-            },
-            "widgets_values": [
-              "euler"
-            ],
-            "index": 0
-          },
-          {
-            "id": -1,
-            "type": "BasicScheduler",
-            "pos": [
-              802,
-              56.99999237060547
-            ],
-            "size": [
-              282.9431457519531,
-              121.56320190429688
-            ],
-            "flags": {},
-            "order": 6,
+            "order": 7,
             "mode": 0,
             "inputs": [
-              {
-                "name": "model",
-                "type": "MODEL",
-                "link": null,
-                "slot_index": 0
-              }
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": null
+                },
+                {
+                    "name": "t5xxl",
+                    "type": "STRING",
+                    "link": 249,
+                    "widget": {
+                        "name": "t5xxl"
+                    }
+                }
             ],
             "outputs": [
-              {
-                "name": "SIGMAS",
-                "type": "SIGMAS",
-                "links": [],
-                "shape": 3
-              }
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        223
+                    ],
+                    "slot_index": 0
+                }
             ],
             "properties": {
-              "Node name for S&R": "BasicScheduler"
+                "Node name for S&R": "CLIPTextEncodeFlux"
             },
             "widgets_values": [
-              "sgm_uniform",
-              4,
-              1
-            ],
-            "index": 1
-          },
-          {
-            "id": -1,
-            "type": "SamplerCustomAdvanced",
-            "pos": [
-              1175,
-              220
-            ],
-            "size": [
-              317.57965087890625,
-              346.0044250488281
-            ],
-            "flags": {},
-            "order": 8,
-            "mode": 0,
-            "inputs": [
-              {
-                "name": "noise",
-                "type": "NOISE",
-                "link": null,
-                "slot_index": 0
-              },
-              {
-                "name": "guider",
-                "type": "GUIDER",
-                "link": null,
-                "slot_index": 1
-              },
-              {
-                "name": "sampler",
-                "type": "SAMPLER",
-                "link": null,
-                "slot_index": 2
-              },
-              {
-                "name": "sigmas",
-                "type": "SIGMAS",
-                "link": null,
-                "slot_index": 3
-              },
-              {
-                "name": "latent_image",
-                "type": "LATENT",
-                "link": null,
-                "slot_index": 4
-              }
-            ],
-            "outputs": [
-              {
-                "name": "output",
-                "type": "LATENT",
-                "links": [],
-                "slot_index": 0,
-                "shape": 3
-              },
-              {
-                "name": "denoised_output",
-                "type": "LATENT",
-                "links": null,
-                "shape": 3
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "SamplerCustomAdvanced"
-            },
-            "index": 2
-          }
-        ],
-        "links": [
-          [
-            null,
-            1,
-            1,
+                "IMG1024.CR2, Realistic,a 3D China beauty-like appearance",
+                "elegant Asian woman with delicate features,\ngraceful East Asian face with almond-shaped eyes,\nbeautiful oriental features with high cheekbones and slim nose.",
+                4
+            ]
+        }
+    ],
+    "links": [
+        [
+            223,
+            119,
             0,
-            120,
-            "MODEL"
-          ],
-          [
-            null,
-            0,
-            2,
-            0,
-            25,
-            "NOISE"
-          ],
-          [
-            null,
-            0,
-            2,
-            1,
             22,
-            "GUIDER"
-          ],
-          [
-            0,
-            0,
-            2,
-            2,
-            16,
-            "SAMPLER"
-          ],
-          [
             1,
-            0,
-            2,
-            3,
-            17,
-            "SIGMAS"
-          ],
-          [
-            null,
-            0,
-            2,
-            4,
-            120,
-            "LATENT"
-          ]
+            "CONDITIONING"
         ],
-        "external": [
-          [
-            2,
+        [
+            232,
+            127,
+            0,
+            125,
             0,
             "LATENT"
-          ]
+        ],
+        [
+            234,
+            25,
+            0,
+            127,
+            1,
+            "NOISE"
+        ],
+        [
+            235,
+            22,
+            0,
+            127,
+            2,
+            "GUIDER"
+        ],
+        [
+            237,
+            125,
+            0,
+            128,
+            3,
+            "LATENT"
+        ],
+        [
+            239,
+            25,
+            0,
+            128,
+            1,
+            "NOISE"
+        ],
+        [
+            240,
+            22,
+            0,
+            128,
+            2,
+            "GUIDER"
+        ],
+        [
+            241,
+            128,
+            0,
+            122,
+            0,
+            "LATENT"
+        ],
+        [
+            243,
+            130,
+            0,
+            134,
+            1,
+            "CLIP"
+        ],
+        [
+            244,
+            131,
+            0,
+            134,
+            2,
+            "VAE"
+        ],
+        [
+            249,
+            141,
+            0,
+            119,
+            1,
+            "STRING"
+        ],
+        [
+            253,
+            143,
+            0,
+            134,
+            0,
+            "MODEL"
+        ],
+        [
+            256,
+            129,
+            0,
+            143,
+            0,
+            "MODEL"
+        ],
+        [
+            257,
+            144,
+            0,
+            127,
+            3,
+            "LATENT"
+        ],
+        [
+            258,
+            144,
+            1,
+            143,
+            1,
+            "INT"
+        ],
+        [
+            259,
+            144,
+            2,
+            143,
+            2,
+            "INT"
+        ],
+        [
+            260,
+            143,
+            0,
+            22,
+            0,
+            "MODEL"
+        ],
+        [
+            261,
+            143,
+            0,
+            "127:1",
+            "0",
+            "MODEL"
+        ],
+        [
+            262,
+            131,
+            0,
+            "122:0",
+            "1",
+            "VAE"
+        ],
+        [
+            263,
+            130,
+            0,
+            119,
+            0,
+            "CLIP"
         ]
-      }
+    ],
+    "groups": [
+        {
+            "id": 1,
+            "title": "主流程",
+            "bounding": [
+                37.141326904296875,
+                25.09195899963379,
+                1452.0064697265625,
+                1121.8160400390625
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {}
+        },
+        {
+            "id": 2,
+            "title": "放大",
+            "bounding": [
+                1504.43115234375,
+                27.690359115600586,
+                505.5497741699219,
+                1118.65869140625
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {}
+        }
+    ],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.5730855330116957,
+            "offset": [
+                823.232349579881,
+                174.87996595838732
+            ]
+        },
+        "groupNodes": {
+            "Load GUFF": {
+                "nodes": [
+                    {
+                        "id": -1,
+                        "type": "VAELoader",
+                        "pos": [
+                            47,
+                            584
+                        ],
+                        "size": [
+                            215.61520385742188,
+                            58
+                        ],
+                        "flags": {},
+                        "order": 4,
+                        "mode": 0,
+                        "inputs": [],
+                        "outputs": [
+                            {
+                                "name": "VAE",
+                                "type": "VAE",
+                                "links": [],
+                                "slot_index": 0,
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "VAELoader"
+                        },
+                        "widgets_values": [
+                            "ae.sft"
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "id": -1,
+                        "type": "UnetLoaderGGUF",
+                        "pos": [
+                            34,
+                            477
+                        ],
+                        "size": [
+                            237.6295623779297,
+                            58
+                        ],
+                        "flags": {},
+                        "order": 5,
+                        "mode": 0,
+                        "inputs": [],
+                        "outputs": [
+                            {
+                                "name": "MODEL",
+                                "type": "MODEL",
+                                "links": [],
+                                "slot_index": 0
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "UnetLoaderGGUF"
+                        },
+                        "widgets_values": [
+                            "shuttle-3-diffusion-Q4_K_S.gguf"
+                        ],
+                        "index": 1
+                    },
+                    {
+                        "id": -1,
+                        "type": "DualCLIPLoader",
+                        "pos": [
+                            -156,
+                            -137
+                        ],
+                        "size": [
+                            338.1235656738281,
+                            106
+                        ],
+                        "flags": {},
+                        "order": 6,
+                        "mode": 0,
+                        "inputs": [],
+                        "outputs": [
+                            {
+                                "name": "CLIP",
+                                "type": "CLIP",
+                                "links": [],
+                                "slot_index": 0,
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "DualCLIPLoader"
+                        },
+                        "widgets_values": [
+                            "t5xxl_fp8_e4m3fn.safetensors",
+                            "clip_l.safetensors",
+                            "flux"
+                        ],
+                        "index": 2
+                    }
+                ],
+                "links": [],
+                "external": [
+                    [
+                        0,
+                        0,
+                        "VAE"
+                    ],
+                    [
+                        1,
+                        0,
+                        "MODEL"
+                    ],
+                    [
+                        2,
+                        0,
+                        "CLIP"
+                    ]
+                ]
+            },
+            "PerSampler": {
+                "nodes": [
+                    {
+                        "id": -1,
+                        "type": "KSamplerSelect",
+                        "pos": [
+                            1324,
+                            324
+                        ],
+                        "size": [
+                            283.79583740234375,
+                            59.229461669921875
+                        ],
+                        "flags": {},
+                        "order": 1,
+                        "mode": 0,
+                        "inputs": [],
+                        "outputs": [
+                            {
+                                "name": "SAMPLER",
+                                "type": "SAMPLER",
+                                "links": [],
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "KSamplerSelect"
+                        },
+                        "widgets_values": [
+                            "euler"
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "id": -1,
+                        "type": "RandomNoise",
+                        "pos": [
+                            1321,
+                            58
+                        ],
+                        "size": [
+                            280.7106628417969,
+                            82
+                        ],
+                        "flags": {},
+                        "order": 2,
+                        "mode": 0,
+                        "inputs": [],
+                        "outputs": [
+                            {
+                                "name": "NOISE",
+                                "type": "NOISE",
+                                "links": [],
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "RandomNoise"
+                        },
+                        "widgets_values": [
+                            518907816876260,
+                            "randomize"
+                        ],
+                        "index": 1
+                    },
+                    {
+                        "id": -1,
+                        "type": "BasicScheduler",
+                        "pos": [
+                            1326,
+                            450
+                        ],
+                        "size": [
+                            282.9431457519531,
+                            121.56320190429688
+                        ],
+                        "flags": {},
+                        "order": 5,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "model",
+                                "type": "MODEL",
+                                "link": null,
+                                "slot_index": 0
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "SIGMAS",
+                                "type": "SIGMAS",
+                                "links": [],
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "BasicScheduler"
+                        },
+                        "widgets_values": [
+                            "sgm_uniform",
+                            4,
+                            1
+                        ],
+                        "index": 2
+                    },
+                    {
+                        "id": -1,
+                        "type": "BasicGuider",
+                        "pos": [
+                            1322,
+                            194.99998474121094
+                        ],
+                        "size": [
+                            279.5748291015625,
+                            73.64107513427734
+                        ],
+                        "flags": {
+                            "collapsed": false
+                        },
+                        "order": 6,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "model",
+                                "type": "MODEL",
+                                "link": null,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "conditioning",
+                                "type": "CONDITIONING",
+                                "link": null,
+                                "slot_index": 1
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "GUIDER",
+                                "type": "GUIDER",
+                                "links": [],
+                                "slot_index": 0,
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "BasicGuider"
+                        },
+                        "index": 3
+                    }
+                ],
+                "links": [
+                    [
+                        null,
+                        1,
+                        2,
+                        0,
+                        120,
+                        "MODEL"
+                    ],
+                    [
+                        null,
+                        1,
+                        3,
+                        0,
+                        120,
+                        "MODEL"
+                    ],
+                    [
+                        null,
+                        0,
+                        3,
+                        1,
+                        119,
+                        "CONDITIONING"
+                    ]
+                ],
+                "external": [
+                    [
+                        0,
+                        0,
+                        "SAMPLER"
+                    ],
+                    [
+                        1,
+                        0,
+                        "NOISE"
+                    ],
+                    [
+                        2,
+                        0,
+                        "SIGMAS"
+                    ],
+                    [
+                        3,
+                        0,
+                        "GUIDER"
+                    ]
+                ]
+            },
+            "Save Latent": {
+                "nodes": [
+                    {
+                        "id": -1,
+                        "type": "VAEDecode",
+                        "pos": [
+                            870,
+                            656
+                        ],
+                        "size": [
+                            306.376220703125,
+                            46
+                        ],
+                        "flags": {},
+                        "order": 5,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "samples",
+                                "type": "LATENT",
+                                "link": null
+                            },
+                            {
+                                "name": "vae",
+                                "type": "VAE",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "IMAGE",
+                                "type": "IMAGE",
+                                "links": [],
+                                "slot_index": 0
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "VAEDecode"
+                        },
+                        "index": 0
+                    },
+                    {
+                        "id": -1,
+                        "type": "SaveImage",
+                        "pos": [
+                            1380,
+                            55
+                        ],
+                        "size": [
+                            472.2284851074219,
+                            659.024658203125
+                        ],
+                        "flags": {},
+                        "order": 6,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "images",
+                                "type": "IMAGE",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [],
+                        "properties": {
+                            "Node name for S&R": "SaveImage"
+                        },
+                        "widgets_values": [
+                            "ComfyUI"
+                        ],
+                        "index": 1
+                    }
+                ],
+                "links": [
+                    [
+                        null,
+                        0,
+                        0,
+                        0,
+                        13,
+                        "LATENT"
+                    ],
+                    [
+                        null,
+                        0,
+                        0,
+                        1,
+                        116,
+                        "VAE"
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        0,
+                        8,
+                        "IMAGE"
+                    ]
+                ],
+                "external": []
+            },
+            "GGUF Sampler": {
+                "nodes": [
+                    {
+                        "id": -1,
+                        "type": "KSamplerSelect",
+                        "pos": [
+                            800,
+                            -69
+                        ],
+                        "size": [
+                            283.79583740234375,
+                            59.229461669921875
+                        ],
+                        "flags": {},
+                        "order": 2,
+                        "mode": 0,
+                        "inputs": [],
+                        "outputs": [
+                            {
+                                "name": "SAMPLER",
+                                "type": "SAMPLER",
+                                "links": [],
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "KSamplerSelect"
+                        },
+                        "widgets_values": [
+                            "euler"
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "id": -1,
+                        "type": "BasicScheduler",
+                        "pos": [
+                            802,
+                            56.99999237060547
+                        ],
+                        "size": [
+                            282.9431457519531,
+                            121.56320190429688
+                        ],
+                        "flags": {},
+                        "order": 6,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "model",
+                                "type": "MODEL",
+                                "link": null,
+                                "slot_index": 0
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "SIGMAS",
+                                "type": "SIGMAS",
+                                "links": [],
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "BasicScheduler"
+                        },
+                        "widgets_values": [
+                            "sgm_uniform",
+                            4,
+                            1
+                        ],
+                        "index": 1
+                    },
+                    {
+                        "id": -1,
+                        "type": "SamplerCustomAdvanced",
+                        "pos": [
+                            1175,
+                            220
+                        ],
+                        "size": [
+                            317.57965087890625,
+                            346.0044250488281
+                        ],
+                        "flags": {},
+                        "order": 8,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "noise",
+                                "type": "NOISE",
+                                "link": null,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "guider",
+                                "type": "GUIDER",
+                                "link": null,
+                                "slot_index": 1
+                            },
+                            {
+                                "name": "sampler",
+                                "type": "SAMPLER",
+                                "link": null,
+                                "slot_index": 2
+                            },
+                            {
+                                "name": "sigmas",
+                                "type": "SIGMAS",
+                                "link": null,
+                                "slot_index": 3
+                            },
+                            {
+                                "name": "latent_image",
+                                "type": "LATENT",
+                                "link": null,
+                                "slot_index": 4
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "output",
+                                "type": "LATENT",
+                                "links": [],
+                                "slot_index": 0,
+                                "shape": 3
+                            },
+                            {
+                                "name": "denoised_output",
+                                "type": "LATENT",
+                                "links": null,
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "SamplerCustomAdvanced"
+                        },
+                        "index": 2
+                    }
+                ],
+                "links": [
+                    [
+                        null,
+                        1,
+                        1,
+                        0,
+                        120,
+                        "MODEL"
+                    ],
+                    [
+                        null,
+                        0,
+                        2,
+                        0,
+                        25,
+                        "NOISE"
+                    ],
+                    [
+                        null,
+                        0,
+                        2,
+                        1,
+                        22,
+                        "GUIDER"
+                    ],
+                    [
+                        0,
+                        0,
+                        2,
+                        2,
+                        16,
+                        "SAMPLER"
+                    ],
+                    [
+                        1,
+                        0,
+                        2,
+                        3,
+                        17,
+                        "SIGMAS"
+                    ],
+                    [
+                        null,
+                        0,
+                        2,
+                        4,
+                        120,
+                        "LATENT"
+                    ]
+                ],
+                "external": [
+                    [
+                        2,
+                        0,
+                        "LATENT"
+                    ]
+                ]
+            }
+        },
+        "ue_links": [
+            {
+                "downstream": 22,
+                "downstream_slot": 0,
+                "upstream": "143",
+                "upstream_slot": 0,
+                "controller": 134,
+                "type": "MODEL"
+            },
+            {
+                "downstream": "127:1",
+                "downstream_slot": "0",
+                "upstream": "143",
+                "upstream_slot": 0,
+                "controller": 134,
+                "type": "MODEL"
+            },
+            {
+                "downstream": "122:0",
+                "downstream_slot": "1",
+                "upstream": "131",
+                "upstream_slot": 0,
+                "controller": 134,
+                "type": "VAE"
+            },
+            {
+                "downstream": 119,
+                "downstream_slot": 0,
+                "upstream": "130",
+                "upstream_slot": 0,
+                "controller": 134,
+                "type": "CLIP"
+            }
+        ],
+        "workspace_info": {
+            "id": "2c4272f9-fa9e-4533-ba85-8ed94d85322c"
+        }
     },
-    "ue_links": [
-      {
-        "downstream": 22,
-        "downstream_slot": 0,
-        "upstream": "143",
-        "upstream_slot": 0,
-        "controller": 134,
-        "type": "MODEL"
-      },
-      {
-        "downstream": "127:1",
-        "downstream_slot": "0",
-        "upstream": "143",
-        "upstream_slot": 0,
-        "controller": 134,
-        "type": "MODEL"
-      },
-      {
-        "downstream": "122:0",
-        "downstream_slot": "1",
-        "upstream": "131",
-        "upstream_slot": 0,
-        "controller": 134,
-        "type": "VAE"
-      },
-      {
-        "downstream": 119,
-        "downstream_slot": 0,
-        "upstream": "130",
-        "upstream_slot": 0,
-        "controller": 134,
-        "type": "CLIP"
-      }
-    ]
-  },
-  "version": 0.4
+    "version": 0.4
 }

@@ -1,871 +1,874 @@
 {
-  "last_node_id": 137,
-  "last_link_id": 198,
-  "nodes": [
-    {
-      "id": 130,
-      "type": "ApplyFBCacheOnModel",
-      "pos": [
-        -401.6501159667969,
-        -1079.8931884765625
-      ],
-      "size": [
-        315,
-        154
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
+    "last_node_id": 137,
+    "last_link_id": 198,
+    "nodes": [
         {
-          "name": "model",
-          "type": "MODEL",
-          "link": 191
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            192
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ApplyFBCacheOnModel"
-      },
-      "widgets_values": [
-        "diffusion_model",
-        0.08,
-        0,
-        1,
-        -1
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 113,
-      "type": "SaveImage",
-      "pos": [
-        -9.912054061889648,
-        -967.4594116210938
-      ],
-      "size": [
-        424.06903076171875,
-        717.9883422851562
-      ],
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 153
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "VAEDecode",
-      "pos": [
-        -13.716818809509277,
-        -1078.7926025390625
-      ],
-      "size": [
-        306.376220703125,
-        46
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 176
+            "id": 130,
+            "type": "ApplyFBCacheOnModel",
+            "pos": [
+                -401.6501159667969,
+                -1079.8931884765625
+            ],
+            "size": [
+                315,
+                154
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 191
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        192
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ApplyFBCacheOnModel"
+            },
+            "widgets_values": [
+                "diffusion_model",
+                0.08,
+                0,
+                1,
+                -1
+            ],
+            "color": "#322",
+            "bgcolor": "#533"
         },
         {
-          "name": "vae",
-          "type": "VAE",
-          "link": 137
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            153
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 120,
-      "type": "PreviewImage",
-      "pos": [
-        71.46150970458984,
-        -66.30936431884766
-      ],
-      "size": [
-        342.49603271484375,
-        535.8759765625
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 197
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 109,
-      "type": "UnetLoaderGGUF",
-      "pos": [
-        -828.4268798828125,
-        -1081.879638671875
-      ],
-      "size": [
-        314.99560546875,
-        58
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            191
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UnetLoaderGGUF"
-      },
-      "widgets_values": [
-        "flux1-canny-dev-fp16-Q4_0-GGUF.gguf"
-      ]
-    },
-    {
-      "id": 129,
-      "type": "ConditioningZeroOut",
-      "pos": [
-        -353.80926513671875,
-        -869.5830078125
-      ],
-      "size": [
-        210,
-        26
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 187
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            188
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ConditioningZeroOut"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 122,
-      "type": "KSampler",
-      "pos": [
-        -290.298828125,
-        -779.1076049804688
-      ],
-      "size": [
-        238.7473602294922,
-        477.9508361816406
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 192
+            "id": 113,
+            "type": "SaveImage",
+            "pos": [
+                -9.912054061889648,
+                -967.4594116210938
+            ],
+            "size": [
+                424.06903076171875,
+                717.9883422851562
+            ],
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 153
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "Node name for S&R": "SaveImage"
+            },
+            "widgets_values": [
+                "ComfyUI"
+            ]
         },
         {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 173
+            "id": 8,
+            "type": "VAEDecode",
+            "pos": [
+                -13.716818809509277,
+                -1078.7926025390625
+            ],
+            "size": [
+                306.376220703125,
+                46
+            ],
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 176
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 137
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        153
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEDecode"
+            },
+            "widgets_values": []
         },
         {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 174
+            "id": 120,
+            "type": "PreviewImage",
+            "pos": [
+                71.46150970458984,
+                -66.30936431884766
+            ],
+            "size": [
+                342.49603271484375,
+                535.8759765625
+            ],
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 197
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            },
+            "widgets_values": []
         },
         {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 175
+            "id": 109,
+            "type": "UnetLoaderGGUF",
+            "pos": [
+                -828.4268798828125,
+                -1081.879638671875
+            ],
+            "size": [
+                314.99560546875,
+                58
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        191
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "UnetLoaderGGUF"
+            },
+            "widgets_values": [
+                "flux1-canny-dev-fp16-Q4_0-GGUF.gguf"
+            ]
+        },
+        {
+            "id": 129,
+            "type": "ConditioningZeroOut",
+            "pos": [
+                -353.80926513671875,
+                -869.5830078125
+            ],
+            "size": [
+                210,
+                26
+            ],
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "conditioning",
+                    "type": "CONDITIONING",
+                    "link": 187
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        188
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ConditioningZeroOut"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 122,
+            "type": "KSampler",
+            "pos": [
+                -290.298828125,
+                -779.1076049804688
+            ],
+            "size": [
+                238.7473602294922,
+                477.9508361816406
+            ],
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 192
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 173
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 174
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 175
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        176
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+                155135533671384,
+                "randomize",
+                30,
+                1,
+                "euler",
+                "sgm_uniform",
+                1
+            ]
+        },
+        {
+            "id": 117,
+            "type": "InstructPixToPixConditioning",
+            "pos": [
+                -535.6438598632812,
+                -735.3168334960938
+            ],
+            "size": [
+                178.00624084472656,
+                93.5023422241211
+            ],
+            "flags": {},
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 170
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 188
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 166
+                },
+                {
+                    "name": "pixels",
+                    "type": "IMAGE",
+                    "link": 198
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "links": [
+                        173
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "links": [
+                        174
+                    ],
+                    "slot_index": 1
+                },
+                {
+                    "name": "latent",
+                    "type": "LATENT",
+                    "links": [
+                        175
+                    ],
+                    "slot_index": 2
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "InstructPixToPixConditioning"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 10,
+            "type": "VAELoader",
+            "pos": [
+                -550.50439453125,
+                -578.43115234375
+            ],
+            "size": [
+                215.61520385742188,
+                58
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        137,
+                        166
+                    ],
+                    "slot_index": 0,
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAELoader"
+            },
+            "widgets_values": [
+                "ae.sft"
+            ]
+        },
+        {
+            "id": 126,
+            "type": "DualCLIPLoaderGGUF",
+            "pos": [
+                -846.3251953125,
+                -612.0177612304688
+            ],
+            "size": [
+                250.56015014648438,
+                106
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        183
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "DualCLIPLoaderGGUF"
+            },
+            "widgets_values": [
+                "clip_l.safetensors",
+                "t5-v1_1-xxl-encoder-Q4_K_S.gguf",
+                "flux"
+            ]
+        },
+        {
+            "id": 60,
+            "type": "FluxGuidance",
+            "pos": [
+                -840.4535522460938,
+                -732.5232543945312
+            ],
+            "size": [
+                211.60000610351562,
+                58
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "conditioning",
+                    "type": "CONDITIONING",
+                    "link": 169
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        170
+                    ],
+                    "slot_index": 0,
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "FluxGuidance"
+            },
+            "widgets_values": [
+                30
+            ]
+        },
+        {
+            "id": 136,
+            "type": "ImageInvert",
+            "pos": [
+                -311.6797180175781,
+                -15.261691093444824
+            ],
+            "size": [
+                288.6259460449219,
+                43.49119186401367
+            ],
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 196
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        197,
+                        198
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageInvert"
+            },
+            "widgets_values": [],
+            "color": "#232",
+            "bgcolor": "#353"
+        },
+        {
+            "id": 128,
+            "type": "Canny",
+            "pos": [
+                -317.9914245605469,
+                162.5554962158203
+            ],
+            "size": [
+                302.11761474609375,
+                82
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 4,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 190
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        196
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "Canny"
+            },
+            "widgets_values": [
+                0.07,
+                0.5
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
+        },
+        {
+            "id": 131,
+            "type": "ImageScaleToTotalPixels",
+            "pos": [
+                -323.22705078125,
+                368.5797119140625
+            ],
+            "size": [
+                315,
+                82
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 189
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        190
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageScaleToTotalPixels"
+            },
+            "widgets_values": [
+                "nearest-exact",
+                1
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
+        },
+        {
+            "id": 137,
+            "type": "Note",
+            "pos": [
+                -844.7918701171875,
+                -446.1223449707031
+            ],
+            "size": [
+                502.4339599609375,
+                224.7698211669922
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [],
+            "properties": {},
+            "widgets_values": [
+                "流程说明：\n\n萝卜整合包是B站UP“程序员萝卜”基于COMFYUI官方便携包集成常用插件模型制做而成的，免费提供给大家用来学习COMFYUI，凡是有销售该整合包的均不是萝卜本人所为，大家不要上当。\n\n流程应用中有问题可以加QQ群：170213691\n\n下载地址，28G大小，解压即用。注意看网盘上的说明文件\nhttps://www.bilibili.com/video/BV1b2zPYvEY9/?share_source=copy_web&vd_source=a27420d3f5553487fb610ba7e944630f\n\n安装说明：\n1，下载28G的FLUX整合包，解压\n2，在网盘上下载线稿模型，放到UNET目录下面。\n3，在网盘上下载工作流：069_线稿上色.JSON\n3，运行COMFYUI并打开该工作流\n"
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+        },
+        {
+            "id": 118,
+            "type": "LoadImage",
+            "pos": [
+                -829.839599609375,
+                -60.233219146728516
+            ],
+            "size": [
+                420.2130126953125,
+                512.2813110351562
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        189
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "ComfyUI_01136_.png",
+                "image"
+            ]
+        },
+        {
+            "id": 6,
+            "type": "CLIPTextEncode",
+            "pos": [
+                -836.5551147460938,
+                -964.3143920898438
+            ],
+            "size": [
+                351.10601806640625,
+                168.23924255371094
+            ],
+            "flags": {
+                "collapsed": false
+            },
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 183
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        169,
+                        187
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                "A strikingly lifelike color portrait of a young Chinese girl, dressed in resplendent traditional attire."
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
         }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            176
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        155135533671384,
-        "randomize",
-        30,
-        1,
-        "euler",
-        "sgm_uniform",
-        1
-      ]
-    },
-    {
-      "id": 117,
-      "type": "InstructPixToPixConditioning",
-      "pos": [
-        -535.6438598632812,
-        -735.3168334960938
-      ],
-      "size": [
-        178.00624084472656,
-        93.5023422241211
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 170
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 188
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 166
-        },
-        {
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 198
-        }
-      ],
-      "outputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "links": [
-            173
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "links": [
-            174
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "latent",
-          "type": "LATENT",
-          "links": [
-            175
-          ],
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "InstructPixToPixConditioning"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 10,
-      "type": "VAELoader",
-      "pos": [
-        -550.50439453125,
-        -578.43115234375
-      ],
-      "size": [
-        215.61520385742188,
-        58
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
+    ],
+    "links": [
+        [
             137,
-            166
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "ae.sft"
-      ]
-    },
-    {
-      "id": 126,
-      "type": "DualCLIPLoaderGGUF",
-      "pos": [
-        -846.3251953125,
-        -612.0177612304688
-      ],
-      "size": [
-        250.56015014648438,
-        106
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            183
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoaderGGUF"
-      },
-      "widgets_values": [
-        "clip_l.safetensors",
-        "t5-v1_1-xxl-encoder-Q4_K_S.gguf",
-        "flux"
-      ]
-    },
-    {
-      "id": 60,
-      "type": "FluxGuidance",
-      "pos": [
-        -840.4535522460938,
-        -732.5232543945312
-      ],
-      "size": [
-        211.60000610351562,
-        58
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 169
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            170
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "FluxGuidance"
-      },
-      "widgets_values": [
-        30
-      ]
-    },
-    {
-      "id": 136,
-      "type": "ImageInvert",
-      "pos": [
-        -311.6797180175781,
-        -15.261691093444824
-      ],
-      "size": [
-        288.6259460449219,
-        43.49119186401367
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 196
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
+            10,
+            0,
+            8,
+            1,
+            "VAE"
+        ],
+        [
+            153,
+            8,
+            0,
+            113,
+            0,
+            "IMAGE"
+        ],
+        [
+            166,
+            10,
+            0,
+            117,
+            2,
+            "VAE"
+        ],
+        [
+            169,
+            6,
+            0,
+            60,
+            0,
+            "CONDITIONING"
+        ],
+        [
+            170,
+            60,
+            0,
+            117,
+            0,
+            "CONDITIONING"
+        ],
+        [
+            173,
+            117,
+            0,
+            122,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            174,
+            117,
+            1,
+            122,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            175,
+            117,
+            2,
+            122,
+            3,
+            "LATENT"
+        ],
+        [
+            176,
+            122,
+            0,
+            8,
+            0,
+            "LATENT"
+        ],
+        [
+            183,
+            126,
+            0,
+            6,
+            0,
+            "CLIP"
+        ],
+        [
+            187,
+            6,
+            0,
+            129,
+            0,
+            "CONDITIONING"
+        ],
+        [
+            188,
+            129,
+            0,
+            117,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            189,
+            118,
+            0,
+            131,
+            0,
+            "IMAGE"
+        ],
+        [
+            190,
+            131,
+            0,
+            128,
+            0,
+            "IMAGE"
+        ],
+        [
+            191,
+            109,
+            0,
+            130,
+            0,
+            "MODEL"
+        ],
+        [
+            192,
+            130,
+            0,
+            122,
+            0,
+            "MODEL"
+        ],
+        [
+            196,
+            128,
+            0,
+            136,
+            0,
+            "IMAGE"
+        ],
+        [
             197,
-            198
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageInvert"
-      },
-      "widgets_values": [],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 128,
-      "type": "Canny",
-      "pos": [
-        -317.9914245605469,
-        162.5554962158203
-      ],
-      "size": [
-        302.11761474609375,
-        82
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 4,
-      "inputs": [
+            136,
+            0,
+            120,
+            0,
+            "IMAGE"
+        ],
+        [
+            198,
+            136,
+            0,
+            117,
+            3,
+            "IMAGE"
+        ]
+    ],
+    "groups": [
         {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 190
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            196
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Canny"
-      },
-      "widgets_values": [
-        0.07,
-        0.5
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 131,
-      "type": "ImageScaleToTotalPixels",
-      "pos": [
-        -323.22705078125,
-        368.5797119140625
-      ],
-      "size": [
-        315,
-        82
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 189
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            190
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageScaleToTotalPixels"
-      },
-      "widgets_values": [
-        "nearest-exact",
-        1
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 137,
-      "type": "Note",
-      "pos": [
-        -844.7918701171875,
-        -446.1223449707031
-      ],
-      "size": [
-        502.4339599609375,
-        224.7698211669922
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "流程说明：\n\n萝卜整合包是B站UP“程序员萝卜”基于COMFYUI官方便携包集成常用插件模型制做而成的，免费提供给大家用来学习COMFYUI，凡是有销售该整合包的均不是萝卜本人所为，大家不要上当。\n\n流程应用中有问题可以加QQ群：170213691\n\n下载地址，28G大小，解压即用。注意看网盘上的说明文件\nhttps://www.bilibili.com/video/BV1b2zPYvEY9/?share_source=copy_web&vd_source=a27420d3f5553487fb610ba7e944630f\n\n安装说明：\n1，下载28G的FLUX整合包，解压\n2，在网盘上下载线稿模型，放到UNET目录下面。\n3，在网盘上下载工作流：069_线稿上色.JSON\n3，运行COMFYUI并打开该工作流\n"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 118,
-      "type": "LoadImage",
-      "pos": [
-        -829.839599609375,
-        -60.233219146728516
-      ],
-      "size": [
-        420.2130126953125,
-        512.2813110351562
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            189
-          ],
-          "slot_index": 0
+            "id": 1,
+            "title": "线稿",
+            "bounding": [
+                -882.2772216796875,
+                -167.92767333984375,
+                1339.7764892578125,
+                683.628173828125
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {}
         },
         {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
+            "id": 2,
+            "title": "主流程",
+            "bounding": [
+                -884.213623046875,
+                -1178.9375,
+                1333.7772216796875,
+                979.314697265625
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {}
         }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "ComfyUI_01136_.png",
-        "image"
-      ]
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -836.5551147460938,
-        -964.3143920898438
-      ],
-      "size": [
-        351.10601806640625,
-        168.23924255371094
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 183
+    ],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 1.1524290971672273,
+            "offset": [
+                827.2945576818988,
+                1081.3258400982356
+            ]
+        },
+        "ue_links": [],
+        "VHS_latentpreview": false,
+        "VHS_latentpreviewrate": 0,
+        "VHS_MetadataImage": true,
+        "VHS_KeepIntermediate": true,
+        "workspace_info": {
+            "id": "385522c3-94e1-48e5-9f3d-a7cfea2b2b92"
         }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            169,
-            187
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "A strikingly lifelike color portrait of a young Chinese girl, dressed in resplendent traditional attire."
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    }
-  ],
-  "links": [
-    [
-      137,
-      10,
-      0,
-      8,
-      1,
-      "VAE"
-    ],
-    [
-      153,
-      8,
-      0,
-      113,
-      0,
-      "IMAGE"
-    ],
-    [
-      166,
-      10,
-      0,
-      117,
-      2,
-      "VAE"
-    ],
-    [
-      169,
-      6,
-      0,
-      60,
-      0,
-      "CONDITIONING"
-    ],
-    [
-      170,
-      60,
-      0,
-      117,
-      0,
-      "CONDITIONING"
-    ],
-    [
-      173,
-      117,
-      0,
-      122,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      174,
-      117,
-      1,
-      122,
-      2,
-      "CONDITIONING"
-    ],
-    [
-      175,
-      117,
-      2,
-      122,
-      3,
-      "LATENT"
-    ],
-    [
-      176,
-      122,
-      0,
-      8,
-      0,
-      "LATENT"
-    ],
-    [
-      183,
-      126,
-      0,
-      6,
-      0,
-      "CLIP"
-    ],
-    [
-      187,
-      6,
-      0,
-      129,
-      0,
-      "CONDITIONING"
-    ],
-    [
-      188,
-      129,
-      0,
-      117,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      189,
-      118,
-      0,
-      131,
-      0,
-      "IMAGE"
-    ],
-    [
-      190,
-      131,
-      0,
-      128,
-      0,
-      "IMAGE"
-    ],
-    [
-      191,
-      109,
-      0,
-      130,
-      0,
-      "MODEL"
-    ],
-    [
-      192,
-      130,
-      0,
-      122,
-      0,
-      "MODEL"
-    ],
-    [
-      196,
-      128,
-      0,
-      136,
-      0,
-      "IMAGE"
-    ],
-    [
-      197,
-      136,
-      0,
-      120,
-      0,
-      "IMAGE"
-    ],
-    [
-      198,
-      136,
-      0,
-      117,
-      3,
-      "IMAGE"
-    ]
-  ],
-  "groups": [
-    {
-      "id": 1,
-      "title": "线稿",
-      "bounding": [
-        -882.2772216796875,
-        -167.92767333984375,
-        1339.7764892578125,
-        683.628173828125
-      ],
-      "color": "#3f789e",
-      "font_size": 24,
-      "flags": {}
     },
-    {
-      "id": 2,
-      "title": "主流程",
-      "bounding": [
-        -884.213623046875,
-        -1178.9375,
-        1333.7772216796875,
-        979.314697265625
-      ],
-      "color": "#3f789e",
-      "font_size": 24,
-      "flags": {}
-    }
-  ],
-  "config": {},
-  "extra": {
-    "ds": {
-      "scale": 1.1524290971672273,
-      "offset": [
-        827.2945576818988,
-        1081.3258400982356
-      ]
-    },
-    "ue_links": [],
-    "VHS_latentpreview": false,
-    "VHS_latentpreviewrate": 0,
-    "VHS_MetadataImage": true,
-    "VHS_KeepIntermediate": true
-  },
-  "version": 0.4
+    "version": 0.4
 }

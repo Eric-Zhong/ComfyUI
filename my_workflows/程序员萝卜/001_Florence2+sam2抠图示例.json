@@ -1,407 +1,410 @@
 {
-  "last_node_id": 15,
-  "last_link_id": 14,
-  "nodes": [
-    {
-      "id": 13,
-      "type": "PreviewImage",
-      "pos": [
-        1482.981689453125,
-        -349.4000549316406
-      ],
-      "size": [
-        290.6188049316406,
-        246
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
+    "last_node_id": 15,
+    "last_link_id": 14,
+    "nodes": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 11
+            "id": 13,
+            "type": "PreviewImage",
+            "pos": [
+                1482.981689453125,
+                -349.4000549316406
+            ],
+            "size": [
+                290.6188049316406,
+                246
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 11
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            }
+        },
+        {
+            "id": 4,
+            "type": "LoadImage",
+            "pos": [
+                372.5977478027344,
+                -128.9144287109375
+            ],
+            "size": [
+                315,
+                314
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        7,
+                        10,
+                        13
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "31D92A94CF6F4AB6B34CE321BA24B4E30E09BD00_w1080_h810.jpg",
+                "image"
+            ]
+        },
+        {
+            "id": 12,
+            "type": "LayerMask: LoadFlorence2Model",
+            "pos": [
+                947.0907592773438,
+                -158.68252563476562
+            ],
+            "size": [
+                390.5999755859375,
+                58
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "florence2_model",
+                    "type": "FLORENCE2",
+                    "links": [
+                        9
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LayerMask: LoadFlorence2Model"
+            },
+            "widgets_values": [
+                "large-ft"
+            ],
+            "color": "rgba(27, 80, 119, 0.7)"
+        },
+        {
+            "id": 11,
+            "type": "LayerMask: ObjectDetectorFL2",
+            "pos": [
+                947.2974243164062,
+                -4.62470006942749
+            ],
+            "size": [
+                394.0511169433594,
+                150
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 10
+                },
+                {
+                    "name": "florence2_model",
+                    "type": "FLORENCE2",
+                    "link": 9
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "bboxes",
+                    "type": "BBOXES",
+                    "links": [
+                        12
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "preview",
+                    "type": "IMAGE",
+                    "links": [
+                        11
+                    ],
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LayerMask: ObjectDetectorFL2"
+            },
+            "widgets_values": [
+                "humans",
+                "left_to_right",
+                "all",
+                "0,"
+            ],
+            "color": "rgba(27, 80, 119, 0.7)"
+        },
+        {
+            "id": 9,
+            "type": "LayerMask: SegmentAnythingUltra V2",
+            "pos": [
+                950.035888671875,
+                234.62368774414062
+            ],
+            "size": [
+                398.2601318359375,
+                366
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 7
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": [
+                        8
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LayerMask: SegmentAnythingUltra V2"
+            },
+            "widgets_values": [
+                "sam_vit_l (1.25GB)",
+                "GroundingDINO_SwinB (938MB)",
+                0.3,
+                "VITMatte(local)",
+                6,
+                6,
+                0.15,
+                0.99,
+                true,
+                "man",
+                "cuda",
+                2,
+                false
+            ],
+            "color": "rgba(27, 80, 119, 0.7)"
+        },
+        {
+            "id": 10,
+            "type": "PreviewImage",
+            "pos": [
+                1435.2698974609375,
+                500.0322570800781
+            ],
+            "size": [
+                451.6333923339844,
+                371.2298583984375
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 8
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            }
+        },
+        {
+            "id": 15,
+            "type": "PreviewImage",
+            "pos": [
+                1870.8597412109375,
+                -51.45789337158203
+            ],
+            "size": [
+                516.89306640625,
+                411.5530090332031
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 14
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            }
+        },
+        {
+            "id": 14,
+            "type": "LayerMask: SAM2Ultra",
+            "pos": [
+                1471.36865234375,
+                19.759580612182617
+            ],
+            "size": [
+                328.7059020996094,
+                366
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 13
+                },
+                {
+                    "name": "bboxes",
+                    "type": "BBOXES",
+                    "link": 12
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": [
+                        14
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LayerMask: SAM2Ultra"
+            },
+            "widgets_values": [
+                "sam2.1_hiera_large.safetensors",
+                "fp16",
+                "by_index",
+                "0",
+                false,
+                "VITMatte(local)",
+                6,
+                4,
+                0.15,
+                0.99,
+                true,
+                "cuda",
+                2
+            ],
+            "color": "rgba(27, 80, 119, 0.7)"
         }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 4,
-      "type": "LoadImage",
-      "pos": [
-        372.5977478027344,
-        -128.9144287109375
-      ],
-      "size": [
-        315,
-        314
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
+    ],
+    "links": [
+        [
             7,
+            4,
+            0,
+            9,
+            0,
+            "IMAGE"
+        ],
+        [
+            8,
+            9,
+            0,
             10,
-            13
-          ],
-          "slot_index": 0
+            0,
+            "IMAGE"
+        ],
+        [
+            9,
+            12,
+            0,
+            11,
+            1,
+            "FLORENCE2"
+        ],
+        [
+            10,
+            4,
+            0,
+            11,
+            0,
+            "IMAGE"
+        ],
+        [
+            11,
+            11,
+            1,
+            13,
+            0,
+            "IMAGE"
+        ],
+        [
+            12,
+            11,
+            0,
+            14,
+            1,
+            "BBOXES"
+        ],
+        [
+            13,
+            4,
+            0,
+            14,
+            0,
+            "IMAGE"
+        ],
+        [
+            14,
+            14,
+            0,
+            15,
+            0,
+            "IMAGE"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.6303940863128517,
+            "offset": [
+                -114.25247062143717,
+                501.09023388091543
+            ]
         },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
+        "ue_links": [],
+        "workspace_info": {
+            "id": "6aa4f07d-77f6-46fe-8837-62235c537974"
         }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "31D92A94CF6F4AB6B34CE321BA24B4E30E09BD00_w1080_h810.jpg",
-        "image"
-      ]
     },
-    {
-      "id": 12,
-      "type": "LayerMask: LoadFlorence2Model",
-      "pos": [
-        947.0907592773438,
-        -158.68252563476562
-      ],
-      "size": [
-        390.5999755859375,
-        58
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "florence2_model",
-          "type": "FLORENCE2",
-          "links": [
-            9
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LayerMask: LoadFlorence2Model"
-      },
-      "widgets_values": [
-        "large-ft"
-      ],
-      "color": "rgba(27, 80, 119, 0.7)"
-    },
-    {
-      "id": 11,
-      "type": "LayerMask: ObjectDetectorFL2",
-      "pos": [
-        947.2974243164062,
-        -4.62470006942749
-      ],
-      "size": [
-        394.0511169433594,
-        150
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 10
-        },
-        {
-          "name": "florence2_model",
-          "type": "FLORENCE2",
-          "link": 9
-        }
-      ],
-      "outputs": [
-        {
-          "name": "bboxes",
-          "type": "BBOXES",
-          "links": [
-            12
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "preview",
-          "type": "IMAGE",
-          "links": [
-            11
-          ],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LayerMask: ObjectDetectorFL2"
-      },
-      "widgets_values": [
-        "humans",
-        "left_to_right",
-        "all",
-        "0,"
-      ],
-      "color": "rgba(27, 80, 119, 0.7)"
-    },
-    {
-      "id": 9,
-      "type": "LayerMask: SegmentAnythingUltra V2",
-      "pos": [
-        950.035888671875,
-        234.62368774414062
-      ],
-      "size": [
-        398.2601318359375,
-        366
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [
-            8
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LayerMask: SegmentAnythingUltra V2"
-      },
-      "widgets_values": [
-        "sam_vit_l (1.25GB)",
-        "GroundingDINO_SwinB (938MB)",
-        0.3,
-        "VITMatte(local)",
-        6,
-        6,
-        0.15,
-        0.99,
-        true,
-        "man",
-        "cuda",
-        2,
-        false
-      ],
-      "color": "rgba(27, 80, 119, 0.7)"
-    },
-    {
-      "id": 10,
-      "type": "PreviewImage",
-      "pos": [
-        1435.2698974609375,
-        500.0322570800781
-      ],
-      "size": [
-        451.6333923339844,
-        371.2298583984375
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 8
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 15,
-      "type": "PreviewImage",
-      "pos": [
-        1870.8597412109375,
-        -51.45789337158203
-      ],
-      "size": [
-        516.89306640625,
-        411.5530090332031
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 14
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 14,
-      "type": "LayerMask: SAM2Ultra",
-      "pos": [
-        1471.36865234375,
-        19.759580612182617
-      ],
-      "size": [
-        328.7059020996094,
-        366
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 13
-        },
-        {
-          "name": "bboxes",
-          "type": "BBOXES",
-          "link": 12
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [
-            14
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LayerMask: SAM2Ultra"
-      },
-      "widgets_values": [
-        "sam2.1_hiera_large.safetensors",
-        "fp16",
-        "by_index",
-        "0",
-        false,
-        "VITMatte(local)",
-        6,
-        4,
-        0.15,
-        0.99,
-        true,
-        "cuda",
-        2
-      ],
-      "color": "rgba(27, 80, 119, 0.7)"
-    }
-  ],
-  "links": [
-    [
-      7,
-      4,
-      0,
-      9,
-      0,
-      "IMAGE"
-    ],
-    [
-      8,
-      9,
-      0,
-      10,
-      0,
-      "IMAGE"
-    ],
-    [
-      9,
-      12,
-      0,
-      11,
-      1,
-      "FLORENCE2"
-    ],
-    [
-      10,
-      4,
-      0,
-      11,
-      0,
-      "IMAGE"
-    ],
-    [
-      11,
-      11,
-      1,
-      13,
-      0,
-      "IMAGE"
-    ],
-    [
-      12,
-      11,
-      0,
-      14,
-      1,
-      "BBOXES"
-    ],
-    [
-      13,
-      4,
-      0,
-      14,
-      0,
-      "IMAGE"
-    ],
-    [
-      14,
-      14,
-      0,
-      15,
-      0,
-      "IMAGE"
-    ]
-  ],
-  "groups": [],
-  "config": {},
-  "extra": {
-    "ds": {
-      "scale": 0.6303940863128517,
-      "offset": [
-        -114.25247062143717,
-        501.09023388091543
-      ]
-    },
-    "ue_links": []
-  },
-  "version": 0.4
+    "version": 0.4
 }
