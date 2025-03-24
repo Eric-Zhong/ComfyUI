@@ -1,0 +1,843 @@
+{
+    "last_link_id": 31,
+    "nodes": [
+        {
+            "mode": 0,
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "chatglm3_model",
+                    "slot_index": 0,
+                    "links": [
+                        9,
+                        11
+                    ],
+                    "label": "chatglm3_model",
+                    "type": "CHATGLM3MODEL"
+                }
+            ],
+            "bgcolor": "#6e6da2",
+            "size": {
+                "0": 315,
+                "1": 58
+            },
+            "color": "#8281b6",
+            "pos": [
+                499,
+                210
+            ],
+            "widgets_values": [
+                "checkpoints/chatglm3-8bit.safetensors"
+            ],
+            "flags": {},
+            "id": 11,
+            "type": "MZ_ChatGLM3Loader",
+            "properties": {
+                "Node name for S&R": "MZ_ChatGLM3Loader"
+            },
+            "order": 0
+        },
+        {
+            "mode": 0,
+            "size": {
+                "0": 315,
+                "1": 58
+            },
+            "pos": [
+                2134,
+                151
+            ],
+            "widgets_values": [
+                "ComfyUI"
+            ],
+            "inputs": [
+                {
+                    "name": "images",
+                    "link": 21,
+                    "label": "images",
+                    "type": "IMAGE"
+                }
+            ],
+            "flags": {
+                "collapsed": true
+            },
+            "id": 19,
+            "type": "SaveImage",
+            "properties": {
+                "Node name for S&R": "SaveImage"
+            },
+            "order": 14
+        },
+        {
+            "mode": 0,
+            "size": {
+                "0": 462.2602844238281,
+                "1": 613.5467529296875
+            },
+            "pos": [
+                2075,
+                210
+            ],
+            "inputs": [
+                {
+                    "name": "images",
+                    "link": 22,
+                    "label": "images",
+                    "type": "IMAGE"
+                }
+            ],
+            "flags": {},
+            "id": 20,
+            "type": "PreviewImage",
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            },
+            "order": 15
+        },
+        {
+            "mode": 0,
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "IMAGE",
+                    "slot_index": 0,
+                    "links": [
+                        21,
+                        22
+                    ],
+                    "label": "IMAGE",
+                    "type": "IMAGE"
+                }
+            ],
+            "size": {
+                "0": 210,
+                "1": 50
+            },
+            "pos": [
+                1783,
+                404
+            ],
+            "inputs": [
+                {
+                    "name": "samples",
+                    "link": 17,
+                    "label": "samples",
+                    "type": "LATENT"
+                },
+                {
+                    "name": "vae",
+                    "link": 20,
+                    "slot_index": 1,
+                    "label": "vae",
+                    "type": "VAE"
+                }
+            ],
+            "flags": {},
+            "id": 18,
+            "type": "VAEDecode",
+            "properties": {
+                "Node name for S&R": "VAEDecode",
+                "ttNbgOverride": {
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A",
+                    "color": "#223"
+                }
+            },
+            "order": 13
+        },
+        {
+            "mode": 0,
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "VAE",
+                    "slot_index": 0,
+                    "links": [
+                        20
+                    ],
+                    "label": "VAE",
+                    "type": "VAE"
+                }
+            ],
+            "size": {
+                "0": 328.0869445800781,
+                "1": 58
+            },
+            "pos": [
+                1369,
+                409
+            ],
+            "widgets_values": [
+                "kolors_fp16.safetensors"
+            ],
+            "flags": {},
+            "id": 16,
+            "type": "VAELoader",
+            "properties": {
+                "Node name for S&R": "VAELoader",
+                "ttNbgOverride": {
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A",
+                    "color": "#223"
+                }
+            },
+            "order": 1
+        },
+        {
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "LATENT",
+                    "slot_index": 0,
+                    "links": [
+                        17
+                    ],
+                    "label": "LATENT",
+                    "type": "LATENT"
+                }
+            ],
+            "color": "#432",
+            "widgets_values": [
+                301757072261118,
+                "randomize",
+                20,
+                5,
+                "euler_ancestral",
+                "normal",
+                1
+            ],
+            "inputs": [
+                {
+                    "name": "model",
+                    "link": 12,
+                    "label": "model",
+                    "type": "MODEL"
+                },
+                {
+                    "name": "positive",
+                    "link": 13,
+                    "label": "positive",
+                    "type": "CONDITIONING"
+                },
+                {
+                    "name": "negative",
+                    "link": 14,
+                    "label": "negative",
+                    "type": "CONDITIONING"
+                },
+                {
+                    "name": "latent_image",
+                    "link": 26,
+                    "slot_index": 3,
+                    "label": "latent_image",
+                    "type": "LATENT"
+                }
+            ],
+            "flags": {},
+            "type": "KSampler",
+            "mode": 0,
+            "bgcolor": "#653",
+            "size": {
+                "0": 315,
+                "1": 262
+            },
+            "pos": [
+                1406,
+                54
+            ],
+            "id": 15,
+            "properties": {
+                "Node name for S&R": "KSampler"
+            },
+            "order": 12
+        },
+        {
+            "outputs": [],
+            "color": "#fff0",
+            "inputs": [],
+            "flags": {
+                "pinned": true,
+                "allow_interaction": false
+            },
+            "type": "Label (rgthree)",
+            "title": "Cloud URL: runninghub.ai or runninghub.cn",
+            "mode": 0,
+            "bgcolor": "#fff0",
+            "size": {
+                "0": 1157.431640625,
+                "1": 60
+            },
+            "pos": {
+                "0": 433,
+                "1": -221,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "6": 0,
+                "7": 0,
+                "8": 0,
+                "9": 0
+            },
+            "id": 25,
+            "properties": {
+                "padding": 0,
+                "backgroundColor": "transparent",
+                "fontFamily": "Arial",
+                "borderRadius": 0,
+                "textAlign": "left",
+                "fontSize": 60,
+                "fontColor": "#ffffff"
+            },
+            "order": 2
+        },
+        {
+            "outputs": [],
+            "color": "#fff0",
+            "inputs": [],
+            "flags": {
+                "pinned": true,
+                "allow_interaction": false
+            },
+            "type": "Label (rgthree)",
+            "title": "You don’t need to set up a ComfyUI environment to run this workflow, and it’s free.",
+            "mode": 0,
+            "bgcolor": "#fff0",
+            "size": {
+                "0": 2177.87109375,
+                "1": 60
+            },
+            "pos": {
+                "0": 433,
+                "1": -300,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "6": 0,
+                "7": 0,
+                "8": 0,
+                "9": 0
+            },
+            "id": 24,
+            "properties": {
+                "padding": 0,
+                "backgroundColor": "transparent",
+                "fontFamily": "Arial",
+                "borderRadius": 0,
+                "textAlign": "left",
+                "fontSize": 60,
+                "fontColor": "#ffffff"
+            },
+            "order": 3
+        },
+        {
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "CONDITIONING",
+                    "slot_index": 0,
+                    "links": [
+                        14
+                    ],
+                    "label": "CONDITIONING",
+                    "type": "CONDITIONING"
+                }
+            ],
+            "color": "#322",
+            "widgets_values": [
+                "\"皮肤暗沉，驼背，（最差质量：2），（低质量：2），（正常质量：2），低分辨率，不良解剖结构，不良手部，（（单色）），（（灰度））水印，痣，\",\n"
+            ],
+            "inputs": [
+                {
+                    "name": "chatglm3_model",
+                    "link": 11,
+                    "label": "chatglm3_model",
+                    "type": "CHATGLM3MODEL"
+                }
+            ],
+            "flags": {},
+            "type": "MZ_ChatGLM3_V2",
+            "mode": 0,
+            "bgcolor": "#533",
+            "size": {
+                "0": 368.5478515625,
+                "1": 121.45018005371094
+            },
+            "pos": [
+                961,
+                42
+            ],
+            "id": 14,
+            "properties": {
+                "Node name for S&R": "MZ_ChatGLM3_V2"
+            },
+            "order": 8
+        },
+        {
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "CONDITIONING",
+                    "slot_index": 0,
+                    "links": [
+                        13
+                    ],
+                    "label": "CONDITIONING",
+                    "type": "CONDITIONING"
+                }
+            ],
+            "color": "#232",
+            "widgets_values": [
+                "女孩，温柔的微笑，武术家，三视图，直视，概念 3d 模型，角色"
+            ],
+            "inputs": [
+                {
+                    "name": "chatglm3_model",
+                    "link": 9,
+                    "slot_index": 0,
+                    "label": "chatglm3_model",
+                    "type": "CHATGLM3MODEL"
+                },
+                {
+                    "widget": {
+                        "name": "text"
+                    },
+                    "name": "text",
+                    "link": 29,
+                    "slot_index": 1,
+                    "label": "text",
+                    "type": "STRING"
+                }
+            ],
+            "flags": {},
+            "type": "MZ_ChatGLM3_V2",
+            "mode": 0,
+            "bgcolor": "#353",
+            "size": {
+                "0": 349.6415100097656,
+                "1": 96.36527252197266
+            },
+            "pos": [
+                973,
+                238
+            ],
+            "id": 12,
+            "properties": {
+                "Node name for S&R": "MZ_ChatGLM3_V2"
+            },
+            "order": 11
+        },
+        {
+            "mode": 0,
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "text",
+                    "slot_index": 0,
+                    "links": [
+                        29
+                    ],
+                    "label": "text",
+                    "type": "STRING"
+                }
+            ],
+            "size": {
+                "0": 315,
+                "1": 82
+            },
+            "pos": [
+                984,
+                388
+            ],
+            "widgets_values": [
+                "",
+                ""
+            ],
+            "inputs": [
+                {
+                    "widget": {
+                        "name": "text1"
+                    },
+                    "name": "text1",
+                    "link": 27,
+                    "slot_index": 0,
+                    "label": "text1",
+                    "type": "STRING"
+                },
+                {
+                    "widget": {
+                        "name": "text2"
+                    },
+                    "name": "text2",
+                    "link": 28,
+                    "label": "text2",
+                    "type": "STRING"
+                }
+            ],
+            "flags": {},
+            "id": 27,
+            "type": "TextCombinerTwo",
+            "properties": {
+                "Node name for S&R": "TextCombinerTwo"
+            },
+            "order": 9
+        },
+        {
+            "mode": 0,
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "text",
+                    "slot_index": 0,
+                    "links": [
+                        27
+                    ],
+                    "label": "text",
+                    "type": "STRING"
+                }
+            ],
+            "bgcolor": "#353",
+            "size": {
+                "0": 356.2725830078125,
+                "1": 121.58863067626953
+            },
+            "color": "#232",
+            "pos": [
+                500,
+                328
+            ],
+            "widgets_values": [
+                "\"想象一下一个空灵少女，皮肤细腻白皙，正面受光，精致的甜美女子身着发光的白色连衣裙，头戴花环，微笑的扬起头，漂浮在阳光斑驳的森林空地中飘浮的蒲公英种子之间，画面唯美，柔和的金色光线和凉爽的翠绿绿色，摄影超现实主义与电影叙事氛围，完美无瑕的自然肤色，高级美术品质，8K\","
+            ],
+            "flags": {},
+            "id": 13,
+            "type": "JjkText",
+            "properties": {
+                "Node name for S&R": "JjkText"
+            },
+            "order": 4
+        },
+        {
+            "mode": 0,
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "text",
+                    "slot_index": 0,
+                    "links": [
+                        28
+                    ],
+                    "label": "text",
+                    "type": "STRING"
+                }
+            ],
+            "bgcolor": "#353",
+            "size": {
+                "0": 356.2725830078125,
+                "1": 121.58863067626953
+            },
+            "color": "#232",
+            "pos": [
+                510,
+                501
+            ],
+            "widgets_values": [
+                "\"高级美术品质，8K\","
+            ],
+            "flags": {
+                "collapsed": true
+            },
+            "id": 26,
+            "type": "JjkText",
+            "properties": {
+                "Node name for S&R": "JjkText"
+            },
+            "order": 5
+        },
+        {
+            "mode": 0,
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "LATENT",
+                    "links": [
+                        26
+                    ],
+                    "label": "LATENT",
+                    "type": "LATENT"
+                }
+            ],
+            "size": [
+                315,
+                106
+            ],
+            "pos": [
+                1383,
+                540
+            ],
+            "widgets_values": [
+                1024,
+                1024,
+                1
+            ],
+            "inputs": [
+                {
+                    "widget": {
+                        "name": "width"
+                    },
+                    "name": "width",
+                    "link": 30,
+                    "type": "INT"
+                },
+                {
+                    "widget": {
+                        "name": "height"
+                    },
+                    "name": "height",
+                    "link": 31,
+                    "type": "INT"
+                }
+            ],
+            "flags": {},
+            "id": 23,
+            "type": "EmptyLatentImage",
+            "properties": {
+                "Node name for S&R": "EmptyLatentImage"
+            },
+            "order": 10
+        },
+        {
+            "mode": 0,
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "width",
+                    "slot_index": 0,
+                    "links": [
+                        30
+                    ],
+                    "label": "width",
+                    "type": "INT"
+                },
+                {
+                    "shape": 3,
+                    "name": "height",
+                    "slot_index": 1,
+                    "links": [
+                        31
+                    ],
+                    "label": "height",
+                    "type": "INT"
+                },
+                {
+                    "shape": 3,
+                    "name": "resolution",
+                    "label": "resolution",
+                    "type": "STRING"
+                }
+            ],
+            "bgcolor": "#353",
+            "size": {
+                "0": 322.2302551269531,
+                "1": 170
+            },
+            "color": "#232",
+            "pos": [
+                982,
+                533
+            ],
+            "widgets_values": [
+                "1.0",
+                "3:4 (Golden Ratio)",
+                false,
+                "1:1"
+            ],
+            "flags": {},
+            "id": 28,
+            "type": "FluxResolutionNode",
+            "properties": {
+                "Node name for S&R": "FluxResolutionNode"
+            },
+            "order": 6
+        },
+        {
+            "mode": 0,
+            "outputs": [
+                {
+                    "shape": 3,
+                    "name": "model",
+                    "slot_index": 0,
+                    "links": [
+                        12
+                    ],
+                    "label": "model",
+                    "type": "MODEL"
+                }
+            ],
+            "bgcolor": "#335",
+            "size": {
+                "0": 427.6200256347656,
+                "1": 101.33903503417969
+            },
+            "color": "#223",
+            "pos": [
+                432,
+                41
+            ],
+            "widgets_values": [
+                "Kolors_diffusion_pytorch_model.fp16.safetensors"
+            ],
+            "flags": {},
+            "id": 10,
+            "type": "MZ_KolorsUNETLoaderV2",
+            "properties": {
+                "Node name for S&R": "MZ_KolorsUNETLoaderV2"
+            },
+            "order": 7
+        }
+    ],
+    "extra": {
+        "0246.VERSION": [
+            0,
+            0,
+            4
+        ],
+        "ds": {
+            "offset": {
+                "0": 113.46160330431496,
+                "1": 357.1925611018993
+            },
+            "scale": 0.724729500000001
+        },
+        "workspace_info": {
+            "id": "933401a6-5eae-4341-a82f-39b9bab2ae4e"
+        }
+    },
+    "groups": [],
+    "links": [
+        [
+            9,
+            11,
+            0,
+            12,
+            0,
+            "CHATGLM3MODEL"
+        ],
+        [
+            11,
+            11,
+            0,
+            14,
+            0,
+            "CHATGLM3MODEL"
+        ],
+        [
+            12,
+            10,
+            0,
+            15,
+            0,
+            "MODEL"
+        ],
+        [
+            13,
+            12,
+            0,
+            15,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            14,
+            14,
+            0,
+            15,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            17,
+            15,
+            0,
+            18,
+            0,
+            "LATENT"
+        ],
+        [
+            20,
+            16,
+            0,
+            18,
+            1,
+            "VAE"
+        ],
+        [
+            21,
+            18,
+            0,
+            19,
+            0,
+            "IMAGE"
+        ],
+        [
+            22,
+            18,
+            0,
+            20,
+            0,
+            "IMAGE"
+        ],
+        [
+            26,
+            23,
+            0,
+            15,
+            3,
+            "LATENT"
+        ],
+        [
+            27,
+            13,
+            0,
+            27,
+            0,
+            "STRING"
+        ],
+        [
+            28,
+            26,
+            0,
+            27,
+            1,
+            "STRING"
+        ],
+        [
+            29,
+            27,
+            0,
+            12,
+            1,
+            "STRING"
+        ],
+        [
+            30,
+            28,
+            0,
+            23,
+            0,
+            "INT"
+        ],
+        [
+            31,
+            28,
+            1,
+            23,
+            1,
+            "INT"
+        ]
+    ],
+    "config": {},
+    "version": 0.4,
+    "last_node_id": 28
+}

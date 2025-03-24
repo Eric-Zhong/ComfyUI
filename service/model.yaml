@@ -134,14 +134,6 @@ models:
         url: https://modelscope.cn/models/MusePublic/36_VAE_SD_1_5/resolve/123/123.safetensors
         file_name: kl-f8-anime2.safetensors
     description: https://modelscope.cn/models/MusePublic/36_VAE_SD_1_5
-# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_zoedepth_sd15v1.pth
-# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_depth_sd15v2.pth
-# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_openpose_sd14v1.pth
-# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_style_sd14v1.pth
-# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_sketch_sd15v2.pth
-# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_canny_sd15v2.pth
-# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_keypose_sd14v1.pth
-# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_color_sd14v1.pth
   stable-cascade:
     name: stable-cascade
     category: checkpoint
@@ -194,6 +186,29 @@ models:
         url: https://www.modelscope.cn/lllyasviel/ic-light.git
         file_name: 
     description: ic-light sd1.5
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_zoedepth_sd15v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_depth_sd15v2.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_openpose_sd14v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_style_sd14v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_sketch_sd15v2.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_canny_sd15v2.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_keypose_sd14v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_color_sd14v1.pth
+  BiRefNet:
+    name: BiRefNet
+    category: 
+    type: 
+    save_as: models/BiRefNet/ZhengPeng7/BiRefNet
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/modelscope/BiRefNet.git
+        file_name: 
+    description: sssssssssssssssssssssssssssss
+
+
   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:
     name: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
     category: 
@@ -332,6 +347,142 @@ custom_nodes:
     name: ComfyUI-WanVideoWrapper
     description: 
     models:
+  ComfyUI-Crystools:
+    method: git
+    url: https://github.com/crystian/ComfyUI-Crystools.git
+    save_as: ComfyUI-Crystools
+    name: ComfyUI-Crystools
+    description: 
+    models:
+  ComfyUI-LatentSyncWrapper:
+    method: git
+    url: https://github.com/ShmuelRonen/ComfyUI-LatentSyncWrapper.git
+    save_as: ComfyUI-LatentSyncWrapper
+    name: ComfyUI-LatentSyncWrapper
+    description: 
+    models:
+  efficiency-nodes-comfyui:
+    method: git
+    url: https://github.com/jags111/efficiency-nodes-comfyui.git
+    save_as: efficiency-nodes-comfyui
+    name: efficiency-nodes-comfyui
+    description: 
+    models:
+  ComfyUI_smZNodes:
+    method: git
+    url: https://github.com/shiimizu/ComfyUI_smZNodes.git
+    save_as: ComfyUI_smZNodes
+    name: ComfyUI_smZNodes
+    description: 
+    models:
+  sd-perturbed-attention:
+    method: git
+    url: https://github.com/pamparamm/sd-perturbed-attention.git
+    save_as: sd-perturbed-attention
+    name: sd-perturbed-attention
+    description: 
+    models:
+  comfyui_lora_tag_loader:
+    method: git
+    url: https://github.com/badjeff/comfyui_lora_tag_loader.git
+    save_as: comfyui_lora_tag_loader
+    name: comfyui_lora_tag_loader
+    description: 
+    models:
+  ComfyUI-mnemic-nodes:
+    method: git
+    url: https://github.com/MNeMoNiCuZ/ComfyUI-mnemic-nodes.git
+    save_as: ComfyUI-mnemic-nodes
+    name: ComfyUI-mnemic-nodes
+    description: 
+    models:
+  All-IN-ONE-style:
+    method: git
+    url: https://github.com/al-swaiti/All-IN-ONE-style.git
+    save_as: All-IN-ONE-style
+    name: All-IN-ONE-style
+    description: 
+    models:
+  ComfyUI-Florence2:
+    method: git
+    url: https://github.com/kijai/ComfyUI-Florence2.git
+    save_as: ComfyUI-Florence2
+    name: ComfyUI-Florence2
+    description: 
+    models:
+  ComfyUI-Logic:
+    method: git
+    url: https://github.com/theUpsider/ComfyUI-Logic.git
+    save_as: ComfyUI-Logic
+    name: ComfyUI-Logic
+    description: 
+    models:
+  comfyui-various:
+    method: git
+    url: https://github.com/jamesWalker55/comfyui-various.git
+    save_as: comfyui-various
+    name: comfyui-various
+    description: 
+    models:
+  comfyui-tensorops:
+    method: git
+    url: https://github.com/un-seen/comfyui-tensorops.git
+    save_as: comfyui-tensorops
+    name: comfyui-tensorops
+    description: 
+    models:
+
+
+  SeargeSDXL:
+    method: git
+    url: https://github.com/SeargeDP/SeargeSDXL.git
+    save_as: SeargeSDXL
+    name: SeargeSDXL
+    description: 
+    models:
+  ComfyUI-AutoSplitGridImage:
+    method: git
+    url: https://github.com/stormcenter/ComfyUI-AutoSplitGridImage.git
+    save_as: ComfyUI-AutoSplitGridImage
+    name: ComfyUI-AutoSplitGridImage
+    description: 
+    models:
+  comfyui-mixlab-nodes:
+    method: git
+    url: https://github.com/shadowcz007/comfyui-mixlab-nodes.git
+    save_as: comfyui-mixlab-nodes
+    name: comfyui-mixlab-nodes
+    description: 
+    models:
+  comfyui-portrait-master:
+    method: git
+    url: https://github.com/florestefano1975/comfyui-portrait-master.git
+    save_as: comfyui-portrait-master
+    name: comfyui-portrait-master
+    description: 
+    models:
+  Comfyui_TTP_Toolset:
+    method: git
+    url: https://github.com/TTPlanetPig/Comfyui_TTP_Toolset.git
+    save_as: Comfyui_TTP_Toolset
+    name: Comfyui_TTP_Toolset
+    description: 
+    models:
+  ComfyLiterals:
+    method: git
+    url: https://github.com/M1kep/ComfyLiterals.git
+    save_as: ComfyLiterals
+    name: ComfyLiterals
+    description: 
+    models:
+  ComfyUI_Custom_Nodes_AlekPet:
+    method: git
+    url: https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet.git
+    save_as: ComfyUI_Custom_Nodes_AlekPet
+    name: ComfyUI_Custom_Nodes_AlekPet
+    description: 
+    models:
+
   xxxxxxxxxxxxxxxxxxxxxxxxxxxx:
     method: xxxx
     url: xxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -340,5 +491,3 @@ custom_nodes:
     description: 
     models:
 
-
-      
