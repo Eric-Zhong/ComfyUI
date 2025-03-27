@@ -1,0 +1,823 @@
+{
+    "last_node_id": 139,
+    "last_link_id": 216,
+    "nodes": [
+        {
+            "id": 136,
+            "type": "SaveImage",
+            "pos": [
+                -1400.93896484375,
+                -1160.963623046875
+            ],
+            "size": [
+                465.37359619140625,
+                386.2210998535156
+            ],
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 211
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "Node name for S&R": "SaveImage"
+            },
+            "widgets_values": [
+                "ComfyUI"
+            ]
+        },
+        {
+            "id": 109,
+            "type": "UnetLoaderGGUF",
+            "pos": [
+                -905.6227416992188,
+                -1157.9696044921875
+            ],
+            "size": [
+                303.3047790527344,
+                58.899295806884766
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        210
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "UnetLoaderGGUF"
+            },
+            "widgets_values": [
+                "shuttle-3-diffusion-Q4_K_S.gguf"
+            ]
+        },
+        {
+            "id": 113,
+            "type": "SaveImage",
+            "pos": [
+                -1398.4837646484375,
+                -714.2945556640625
+            ],
+            "size": [
+                470.332275390625,
+                352.8427734375
+            ],
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 153
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "Node name for S&R": "SaveImage"
+            },
+            "widgets_values": [
+                "ComfyUI"
+            ]
+        },
+        {
+            "id": 10,
+            "type": "VAELoader",
+            "pos": [
+                -904.5275268554688,
+                -880.7067260742188
+            ],
+            "size": [
+                304.0284118652344,
+                58
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "VAE",
+                    "type": "VAE",
+                    "links": [
+                        137,
+                        208
+                    ],
+                    "slot_index": 0,
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAELoader"
+            },
+            "widgets_values": [
+                "ae.sft"
+            ]
+        },
+        {
+            "id": 126,
+            "type": "DualCLIPLoaderGGUF",
+            "pos": [
+                -903.5499267578125,
+                -1043.68701171875
+            ],
+            "size": [
+                308.6157531738281,
+                106.8992919921875
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        182,
+                        212
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "DualCLIPLoaderGGUF"
+            },
+            "widgets_values": [
+                "clip_l.safetensors",
+                "t5-v1_1-xxl-encoder-Q4_K_S.gguf",
+                "flux"
+            ]
+        },
+        {
+            "id": 133,
+            "type": "LayerUtility: Florence2Image2Prompt",
+            "pos": [
+                -899.53515625,
+                -674.1964721679688
+            ],
+            "size": [
+                302.3999938964844,
+                198
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "florence2_model",
+                    "type": "FLORENCE2",
+                    "link": 202
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 203
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "text",
+                    "type": "STRING",
+                    "links": [
+                        213,
+                        215
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "preview_image",
+                    "type": "IMAGE",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LayerUtility: Florence2Image2Prompt"
+            },
+            "widgets_values": [
+                "more detailed caption",
+                "",
+                1024,
+                3,
+                false,
+                false
+            ],
+            "color": "rgba(38, 73, 116, 0.7)"
+        },
+        {
+            "id": 135,
+            "type": "VAEEncode",
+            "pos": [
+                -830.7152709960938,
+                -754.7484741210938
+            ],
+            "size": [
+                304.3225402832031,
+                46.74321746826172
+            ],
+            "flags": {
+                "collapsed": true
+            },
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "pixels",
+                    "type": "IMAGE",
+                    "link": 207
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 208
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        209
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEEncode"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 138,
+            "type": "Text_Translation_V2",
+            "pos": [
+                -546.1392822265625,
+                -823.2416381835938
+            ],
+            "size": [
+                259.86993408203125,
+                107.64920043945312
+            ],
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "trans_text",
+                    "type": "STRING",
+                    "link": 215,
+                    "widget": {
+                        "name": "trans_text"
+                    }
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "string",
+                    "type": "STRING",
+                    "links": [
+                        216
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "Text_Translation_V2"
+            },
+            "widgets_values": [
+                true,
+                "",
+                "Alibaba",
+                "English(en)",
+                "中文(zh)",
+                "button_show"
+            ]
+        },
+        {
+            "id": 121,
+            "type": "CLIPTextEncode",
+            "pos": [
+                -546.9652709960938,
+                -962.2266235351562
+            ],
+            "size": [
+                253.32962036132812,
+                76
+            ],
+            "flags": {
+                "collapsed": false
+            },
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 182
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        206
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+                ""
+            ]
+        },
+        {
+            "id": 137,
+            "type": "CLIPTextEncodeFlux",
+            "pos": [
+                -550.9556274414062,
+                -1156.3768310546875
+            ],
+            "size": [
+                255.9457550048828,
+                125.91423797607422
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 212
+                },
+                {
+                    "name": "t5xxl",
+                    "type": "STRING",
+                    "link": 213,
+                    "widget": {
+                        "name": "t5xxl"
+                    }
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        214
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "CLIPTextEncodeFlux"
+            },
+            "widgets_values": [
+                "IMG1024.CR2, Realistic, photography,",
+                "",
+                4
+            ]
+        },
+        {
+            "id": 8,
+            "type": "VAEDecode",
+            "pos": [
+                -243.8519287109375,
+                -451.05792236328125
+            ],
+            "size": [
+                284.5487365722656,
+                46
+            ],
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "samples",
+                    "type": "LATENT",
+                    "link": 176
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": 137
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        153
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VAEDecode"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 118,
+            "type": "LoadImage",
+            "pos": [
+                -1855.951904296875,
+                -1158.9461669921875
+            ],
+            "size": [
+                421.525390625,
+                383.7686767578125
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        187
+                    ],
+                    "slot_index": 0
+                },
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [],
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "6c3c9d24afb700bae3258d03a4cc8ca6.jpg",
+                "image"
+            ]
+        },
+        {
+            "id": 129,
+            "type": "ImageScale",
+            "pos": [
+                -1793.09912109375,
+                -607.0211791992188
+            ],
+            "size": [
+                222.34864807128906,
+                130
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 187
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        203,
+                        207,
+                        211
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageScale"
+            },
+            "widgets_values": [
+                "bicubic",
+                1280,
+                720,
+                "center"
+            ]
+        },
+        {
+            "id": 139,
+            "type": "easy showAnything",
+            "pos": [
+                -551.5791625976562,
+                -630.1419067382812
+            ],
+            "size": [
+                276.077880859375,
+                270.38555908203125
+            ],
+            "flags": {},
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "anything",
+                    "type": "*",
+                    "link": 216,
+                    "shape": 7
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "*",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "easy showAnything"
+            },
+            "widgets_values": [
+                "该图像是电视节目《权力的游戏》中的静止图像。它显示了艾米莉亚·克拉克 (Emilia Clarke) 扮演的角色丹妮莉丝·坦格利安 (Daenerys Targaryen) 站在一群士兵面前。她穿着一件蓝色外套，留着一头半上半下的金色长发。她表情严肃，直视镜头。背景是模糊的，但它似乎是一个战斗场景与其他士兵在远处。图像的整体情绪是激烈和戏剧性的。"
+            ]
+        },
+        {
+            "id": 134,
+            "type": "LayerMask: LoadFlorence2Model",
+            "pos": [
+                -899.5497436523438,
+                -418.7078552246094
+            ],
+            "size": [
+                302.0053405761719,
+                58
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "florence2_model",
+                    "type": "FLORENCE2",
+                    "links": [
+                        202
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LayerMask: LoadFlorence2Model"
+            },
+            "widgets_values": [
+                "base"
+            ],
+            "color": "rgba(27, 80, 119, 0.7)"
+        },
+        {
+            "id": 122,
+            "type": "KSampler",
+            "pos": [
+                -247.81497192382812,
+                -1096.210693359375
+            ],
+            "size": [
+                287.945068359375,
+                558.5230712890625
+            ],
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 210
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 214
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 206
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 209
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        176
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+                287191057754135,
+                "randomize",
+                4,
+                1,
+                "euler",
+                "sgm_uniform",
+                1
+            ]
+        }
+    ],
+    "links": [
+        [
+            137,
+            10,
+            0,
+            8,
+            1,
+            "VAE"
+        ],
+        [
+            153,
+            8,
+            0,
+            113,
+            0,
+            "IMAGE"
+        ],
+        [
+            176,
+            122,
+            0,
+            8,
+            0,
+            "LATENT"
+        ],
+        [
+            182,
+            126,
+            0,
+            121,
+            0,
+            "CLIP"
+        ],
+        [
+            187,
+            118,
+            0,
+            129,
+            0,
+            "IMAGE"
+        ],
+        [
+            202,
+            134,
+            0,
+            133,
+            0,
+            "FLORENCE2"
+        ],
+        [
+            203,
+            129,
+            0,
+            133,
+            1,
+            "IMAGE"
+        ],
+        [
+            206,
+            121,
+            0,
+            122,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            207,
+            129,
+            0,
+            135,
+            0,
+            "IMAGE"
+        ],
+        [
+            208,
+            10,
+            0,
+            135,
+            1,
+            "VAE"
+        ],
+        [
+            209,
+            135,
+            0,
+            122,
+            3,
+            "LATENT"
+        ],
+        [
+            210,
+            109,
+            0,
+            122,
+            0,
+            "MODEL"
+        ],
+        [
+            211,
+            129,
+            0,
+            136,
+            0,
+            "IMAGE"
+        ],
+        [
+            212,
+            126,
+            0,
+            137,
+            0,
+            "CLIP"
+        ],
+        [
+            213,
+            133,
+            0,
+            137,
+            1,
+            "STRING"
+        ],
+        [
+            214,
+            137,
+            0,
+            122,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            215,
+            133,
+            0,
+            138,
+            0,
+            "STRING"
+        ],
+        [
+            216,
+            138,
+            0,
+            139,
+            0,
+            "*"
+        ]
+    ],
+    "groups": [
+        {
+            "id": 2,
+            "title": "主流程",
+            "bounding": [
+                -1895.1195068359375,
+                -1248.1988525390625,
+                2005.1329345703125,
+                928.2998657226562
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {}
+        }
+    ],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.6115909044842358,
+            "offset": [
+                2233.0526922577324,
+                1657.7718500814574
+            ]
+        },
+        "ue_links": [],
+        "workspace_info": {
+            "id": "a4f88324-bf10-46a2-82a4-622a0ece9f21"
+        }
+    },
+    "version": 0.4
+}
