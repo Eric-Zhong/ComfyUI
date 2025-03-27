@@ -4,17 +4,17 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    {
-        "name": "Dart: Attach to Process",
-        "type": "dart",
-        "request": "attach"
-    },
         {
-            "name": "Python Debugger: Current File",
+            "name": "Debug ComfyUI",
             "type": "debugpy",
             "request": "launch",
             "program": "main.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Dart: Attach to Process",
+            "type": "dart",
+            "request": "attach"
         }
     ]
 }

@@ -5,8 +5,15 @@ __pycache__/
 !/input/example.png
 /models/
 /temp/
+
+##########################################
 /custom_nodes/
+# 用 git 管理 custom_nodes
+!custom_nodes/ComfyUI-Easy-Use
 !custom_nodes/example_node.py.example
+##########################################
+
+
 extra_model_paths.yaml
 /.vs
 .vscode/
