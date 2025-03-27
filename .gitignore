@@ -19,3 +19,7 @@ venv/
 *.log
 web_custom_versions/
 .DS_Store
+
+/custom_nodes/
+!/custom_nodes/ComfyUI-Crystools/__init__.py
+!/custom_nodes/ComfyUI-Crystools/_names.py

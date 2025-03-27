@@ -18,9 +18,7 @@ models:
         method: git
         # git clone https://www.modelscope.cn/<namespace>/<model-name>.git
         # thomas/siglip-so400m-patch14-384
-        url: https://www.modelscope.cn/thomas/siglip-so400m-patch14-384.git
-  Meta-Llama-3.1-8B-bnb-4bit:
-    name: Meta-Llama-3.1-8B-Instruct-bnb-4bit
+        url: https://www.modelscope.cn/thomas/siglip-so400m-patch14-384.git 
     category: LLM
     type: LLM
     description: LLM-Research/Meta-Llama-3.1-8B-Instruct-bnb-4bit
@@ -482,6 +480,14 @@ custom_nodes:
     name: ComfyUI_Custom_Nodes_AlekPet
     description: 
     models:
+  ComfyUI-KJNodes:
+    method: git
+    url: https://github.com/kijai/ComfyUI-KJNodes.git
+    save_as: ComfyUI-KJNodes
+    name: ComfyUI-KJNodes
+    description: 
+    models:
+
 
   xxxxxxxxxxxxxxxxxxxxxxxxxxxx:
     method: xxxx
