@@ -15,6 +15,10 @@ class CausalConv3d(nn.Module):
         stride: Union[int, Tuple[int]] = 1,
         dilation: int = 1,
         groups: int = 1,
+<<<<<<< HEAD
+=======
+        spatial_padding_mode: str = "zeros",
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         **kwargs,
     ):
         super().__init__()
@@ -38,7 +42,11 @@ class CausalConv3d(nn.Module):
             stride=stride,
             dilation=dilation,
             padding=padding,
+<<<<<<< HEAD
             padding_mode="zeros",
+=======
+            padding_mode=spatial_padding_mode,
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
             groups=groups,
         )
 

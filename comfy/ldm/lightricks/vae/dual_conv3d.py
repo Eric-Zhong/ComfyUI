@@ -18,11 +18,19 @@ class DualConv3d(nn.Module):
         dilation: Union[int, Tuple[int, int, int]] = 1,
         groups=1,
         bias=True,
+<<<<<<< HEAD
+=======
+        padding_mode="zeros",
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
     ):
         super(DualConv3d, self).__init__()
 
         self.in_channels = in_channels
         self.out_channels = out_channels
+<<<<<<< HEAD
+=======
+        self.padding_mode = padding_mode
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         # Ensure kernel_size, stride, padding, and dilation are tuples of length 3
         if isinstance(kernel_size, int):
             kernel_size = (kernel_size, kernel_size, kernel_size)
@@ -108,6 +116,10 @@ class DualConv3d(nn.Module):
             self.padding1,
             self.dilation1,
             self.groups,
+<<<<<<< HEAD
+=======
+            padding_mode=self.padding_mode,
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         )
 
         if skip_time_conv:
@@ -122,6 +134,10 @@ class DualConv3d(nn.Module):
             self.padding2,
             self.dilation2,
             self.groups,
+<<<<<<< HEAD
+=======
+            padding_mode=self.padding_mode,
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         )
 
         return x
@@ -137,7 +153,20 @@ class DualConv3d(nn.Module):
         stride1 = (self.stride1[1], self.stride1[2])
         padding1 = (self.padding1[1], self.padding1[2])
         dilation1 = (self.dilation1[1], self.dilation1[2])
+<<<<<<< HEAD
         x = F.conv2d(x, weight1, self.bias1, stride1, padding1, dilation1, self.groups)
+=======
+        x = F.conv2d(
+            x,
+            weight1,
+            self.bias1,
+            stride1,
+            padding1,
+            dilation1,
+            self.groups,
+            padding_mode=self.padding_mode,
+        )
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
         _, _, h, w = x.shape
 
@@ -154,7 +183,20 @@ class DualConv3d(nn.Module):
         stride2 = self.stride2[0]
         padding2 = self.padding2[0]
         dilation2 = self.dilation2[0]
+<<<<<<< HEAD
         x = F.conv1d(x, weight2, self.bias2, stride2, padding2, dilation2, self.groups)
+=======
+        x = F.conv1d(
+            x,
+            weight2,
+            self.bias2,
+            stride2,
+            padding2,
+            dilation2,
+            self.groups,
+            padding_mode=self.padding_mode,
+        )
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         x = rearrange(x, "(b h w) c d -> b c d h w", b=b, h=h, w=w)
 
         return x

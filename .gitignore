@@ -5,6 +5,7 @@ __pycache__/
 !/input/example.png
 /models/
 /temp/
+<<<<<<< HEAD
 
 ##########################################
 /custom_nodes/
@@ -14,6 +15,8 @@ __pycache__/
 ##########################################
 
 
+=======
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 extra_model_paths.yaml
 /.vs
 .vscode/
@@ -28,3 +31,10 @@ venv/
 *.log
 web_custom_versions/
 .DS_Store
+<<<<<<< HEAD
+=======
+
+/custom_nodes/
+!/custom_nodes/ComfyUI-Crystools/__init__.py
+!/custom_nodes/ComfyUI-Crystools/_names.py
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d

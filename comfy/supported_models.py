@@ -762,7 +762,11 @@ class LTXV(supported_models_base.BASE):
     unet_extra_config = {}
     latent_format = latent_formats.LTXV
 
+<<<<<<< HEAD
     memory_usage_factor = 2.7
+=======
+    memory_usage_factor = 5.5 # TODO: img2vid is about 2x vs txt2vid
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
     supported_inference_dtypes = [torch.bfloat16, torch.float32]
 
@@ -826,6 +830,29 @@ class HunyuanVideo(supported_models_base.BASE):
         hunyuan_detect = comfy.text_encoders.hunyuan_video.llama_detect(state_dict, "{}llama.transformer.".format(pref))
         return supported_models_base.ClipTarget(comfy.text_encoders.hunyuan_video.HunyuanVideoTokenizer, comfy.text_encoders.hunyuan_video.hunyuan_video_clip(**hunyuan_detect))
 
+<<<<<<< HEAD
+=======
+class HunyuanVideoI2V(HunyuanVideo):
+    unet_config = {
+        "image_model": "hunyuan_video",
+        "in_channels": 33,
+    }
+
+    def get_model(self, state_dict, prefix="", device=None):
+        out = model_base.HunyuanVideoI2V(self, device=device)
+        return out
+
+class HunyuanVideoSkyreelsI2V(HunyuanVideo):
+    unet_config = {
+        "image_model": "hunyuan_video",
+        "in_channels": 32,
+    }
+
+    def get_model(self, state_dict, prefix="", device=None):
+        out = model_base.HunyuanVideoSkyreelsI2V(self, device=device)
+        return out
+
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 class CosmosT2V(supported_models_base.BASE):
     unet_config = {
         "image_model": "cosmos",
@@ -911,7 +938,11 @@ class WAN21_T2V(supported_models_base.BASE):
 
     memory_usage_factor = 1.0
 
+<<<<<<< HEAD
     supported_inference_dtypes = [torch.bfloat16, torch.float16, torch.float32]
+=======
+    supported_inference_dtypes = [torch.float16, torch.bfloat16, torch.float32]
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
     vae_key_prefix = ["vae."]
     text_encoder_key_prefix = ["text_encoders."]
@@ -939,6 +970,10 @@ class WAN21_I2V(WAN21_T2V):
         out = model_base.WAN21(self, image_to_video=True, device=device)
         return out
 
+<<<<<<< HEAD
 models = [Stable_Zero123, SD15_instructpix2pix, SD15, SD20, SD21UnclipL, SD21UnclipH, SDXL_instructpix2pix, SDXLRefiner, SDXL, SSD1B, KOALA_700M, KOALA_1B, Segmind_Vega, SD_X4Upscaler, Stable_Cascade_C, Stable_Cascade_B, SV3D_u, SV3D_p, SD3, StableAudio, AuraFlow, PixArtAlpha, PixArtSigma, HunyuanDiT, HunyuanDiT1, FluxInpaint, Flux, FluxSchnell, GenmoMochi, LTXV, HunyuanVideo, CosmosT2V, CosmosI2V, Lumina2, WAN21_T2V, WAN21_I2V]
+=======
+models = [Stable_Zero123, SD15_instructpix2pix, SD15, SD20, SD21UnclipL, SD21UnclipH, SDXL_instructpix2pix, SDXLRefiner, SDXL, SSD1B, KOALA_700M, KOALA_1B, Segmind_Vega, SD_X4Upscaler, Stable_Cascade_C, Stable_Cascade_B, SV3D_u, SV3D_p, SD3, StableAudio, AuraFlow, PixArtAlpha, PixArtSigma, HunyuanDiT, HunyuanDiT1, FluxInpaint, Flux, FluxSchnell, GenmoMochi, LTXV, HunyuanVideoSkyreelsI2V, HunyuanVideoI2V, HunyuanVideo, CosmosT2V, CosmosI2V, Lumina2, WAN21_T2V, WAN21_I2V]
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 models += [SVD_img2vid]

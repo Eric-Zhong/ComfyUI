@@ -17,7 +17,15 @@ def make_conv_nd(
     groups=1,
     bias=True,
     causal=False,
+<<<<<<< HEAD
 ):
+=======
+    spatial_padding_mode="zeros",
+    temporal_padding_mode="zeros",
+):
+    if not (spatial_padding_mode == temporal_padding_mode or causal):
+        raise NotImplementedError("spatial and temporal padding modes must be equal")
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
     if dims == 2:
         return ops.Conv2d(
             in_channels=in_channels,
@@ -28,6 +36,10 @@ def make_conv_nd(
             dilation=dilation,
             groups=groups,
             bias=bias,
+<<<<<<< HEAD
+=======
+            padding_mode=spatial_padding_mode,
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         )
     elif dims == 3:
         if causal:
@@ -40,6 +52,10 @@ def make_conv_nd(
                 dilation=dilation,
                 groups=groups,
                 bias=bias,
+<<<<<<< HEAD
+=======
+                spatial_padding_mode=spatial_padding_mode,
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
             )
         return ops.Conv3d(
             in_channels=in_channels,
@@ -50,6 +66,10 @@ def make_conv_nd(
             dilation=dilation,
             groups=groups,
             bias=bias,
+<<<<<<< HEAD
+=======
+            padding_mode=spatial_padding_mode,
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         )
     elif dims == (2, 1):
         return DualConv3d(
@@ -59,6 +79,10 @@ def make_conv_nd(
             stride=stride,
             padding=padding,
             bias=bias,
+<<<<<<< HEAD
+=======
+            padding_mode=spatial_padding_mode,
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         )
     else:
         raise ValueError(f"unsupported dimensions: {dims}")

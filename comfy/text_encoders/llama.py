@@ -241,8 +241,16 @@ class Llama2_(nn.Module):
         self.norm = RMSNorm(config.hidden_size, eps=config.rms_norm_eps, add=config.rms_norm_add, device=device, dtype=dtype)
         # self.lm_head = ops.Linear(config.hidden_size, config.vocab_size, bias=False, device=device, dtype=dtype)
 
+<<<<<<< HEAD
     def forward(self, x, attention_mask=None, intermediate_output=None, final_layer_norm_intermediate=True, dtype=None):
         x = self.embed_tokens(x, out_dtype=dtype)
+=======
+    def forward(self, x, attention_mask=None, embeds=None, num_tokens=None, intermediate_output=None, final_layer_norm_intermediate=True, dtype=None):
+        if embeds is not None:
+            x = embeds
+        else:
+            x = self.embed_tokens(x, out_dtype=dtype)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
         if self.normalize_in:
             x *= self.config.hidden_size ** 0.5

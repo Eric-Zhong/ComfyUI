@@ -7,7 +7,11 @@ on:
         description: 'cuda version'
         required: true
         type: string
+<<<<<<< HEAD
         default: "126"
+=======
+        default: "128"
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
       python_minor:
         description: 'python minor version'
@@ -19,7 +23,11 @@ on:
         description: 'python patch version'
         required: true
         type: string
+<<<<<<< HEAD
         default: "1"
+=======
+        default: "2"
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 #  push:
 #    branches:
 #      - master
@@ -34,7 +42,7 @@ jobs:
     steps:
         - uses: actions/checkout@v4
           with:
-            fetch-depth: 0
+            fetch-depth: 30
             persist-credentials: false
         - uses: actions/setup-python@v5
           with:
@@ -74,7 +82,11 @@ jobs:
             pause" > ./update/update_comfyui_and_python_dependencies.bat
             cd ..
 
+<<<<<<< HEAD
             "C:\Program Files\7-Zip\7z.exe" a -t7z -m0=lzma2 -mx=8 -mfb=64 -md=32m -ms=on -mf=BCJ2 ComfyUI_windows_portable_nightly_pytorch.7z ComfyUI_windows_portable_nightly_pytorch
+=======
+            "C:\Program Files\7-Zip\7z.exe" a -t7z -m0=lzma2 -mx=9 -mfb=128 -md=512m -ms=on -mf=BCJ2 ComfyUI_windows_portable_nightly_pytorch.7z ComfyUI_windows_portable_nightly_pytorch
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
             mv ComfyUI_windows_portable_nightly_pytorch.7z ComfyUI/ComfyUI_windows_portable_nvidia_or_cpu_nightly_pytorch.7z
 
             cd ComfyUI_windows_portable_nightly_pytorch

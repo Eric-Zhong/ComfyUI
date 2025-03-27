@@ -11,9 +11,15 @@ class WanImageToVideo:
         return {"required": {"positive": ("CONDITIONING", ),
                              "negative": ("CONDITIONING", ),
                              "vae": ("VAE", ),
+<<<<<<< HEAD
                              "width": ("INT", {"default": 1280, "min": 16, "max": nodes.MAX_RESOLUTION, "step": 16}),
                              "height": ("INT", {"default": 720, "min": 16, "max": nodes.MAX_RESOLUTION, "step": 16}),
                              "length": ("INT", {"default": 121, "min": 1, "max": nodes.MAX_RESOLUTION, "step": 4}),
+=======
+                             "width": ("INT", {"default": 832, "min": 16, "max": nodes.MAX_RESOLUTION, "step": 16}),
+                             "height": ("INT", {"default": 480, "min": 16, "max": nodes.MAX_RESOLUTION, "step": 16}),
+                             "length": ("INT", {"default": 81, "min": 1, "max": nodes.MAX_RESOLUTION, "step": 4}),
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
                              "batch_size": ("INT", {"default": 1, "min": 1, "max": 4096}),
                 },
                 "optional": {"clip_vision_output": ("CLIP_VISION_OUTPUT", ),

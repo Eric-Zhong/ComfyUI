@@ -25,7 +25,11 @@ import comfy.sample
 import comfy.sd
 import comfy.utils
 import comfy.controlnet
+<<<<<<< HEAD
 from comfy.comfy_types import IO, ComfyNodeABC, InputTypeDict
+=======
+from comfy.comfy_types import IO, ComfyNodeABC, InputTypeDict, FileLocator
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 import comfy.clip_vision
 
@@ -479,7 +483,7 @@ class SaveLatent:
 
         file = f"{filename}_{counter:05}_.latent"
 
-        results = list()
+        results: list[FileLocator] = []
         results.append({
             "filename": file,
             "subfolder": subfolder,
@@ -1519,7 +1523,11 @@ class KSampler:
         return {
             "required": {
                 "model": ("MODEL", {"tooltip": "The model used for denoising the input latent."}),
+<<<<<<< HEAD
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "tooltip": "The random seed used for creating the noise."}),
+=======
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "control_after_generate": True, "tooltip": "The random seed used for creating the noise."}),
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
                 "steps": ("INT", {"default": 20, "min": 1, "max": 10000, "tooltip": "The number of steps used in the denoising process."}),
                 "cfg": ("FLOAT", {"default": 8.0, "min": 0.0, "max": 100.0, "step":0.1, "round": 0.01, "tooltip": "The Classifier-Free Guidance scale balances creativity and adherence to the prompt. Higher values result in images more closely matching the prompt however too high values will negatively impact quality."}),
                 "sampler_name": (comfy.samplers.KSampler.SAMPLERS, {"tooltip": "The algorithm used when sampling, this can affect the quality, speed, and style of the generated output."}),
@@ -1547,7 +1555,7 @@ class KSamplerAdvanced:
         return {"required":
                     {"model": ("MODEL",),
                     "add_noise": (["enable", "disable"], ),
-                    "noise_seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
+                    "noise_seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "control_after_generate": True}),
                     "steps": ("INT", {"default": 20, "min": 1, "max": 10000}),
                     "cfg": ("FLOAT", {"default": 8.0, "min": 0.0, "max": 100.0, "step":0.1, "round": 0.01}),
                     "sampler_name": (comfy.samplers.KSampler.SAMPLERS, ),
@@ -1788,7 +1796,11 @@ class LoadImageOutput(LoadImage):
     FUNCTION = "load_image_output"
 
     def load_image_output(self, image):
+<<<<<<< HEAD
         return self.load_image(f"{image} [output]")
+=======
+        return self.load_image(f"{image}")
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
     @classmethod
     def VALIDATE_INPUTS(s, image):

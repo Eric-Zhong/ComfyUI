@@ -18,7 +18,11 @@ class FluxTokenizer:
         self.clip_l = clip_l_tokenizer_class(embedding_directory=embedding_directory)
         self.t5xxl = T5XXLTokenizer(embedding_directory=embedding_directory)
 
+<<<<<<< HEAD
     def tokenize_with_weights(self, text:str, return_word_ids=False):
+=======
+    def tokenize_with_weights(self, text:str, return_word_ids=False, **kwargs):
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         out = {}
         out["l"] = self.clip_l.tokenize_with_weights(text, return_word_ids)
         out["t5xxl"] = self.t5xxl.tokenize_with_weights(text, return_word_ids)

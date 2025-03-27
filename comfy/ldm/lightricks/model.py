@@ -7,7 +7,11 @@ from einops import rearrange
 import math
 from typing import Dict, Optional, Tuple
 
+<<<<<<< HEAD
 from .symmetric_patchifier import SymmetricPatchifier
+=======
+from .symmetric_patchifier import SymmetricPatchifier, latent_to_pixel_coords
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 
 def get_timestep_embedding(
@@ -377,12 +381,25 @@ class LTXVModel(torch.nn.Module):
 
                  positional_embedding_theta=10000.0,
                  positional_embedding_max_pos=[20, 2048, 2048],
+<<<<<<< HEAD
                  dtype=None, device=None, operations=None, **kwargs):
         super().__init__()
         self.generator = None
         self.dtype = dtype
         self.out_channels = in_channels
         self.inner_dim = num_attention_heads * attention_head_dim
+=======
+                 causal_temporal_positioning=False,
+                 vae_scale_factors=(8, 32, 32),
+                 dtype=None, device=None, operations=None, **kwargs):
+        super().__init__()
+        self.generator = None
+        self.vae_scale_factors = vae_scale_factors
+        self.dtype = dtype
+        self.out_channels = in_channels
+        self.inner_dim = num_attention_heads * attention_head_dim
+        self.causal_temporal_positioning = causal_temporal_positioning
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
         self.patchify_proj = operations.Linear(in_channels, self.inner_dim, bias=True, dtype=dtype, device=device)
 
@@ -416,6 +433,7 @@ class LTXVModel(torch.nn.Module):
 
         self.patchifier = SymmetricPatchifier(1)
 
+<<<<<<< HEAD
     def forward(self, x, timestep, context, attention_mask, frame_rate=25, guiding_latent=None, guiding_latent_noise_scale=0, transformer_options={}, **kwargs):
         patches_replace = transformer_options.get("patches_replace", {})
 
@@ -452,6 +470,25 @@ class LTXVModel(torch.nn.Module):
         orig_shape = list(x.shape)
 
         x = self.patchifier.patchify(x)
+=======
+    def forward(self, x, timestep, context, attention_mask, frame_rate=25, transformer_options={}, keyframe_idxs=None, **kwargs):
+        patches_replace = transformer_options.get("patches_replace", {})
+
+        orig_shape = list(x.shape)
+
+        x, latent_coords = self.patchifier.patchify(x)
+        pixel_coords = latent_to_pixel_coords(
+            latent_coords=latent_coords,
+            scale_factors=self.vae_scale_factors,
+            causal_fix=self.causal_temporal_positioning,
+        )
+
+        if keyframe_idxs is not None:
+            pixel_coords[:, :, -keyframe_idxs.shape[2]:] = keyframe_idxs
+
+        fractional_coords = pixel_coords.to(torch.float32)
+        fractional_coords[:, 0] = fractional_coords[:, 0] * (1.0 / frame_rate)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
         x = self.patchify_proj(x)
         timestep = timestep * 1000.0
@@ -459,7 +496,11 @@ class LTXVModel(torch.nn.Module):
         if attention_mask is not None and not torch.is_floating_point(attention_mask):
             attention_mask = (attention_mask - 1).to(x.dtype).reshape((attention_mask.shape[0], 1, -1, attention_mask.shape[-1])) * torch.finfo(x.dtype).max
 
+<<<<<<< HEAD
         pe = precompute_freqs_cis(indices_grid, dim=self.inner_dim, out_dtype=x.dtype)
+=======
+        pe = precompute_freqs_cis(fractional_coords, dim=self.inner_dim, out_dtype=x.dtype)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
         batch_size = x.shape[0]
         timestep, embedded_timestep = self.adaln_single(
@@ -519,8 +560,11 @@ class LTXVModel(torch.nn.Module):
             out_channels=orig_shape[1] // math.prod(self.patchifier.patch_size),
         )
 
+<<<<<<< HEAD
         if guiding_latent is not None:
             x[:, :, 0] = (input_x[:, :, 0] - guiding_latent[:, :, 0]) / input_ts[:, :, 0]
 
         # print("res", x)
+=======
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         return x

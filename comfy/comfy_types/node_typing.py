@@ -114,7 +114,11 @@ class InputTypeOptions(TypedDict):
     # default: bool
     label_on: str
     """The label to use in the UI when the bool is True (``BOOLEAN``)"""
+<<<<<<< HEAD
     label_on: str
+=======
+    label_off: str
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
     """The label to use in the UI when the bool is False (``BOOLEAN``)"""
     # class InputTypeString(InputTypeOptions):
     # default: str
@@ -134,6 +138,11 @@ class InputTypeOptions(TypedDict):
     """
     remote: RemoteInputOptions
     """Specifies the configuration for a remote input."""
+<<<<<<< HEAD
+=======
+    control_after_generate: bool
+    """Specifies whether a control widget should be added to the input, adding options to automatically change the value after each prompt is queued. Currently only used for INT and COMBO types."""
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 
 class HiddenInputTypeDict(TypedDict):
@@ -293,3 +302,17 @@ class CheckLazyMixin:
 
         need = [name for name in kwargs if kwargs[name] is None]
         return need
+<<<<<<< HEAD
+=======
+
+
+class FileLocator(TypedDict):
+    """Provides type hinting for the file location"""
+
+    filename: str
+    """The filename of the file."""
+    subfolder: str
+    """The subfolder of the file."""
+    type: Literal["input", "output", "temp"]
+    """The root folder of the file."""
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d

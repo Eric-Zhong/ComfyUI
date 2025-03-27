@@ -22,7 +22,11 @@ on:
         description: 'Python patch version'
         required: true
         type: string
+<<<<<<< HEAD
         default: "8"
+=======
+        default: "9"
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 
 jobs:

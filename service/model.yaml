@@ -1,0 +1,499 @@
+base:
+  root: C:\Users\zhong\git\ComfyUI
+channels:
+  huggingface: false
+  civitai: false
+  modelscope: true
+models:
+  siglip-so400m-patch14-384:
+    name: siglip-so400m-patch14-384
+    category: I2T
+    type: siglip
+    description: siglip-so400m-patch14-384
+    save_as: models/clip/siglip-so400m-patch14-384
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        # git clone https://www.modelscope.cn/<namespace>/<model-name>.git
+        # thomas/siglip-so400m-patch14-384
+        url: https://www.modelscope.cn/thomas/siglip-so400m-patch14-384.git 
+    category: LLM
+    type: LLM
+    description: LLM-Research/Meta-Llama-3.1-8B-Instruct-bnb-4bit
+    save_as: models/LLM/Meta-Llama-3.1-8B-Instruct-bnb-4bit
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/LLM-Research/Meta-Llama-3.1-8B-Instruct-bnb-4bit.git
+  joy-caption-alpha-two:
+    name: joy-caption-alpha-two
+    category: LLM
+    type: LLM
+    description: fireicewolf/joy-caption-alpha-two
+    save_as: models/Joy_caption_two
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/fireicewolf/joy-caption-alpha-two.git
+  t5-v1_1:
+    name: joy-caption-alpha-two
+    category: CLIP
+    type: CLIP
+    save_as: models/clip
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/city96/t5-v1_1-xxl-encoder-gguf/resolve/master/t5-v1_1-xxl-encoder-Q5_K_M.gguf
+        file_name: t5-v1_1-xxl-encoder-Q5_K_M.gguf
+    description: google t5 (Text-To-Text Transfer Transformer)
+  FLUX-film-foto-lora:
+    name: FLUX-film-foto-lora
+    category: lora
+    type: lora
+    save_as: models/loras
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/sd_lora/flux_film_foto/resolve/master/araminta_k_flux_film_foto.safetensors
+        file_name: araminta_k_flux_film_foto.safetensors
+    description: google t5 (Text-To-Text Transfer Transformer)
+  omost-llama-3-8b-4bits:
+    name: omost-llama-3-8b-4bits
+    category: 
+    type: 
+    save_as: custom_nodes/comfyui_LLM_party/model/LLM/omost-llama-3-8b-4bits
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/cjc1887415157/omost-llama-3-8b-4bits.git
+        file_name: 
+    description: modelscope cjc1887415157/omost-llama-3-8b-4bits
+  Anything-V3.0:
+    name: Anything-V3.0
+    category: checkpoint
+    type: ckpt
+    save_as: models/checkpoints
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/AI-ModelScope/anything-v3.0/resolve/master/Anything-V3.0.ckpt
+        file_name: Anything-V3.0.ckpt
+    description: https://modelscope.cn/models/AI-ModelScope/anything-v3.0/summary
+  AOM31B:
+    name: AbyssOrangeMix3 (AOM3)
+    category: checkpoint
+    type: safetensors
+    save_as: models/checkpoints
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/MusePublic/60_ckpt_SD_1_5/resolve/297/297.safetensors
+        file_name: Anything-V3.0.ckpt
+    description: https://modelscope.cn/models/MusePublic/60_ckpt_SD_1_5/summary
+  vae-ft-mse-840000-ema-pruned:
+    name: vae-ft-mse-840000-ema-pruned
+    category: 
+    type: 
+    save_as: models/loras
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/MusePublic/37_VAE_SD_1_5/resolve/124/124.safetensors
+        file_name: vae-ft-mse-840000-ema-pruned.safetensors
+    description: sssssssssssssssssssssssssssss
+  kl-f8-anime2:
+    name: kl-f8-anime2
+    category: 
+    type: 
+    save_as: models/vae
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/MusePublic/36_VAE_SD_1_5/resolve/123/123.safetensors
+        file_name: kl-f8-anime2.safetensors
+    description: https://modelscope.cn/models/MusePublic/36_VAE_SD_1_5
+  stable-cascade:
+    name: stable-cascade
+    category: checkpoint
+    type: 
+    save_as: models\checkpoints\Cascade
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/stabilityai/stable-cascade/resolve/master/stage_c_bf16.safetensors
+        file_name: stable_cascade_stage_b.safetensors
+    description: https://modelscope.cn/models/stabilityai/stable-cascade/files
+  flux1-fill-dev:
+    name: flux1-fill-dev
+    category: checkpoint
+    type: 
+    save_as: models/unet
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/AI-ModelScope/FLUX.1-Fill-dev/resolve/master/flux1-fill-dev.safetensors
+        file_name: flux1-fill-dev.safetensors
+    description: https://modelscope.cn/models/AI-ModelScope/FLUX.1-Fill-dev
+  ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF:
+    name: ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF
+    category: clip
+    type: 
+    save_as: models/unet
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/AI-ModelScope/CLIP-GmP-ViT-L-14/resolve/master/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors
+        file_name: ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors
+    description: https://modelscope.cn/models/AI-ModelScope/CLIP-GmP-ViT-L-14
+  ic-light:
+    name: ic-light
+    category: 
+    type: 
+    save_as: models/iclight
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/lllyasviel/ic-light.git
+        file_name: 
+    description: ic-light sd1.5
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_zoedepth_sd15v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_depth_sd15v2.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_openpose_sd14v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_style_sd14v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_sketch_sd15v2.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_canny_sd15v2.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_keypose_sd14v1.pth
+# https://modelscope.cn/models/TencentARC/T2I-Adapter/resolve/master/models/t2iadapter_color_sd14v1.pth
+  BiRefNet:
+    name: BiRefNet
+    category: 
+    type: 
+    save_as: models/BiRefNet/ZhengPeng7/BiRefNet
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git
+        url: https://www.modelscope.cn/modelscope/BiRefNet.git
+        file_name: 
+    description: sssssssssssssssssssssssssssss
+
+
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:
+    name: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    category: 
+    type: 
+    save_as: <git clone to fold>|<wget download and save to fold>
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: git|wget
+        url: ttttttttttttttttttttttttttttttttttttttttt
+        # url: https://www.modelscope.cn/<xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>.git
+        file_name: tttttttttttttt
+    description: sssssssssssssssssssssssssssss
+custom_nodes:
+  ComfyUI_SLK_joy_caption_two:
+    method: git
+    url: https://github.com/EvilBT/ComfyUI_SLK_joy_caption_two.git
+    save_as: ComfyUI_SLK_joy_caption_two
+    name: ComfyUI_SLK_joy_caption_two
+    description: 图片转提示词
+    models:
+      - joy-caption-alpha-two
+      - Meta-Llama-3.1-8B-Instruct-bnb-4bit
+      - siglip-so400m-patch14-384
+  ComfyUI-IC-Light:
+    method: git
+    url: https://github.com/kijai/ComfyUI-IC-Light.git
+    save_as: ComfyUI-IC-Light
+    name: ComfyUI-IC-Light
+    description: 打光
+    models:
+  ComfyUI-IC-Light-Native:
+    method: git
+    url: https://github.com/huchenlei/ComfyUI-IC-Light-Native.git
+    save_as: ComfyUI-IC-Light-Native
+    name: ComfyUI-IC-Light-Native
+    description: 打光
+    models:
+  ComfyUI-Gaffer:
+    method: git
+    url: https://github.com/huagetai/ComfyUI-Gaffer.git
+    save_as: ComfyUI-Gaffer
+    name: ComfyUI-Gaffer
+    description: 打光
+    models:
+  ComfyUI-Impact-Pack:
+    method: git
+    url: https://github.com/ltdrdata/ComfyUI-Impact-Pack.git
+    save_as: ComfyUI-Impact-Pack
+    name: ComfyUI-Impact-Pack
+    description: 
+    models:
+  ComfyUI-to-Python-Extension:
+    method: git
+    url: https://github.com/pydn/ComfyUI-to-Python-Extension.git
+    save_as: ComfyUI-to-Python-Extension
+    name: ComfyUI-to-Python-Extension
+    description: 
+    models:
+  ComfyUI-to-Python-Extension:
+    method: git
+    url: https://github.com/heshengtao/comfyui_LLM_party.git
+    save_as: comfyui_LLM_party
+    name: comfyui_LLM_party
+    description: aims to develop a complete set of nodes for LLM workflow construction
+    models:
+  comfyui-browser:
+    method: git
+    url: https://github.com/talesofai/comfyui-browser.git
+    save_as: comfyui-browser
+    name: comfyui-browser
+    description: 
+    models:
+  ComfyUI-PhotoMaker-ZHO:
+    method: git
+    url: https://github.com/ZHO-ZHO-ZHO/ComfyUI-PhotoMaker-ZHO.git
+    save_as: ComfyUI-PhotoMaker-ZHO
+    name: ComfyUI-PhotoMaker-ZHO
+    description: 
+    models:
+
+  Comfyui_Prompt_styler:
+    method: git
+    url: https://github.com/chakib-belgaid/Comfyui_Prompt_styler.git
+    save_as: Comfyui_Prompt_styler
+    name: Comfyui_Prompt_styler
+    description: 
+    models:
+  ComfyUI-DragNUWA:
+    method: git
+    url: https://github.com/chaojie/ComfyUI-DragNUWA.git
+    save_as: ComfyUI-DragNUWA
+    name: ComfyUI-DragNUWA
+    description: 
+    models:
+  ComfyUI-disty-Flow:
+    method: git
+    url: https://github.com/diStyApps/ComfyUI-disty-Flow.git
+    save_as: ComfyUI-disty-Flow
+    name: ComfyUI-disty-Flow
+    description: 
+    models:
+  ComfyUI-CLIPSeg:
+    method: xxxx
+    url: https://github.com/biegert/ComfyUI-CLIPSeg
+    save_as: ComfyUI-CLIPSeg
+    name: ComfyUI-CLIPSeg
+    description: 通过语义文本识别图片中的元素，并输出遮罩，支持输出热成像图
+    models:
+  Comfyui-FlowChain:
+    method: git
+    url: https://github.com/numz/Comfyui-FlowChain.git
+    save_as: Comfyui-FlowChain
+    name: Comfyui-FlowChain
+    description: Node group
+    models:
+  Derfuu_ComfyUI_ModdedNodes:
+    method: git
+    url: https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes.git
+    save_as: Derfuu_ComfyUI_ModdedNodes
+    name: Derfuu_ComfyUI_ModdedNodes
+    description: Automate calculation depending on image sizes or something you want
+    models:
+  ComfyUI-TeaCache:
+    method: git
+    url: https://github.com/welltop-cn/ComfyUI-TeaCache.git
+    save_as: ComfyUI-TeaCache
+    name: ComfyUI-TeaCache
+    description: Timestep Embedding Aware Cache (TeaCache) is a training-free caching approach that estimates and leverages the fluctuating differences among model outputs across timesteps, thereby accelerating the inference. TeaCache works well for Image Diffusion models, Video Diffusion Models, and Audio Diffusion Models.
+    models:
+  ComfyUI-WanVideoWrapper:
+    method: git
+    url: https://github.com/kijai/ComfyUI-WanVideoWrapper.git
+    save_as: ComfyUI-WanVideoWrapper
+    name: ComfyUI-WanVideoWrapper
+    description: 
+    models:
+  ComfyUI-Crystools:
+    method: git
+    url: https://github.com/crystian/ComfyUI-Crystools.git
+    save_as: ComfyUI-Crystools
+    name: ComfyUI-Crystools
+    description: 
+    models:
+  ComfyUI-LatentSyncWrapper:
+    method: git
+    url: https://github.com/ShmuelRonen/ComfyUI-LatentSyncWrapper.git
+    save_as: ComfyUI-LatentSyncWrapper
+    name: ComfyUI-LatentSyncWrapper
+    description: 
+    models:
+  efficiency-nodes-comfyui:
+    method: git
+    url: https://github.com/jags111/efficiency-nodes-comfyui.git
+    save_as: efficiency-nodes-comfyui
+    name: efficiency-nodes-comfyui
+    description: 
+    models:
+  ComfyUI_smZNodes:
+    method: git
+    url: https://github.com/shiimizu/ComfyUI_smZNodes.git
+    save_as: ComfyUI_smZNodes
+    name: ComfyUI_smZNodes
+    description: 
+    models:
+  sd-perturbed-attention:
+    method: git
+    url: https://github.com/pamparamm/sd-perturbed-attention.git
+    save_as: sd-perturbed-attention
+    name: sd-perturbed-attention
+    description: 
+    models:
+  comfyui_lora_tag_loader:
+    method: git
+    url: https://github.com/badjeff/comfyui_lora_tag_loader.git
+    save_as: comfyui_lora_tag_loader
+    name: comfyui_lora_tag_loader
+    description: 
+    models:
+  ComfyUI-mnemic-nodes:
+    method: git
+    url: https://github.com/MNeMoNiCuZ/ComfyUI-mnemic-nodes.git
+    save_as: ComfyUI-mnemic-nodes
+    name: ComfyUI-mnemic-nodes
+    description: 
+    models:
+  All-IN-ONE-style:
+    method: git
+    url: https://github.com/al-swaiti/All-IN-ONE-style.git
+    save_as: All-IN-ONE-style
+    name: All-IN-ONE-style
+    description: 
+    models:
+  ComfyUI-Florence2:
+    method: git
+    url: https://github.com/kijai/ComfyUI-Florence2.git
+    save_as: ComfyUI-Florence2
+    name: ComfyUI-Florence2
+    description: 
+    models:
+  ComfyUI-Logic:
+    method: git
+    url: https://github.com/theUpsider/ComfyUI-Logic.git
+    save_as: ComfyUI-Logic
+    name: ComfyUI-Logic
+    description: 
+    models:
+  comfyui-various:
+    method: git
+    url: https://github.com/jamesWalker55/comfyui-various.git
+    save_as: comfyui-various
+    name: comfyui-various
+    description: 
+    models:
+  comfyui-tensorops:
+    method: git
+    url: https://github.com/un-seen/comfyui-tensorops.git
+    save_as: comfyui-tensorops
+    name: comfyui-tensorops
+    description: 
+    models:
+
+
+  SeargeSDXL:
+    method: git
+    url: https://github.com/SeargeDP/SeargeSDXL.git
+    save_as: SeargeSDXL
+    name: SeargeSDXL
+    description: 
+    models:
+  ComfyUI-AutoSplitGridImage:
+    method: git
+    url: https://github.com/stormcenter/ComfyUI-AutoSplitGridImage.git
+    save_as: ComfyUI-AutoSplitGridImage
+    name: ComfyUI-AutoSplitGridImage
+    description: 
+    models:
+  comfyui-mixlab-nodes:
+    method: git
+    url: https://github.com/shadowcz007/comfyui-mixlab-nodes.git
+    save_as: comfyui-mixlab-nodes
+    name: comfyui-mixlab-nodes
+    description: 
+    models:
+  comfyui-portrait-master:
+    method: git
+    url: https://github.com/florestefano1975/comfyui-portrait-master.git
+    save_as: comfyui-portrait-master
+    name: comfyui-portrait-master
+    description: 
+    models:
+  Comfyui_TTP_Toolset:
+    method: git
+    url: https://github.com/TTPlanetPig/Comfyui_TTP_Toolset.git
+    save_as: Comfyui_TTP_Toolset
+    name: Comfyui_TTP_Toolset
+    description: 
+    models:
+  ComfyLiterals:
+    method: git
+    url: https://github.com/M1kep/ComfyLiterals.git
+    save_as: ComfyLiterals
+    name: ComfyLiterals
+    description: 
+    models:
+  ComfyUI_Custom_Nodes_AlekPet:
+    method: git
+    url: https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet.git
+    save_as: ComfyUI_Custom_Nodes_AlekPet
+    name: ComfyUI_Custom_Nodes_AlekPet
+    description: 
+    models:
+  ComfyUI-KJNodes:
+    method: git
+    url: https://github.com/kijai/ComfyUI-KJNodes.git
+    save_as: ComfyUI-KJNodes
+    name: ComfyUI-KJNodes
+    description: 
+    models:
+
+
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxx:
+    method: xxxx
+    url: xxxxxxxxxxxxxxxxxxxxxxxxxxx
+    save_as: xxxxxxxxxxxxxxx
+    name: xxxxxxxxxxxxxx
+    description: 
+    models:
+

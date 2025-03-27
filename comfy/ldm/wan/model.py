@@ -18,7 +18,11 @@ def sinusoidal_embedding_1d(dim, position):
     # preprocess
     assert dim % 2 == 0
     half = dim // 2
+<<<<<<< HEAD
     position = position.type(torch.float64)
+=======
+    position = position.type(torch.float32)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
     # calculation
     sinusoid = torch.outer(
@@ -212,6 +216,7 @@ class WanAttentionBlock(nn.Module):
 
         x = x + y * e[2]
 
+<<<<<<< HEAD
         # cross-attention & ffn function
         def cross_attn_ffn(x, context, e):
             x = x + self.cross_attn(self.norm3(x), context)
@@ -220,6 +225,12 @@ class WanAttentionBlock(nn.Module):
             return x
 
         x = cross_attn_ffn(x, context, e)
+=======
+        # cross-attention & ffn
+        x = x + self.cross_attn(self.norm3(x), context)
+        y = self.ffn(self.norm2(x) * (1 + e[4]) + e[3])
+        x = x + y * e[5]
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         return x
 
 
@@ -353,7 +364,11 @@ class WanModel(torch.nn.Module):
 
         # embeddings
         self.patch_embedding = operations.Conv3d(
+<<<<<<< HEAD
             in_dim, dim, kernel_size=patch_size, stride=patch_size, device=operation_settings.get("device"), dtype=operation_settings.get("dtype"))
+=======
+            in_dim, dim, kernel_size=patch_size, stride=patch_size, device=operation_settings.get("device"), dtype=torch.float32)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         self.text_embedding = nn.Sequential(
             operations.Linear(text_dim, dim, device=operation_settings.get("device"), dtype=operation_settings.get("dtype")), nn.GELU(approximate='tanh'),
             operations.Linear(dim, dim, device=operation_settings.get("device"), dtype=operation_settings.get("dtype")))
@@ -411,7 +426,11 @@ class WanModel(torch.nn.Module):
                 List of denoised video tensors with original input shapes [C_out, F, H / 8, W / 8]
         """
         # embeddings
+<<<<<<< HEAD
         x = self.patch_embedding(x)
+=======
+        x = self.patch_embedding(x.float()).to(x.dtype)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         grid_sizes = x.shape[2:]
         x = x.flatten(2).transpose(1, 2)
 
@@ -421,7 +440,11 @@ class WanModel(torch.nn.Module):
         e0 = self.time_projection(e).unflatten(1, (6, self.dim))
 
         # context
+<<<<<<< HEAD
         context = self.text_embedding(torch.cat([context, context.new_zeros(context.size(0), self.text_len - context.size(1), context.size(2))], dim=1))
+=======
+        context = self.text_embedding(context)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
         if clip_fea is not None and self.img_emb is not None:
             context_clip = self.img_emb(clip_fea)  # bs x 257 x dim
@@ -442,7 +465,10 @@ class WanModel(torch.nn.Module):
         # unpatchify
         x = self.unpatchify(x, grid_sizes)
         return x
+<<<<<<< HEAD
         # return [u.float() for u in x]
+=======
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
     def forward(self, x, timestep, context, clip_fea=None, **kwargs):
         bs, c, t, h, w = x.shape

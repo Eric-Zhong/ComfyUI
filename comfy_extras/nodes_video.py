@@ -1,9 +1,18 @@
+<<<<<<< HEAD
+=======
+from __future__ import annotations
+
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 import os
 import av
 import torch
 import folder_paths
 import json
 from fractions import Fraction
+<<<<<<< HEAD
+=======
+from comfy.comfy_types import FileLocator
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 
 class SaveWEBM:
@@ -62,7 +71,11 @@ class SaveWEBM:
         container.mux(stream.encode())
         container.close()
 
+<<<<<<< HEAD
         results = [{
+=======
+        results: list[FileLocator] = [{
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
             "filename": file,
             "subfolder": subfolder,
             "type": self.type

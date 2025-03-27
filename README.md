@@ -46,7 +46,11 @@ ComfyUI lets you design and execute advanced stable diffusion pipelines using a 
 #### [Manual Install](#manual-install-windows-linux)
 Supports all operating systems and GPU types (NVIDIA, AMD, Intel, Apple Silicon, Ascend).
 
+<<<<<<< HEAD
 ## Examples
+=======
+## [Examples](https://comfyanonymous.github.io/ComfyUI_examples/)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 See what ComfyUI can do with the [example workflows](https://comfyanonymous.github.io/ComfyUI_examples/).
 
 
@@ -68,6 +72,10 @@ See what ComfyUI can do with the [example workflows](https://comfyanonymous.gith
    - [LTX-Video](https://comfyanonymous.github.io/ComfyUI_examples/ltxv/)
    - [Hunyuan Video](https://comfyanonymous.github.io/ComfyUI_examples/hunyuan_video/)
    - [Nvidia Cosmos](https://comfyanonymous.github.io/ComfyUI_examples/cosmos/)
+<<<<<<< HEAD
+=======
+   - [Wan 2.1](https://comfyanonymous.github.io/ComfyUI_examples/wan/)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 - [Stable Audio](https://comfyanonymous.github.io/ComfyUI_examples/audio/)
 - Asynchronous Queue system
 - Many optimizations: Only re-executes the parts of the workflow that changes between executions.
@@ -214,9 +222,13 @@ Nvidia users should install stable pytorch using this command:
 
 ```pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu126```
 
-This is the command to install pytorch nightly instead which might have performance improvements:
+This is the command to install pytorch nightly instead which supports the new blackwell 50xx series GPUs and might have performance improvements.
 
+<<<<<<< HEAD
 ```pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu126```
+=======
+```pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128```
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 #### Troubleshooting
 
@@ -260,6 +272,16 @@ For models compatible with Ascend Extension for PyTorch (torch_npu). To get star
 3. Next, install the necessary packages for torch-npu by adhering to the platform-specific instructions on the [Installation](https://ascend.github.io/docs/sources/pytorch/install.html#pytorch) page.
 4. Finally, adhere to the [ComfyUI manual installation](#manual-install-windows-linux) guide for Linux. Once all components are installed, you can run ComfyUI as described earlier.
 
+<<<<<<< HEAD
+=======
+#### Cambricon MLUs
+
+For models compatible with Cambricon Extension for PyTorch (torch_mlu). Here's a step-by-step guide tailored to your platform and installation method:
+
+1. Install the Cambricon CNToolkit by adhering to the platform-specific instructions on the [Installation](https://www.cambricon.com/docs/sdk_1.15.0/cntoolkit_3.7.2/cntoolkit_install_3.7.2/index.html)
+2. Next, install the PyTorch(torch_mlu) following the instructions on the [Installation](https://www.cambricon.com/docs/sdk_1.15.0/cambricon_pytorch_1.17.0/user_guide_1.9/index.html)
+3. Launch ComfyUI by running `python main.py`
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 # Running
 

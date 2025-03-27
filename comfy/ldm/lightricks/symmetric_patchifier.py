@@ -6,6 +6,7 @@ from einops import rearrange
 from torch import Tensor
 
 
+<<<<<<< HEAD
 def append_dims(x: torch.Tensor, target_dims: int) -> torch.Tensor:
     """Appends dimensions to the end of a tensor until it has target_dims dimensions."""
     dims_to_append = target_dims - x.ndim
@@ -16,6 +17,31 @@ def append_dims(x: torch.Tensor, target_dims: int) -> torch.Tensor:
     elif dims_to_append == 0:
         return x
     return x[(...,) + (None,) * dims_to_append]
+=======
+def latent_to_pixel_coords(
+    latent_coords: Tensor, scale_factors: Tuple[int, int, int], causal_fix: bool = False
+) -> Tensor:
+    """
+    Converts latent coordinates to pixel coordinates by scaling them according to the VAE's
+    configuration.
+    Args:
+        latent_coords (Tensor): A tensor of shape [batch_size, 3, num_latents]
+        containing the latent corner coordinates of each token.
+        scale_factors (Tuple[int, int, int]): The scale factors of the VAE's latent space.
+        causal_fix (bool): Whether to take into account the different temporal scale
+            of the first frame. Default = False for backwards compatibility.
+    Returns:
+        Tensor: A tensor of pixel coordinates corresponding to the input latent coordinates.
+    """
+    pixel_coords = (
+        latent_coords
+        * torch.tensor(scale_factors, device=latent_coords.device)[None, :, None]
+    )
+    if causal_fix:
+        # Fix temporal scale for first frame to 1 due to causality
+        pixel_coords[:, 0] = (pixel_coords[:, 0] + 1 - scale_factors[0]).clamp(min=0)
+    return pixel_coords
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 
 class Patchifier(ABC):
@@ -44,6 +70,7 @@ class Patchifier(ABC):
     def patch_size(self):
         return self._patch_size
 
+<<<<<<< HEAD
     def get_grid(
         self, orig_num_frames, orig_height, orig_width, batch_size, scale_grid, device
     ):
@@ -67,6 +94,28 @@ class Patchifier(ABC):
 
         grid = rearrange(grid, "b c f h w -> b c (f h w)", b=batch_size)
         return grid
+=======
+    def get_latent_coords(
+        self, latent_num_frames, latent_height, latent_width, batch_size, device
+    ):
+        """
+        Return a tensor of shape [batch_size, 3, num_patches] containing the
+            top-left corner latent coordinates of each latent patch.
+        The tensor is repeated for each batch element.
+        """
+        latent_sample_coords = torch.meshgrid(
+            torch.arange(0, latent_num_frames, self._patch_size[0], device=device),
+            torch.arange(0, latent_height, self._patch_size[1], device=device),
+            torch.arange(0, latent_width, self._patch_size[2], device=device),
+            indexing="ij",
+        )
+        latent_sample_coords = torch.stack(latent_sample_coords, dim=0)
+        latent_coords = latent_sample_coords.unsqueeze(0).repeat(batch_size, 1, 1, 1, 1)
+        latent_coords = rearrange(
+            latent_coords, "b c f h w -> b c (f h w)", b=batch_size
+        )
+        return latent_coords
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 
 class SymmetricPatchifier(Patchifier):
@@ -74,6 +123,11 @@ class SymmetricPatchifier(Patchifier):
         self,
         latents: Tensor,
     ) -> Tuple[Tensor, Tensor]:
+<<<<<<< HEAD
+=======
+        b, _, f, h, w = latents.shape
+        latent_coords = self.get_latent_coords(f, h, w, b, latents.device)
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         latents = rearrange(
             latents,
             "b c (f p1) (h p2) (w p3) -> b (f h w) (c p1 p2 p3)",
@@ -81,7 +135,11 @@ class SymmetricPatchifier(Patchifier):
             p2=self._patch_size[1],
             p3=self._patch_size[2],
         )
+<<<<<<< HEAD
         return latents
+=======
+        return latents, latent_coords
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
     def unpatchify(
         self,

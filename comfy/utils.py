@@ -28,6 +28,26 @@ import logging
 import itertools
 from torch.nn.functional import interpolate
 from einops import rearrange
+<<<<<<< HEAD
+
+ALWAYS_SAFE_LOAD = False
+if hasattr(torch.serialization, "add_safe_globals"):  # TODO: this was added in pytorch 2.4, the unsafe path should be removed once earlier versions are deprecated
+    class ModelCheckpoint:
+        pass
+    ModelCheckpoint.__module__ = "pytorch_lightning.callbacks.model_checkpoint"
+
+    from numpy.core.multiarray import scalar
+    from numpy import dtype
+    from numpy.dtypes import Float64DType
+    from _codecs import encode
+
+    torch.serialization.add_safe_globals([ModelCheckpoint, scalar, dtype, Float64DType, encode])
+    ALWAYS_SAFE_LOAD = True
+    logging.info("Checkpoint files will always be loaded safely.")
+else:
+    logging.info("Warning, you are using an old pytorch version and some ckpt/pt files might be loaded unsafely. Upgrading to 2.4 or above is recommended.")
+=======
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 ALWAYS_SAFE_LOAD = False
 if hasattr(torch.serialization, "add_safe_globals"):  # TODO: this was added in pytorch 2.4, the unsafe path should be removed once earlier versions are deprecated
@@ -46,12 +66,24 @@ if hasattr(torch.serialization, "add_safe_globals"):  # TODO: this was added in 
 else:
     logging.info("Warning, you are using an old pytorch version and some ckpt/pt files might be loaded unsafely. Upgrading to 2.4 or above is recommended.")
 
-def load_torch_file(ckpt, safe_load=False, device=None):
+def load_torch_file(ckpt, safe_load=False, device=None, return_metadata=False):
     if device is None:
         device = torch.device("cpu")
+<<<<<<< HEAD
     if ckpt.lower().endswith(".safetensors") or ckpt.lower().endswith(".sft"):
         try:
             sd = safetensors.torch.load_file(ckpt, device=device.type)
+=======
+    metadata = None
+    if ckpt.lower().endswith(".safetensors") or ckpt.lower().endswith(".sft"):
+        try:
+            with safetensors.safe_open(ckpt, framework="pt", device=device.type) as f:
+                sd = {}
+                for k in f.keys():
+                    sd[k] = f.get_tensor(k)
+                if return_metadata:
+                    metadata = f.metadata()
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         except Exception as e:
             if len(e.args) > 0:
                 message = e.args[0]
@@ -77,7 +109,11 @@ def load_torch_file(ckpt, safe_load=False, device=None):
                     sd = pl_sd
             else:
                 sd = pl_sd
+<<<<<<< HEAD
     return sd
+=======
+    return (sd, metadata) if return_metadata else sd
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 def save_torch_file(sd, ckpt, metadata=None):
     if metadata is not None:

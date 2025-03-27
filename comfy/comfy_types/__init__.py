@@ -1,6 +1,10 @@
 import torch
 from typing import Callable, Protocol, TypedDict, Optional, List
+<<<<<<< HEAD
 from .node_typing import IO, InputTypeDict, ComfyNodeABC, CheckLazyMixin
+=======
+from .node_typing import IO, InputTypeDict, ComfyNodeABC, CheckLazyMixin, FileLocator
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 
 
 class UnetApplyFunction(Protocol):
@@ -42,4 +46,8 @@ __all__ = [
     InputTypeDict.__name__,
     ComfyNodeABC.__name__,
     CheckLazyMixin.__name__,
+<<<<<<< HEAD
+=======
+    FileLocator.__name__,
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 ]

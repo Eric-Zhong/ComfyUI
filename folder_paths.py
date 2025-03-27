@@ -35,18 +35,31 @@ folder_names_and_paths["vae_approx"] = ([os.path.join(models_dir, "vae_approx")]
 folder_names_and_paths["controlnet"] = ([os.path.join(models_dir, "controlnet"), os.path.join(models_dir, "t2i_adapter")], supported_pt_extensions)
 folder_names_and_paths["gligen"] = ([os.path.join(models_dir, "gligen")], supported_pt_extensions)
 folder_names_and_paths["upscale_models"] = ([os.path.join(models_dir, "upscale_models")], supported_pt_extensions)
+<<<<<<< HEAD
 
 folder_names_and_paths["custom_nodes"] = ([os.path.join(base_path, "custom_nodes")], set())
 
+=======
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 folder_names_and_paths["hypernetworks"] = ([os.path.join(models_dir, "hypernetworks")], supported_pt_extensions)
 folder_names_and_paths["photomaker"] = ([os.path.join(models_dir, "photomaker")], supported_pt_extensions)
 folder_names_and_paths["classifiers"] = ([os.path.join(models_dir, "classifiers")], {""})
+
+<<<<<<< HEAD
+output_directory = os.path.join(base_path, "output")
+temp_directory = os.path.join(base_path, "temp")
+input_directory = os.path.join(base_path, "input")
+user_directory = os.path.join(base_path, "user")
+
+=======
+folder_names_and_paths["custom_nodes"] = ([os.path.join(base_path, "custom_nodes")], set())
 
 output_directory = os.path.join(base_path, "output")
 temp_directory = os.path.join(base_path, "temp")
 input_directory = os.path.join(base_path, "input")
 user_directory = os.path.join(base_path, "user")
 
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 filename_list_cache: dict[str, tuple[list[str], dict[str, float], float]] = {}
 
 class CacheHelper:

@@ -19,7 +19,7 @@
 import psutil
 import logging
 from enum import Enum
-from comfy.cli_args import args
+from comfy.cli_args import args, PerformanceFeature
 import torch
 import sys
 import platform
@@ -95,6 +95,16 @@ try:
 except:
     npu_available = False
 
+<<<<<<< HEAD
+=======
+try:
+    import torch_mlu  # noqa: F401
+    _ = torch.mlu.device_count()
+    mlu_available = torch.mlu.is_available()
+except:
+    mlu_available = False
+
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 if args.cpu:
     cpu_state = CPUState.CPU
 
@@ -112,6 +122,15 @@ def is_ascend_npu():
         return True
     return False
 
+<<<<<<< HEAD
+=======
+def is_mlu():
+    global mlu_available
+    if mlu_available:
+        return True
+    return False
+
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 def get_torch_device():
     global directml_enabled
     global cpu_state
@@ -127,6 +146,11 @@ def get_torch_device():
             return torch.device("xpu", torch.xpu.current_device())
         elif is_ascend_npu():
             return torch.device("npu", torch.npu.current_device())
+<<<<<<< HEAD
+=======
+        elif is_mlu():
+            return torch.device("mlu", torch.mlu.current_device())
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         else:
             return torch.device(torch.cuda.current_device())
 
@@ -153,6 +177,15 @@ def get_total_memory(dev=None, torch_total_too=False):
             _, mem_total_npu = torch.npu.mem_get_info(dev)
             mem_total_torch = mem_reserved
             mem_total = mem_total_npu
+<<<<<<< HEAD
+=======
+        elif is_mlu():
+            stats = torch.mlu.memory_stats(dev)
+            mem_reserved = stats['reserved_bytes.all.current']
+            _, mem_total_mlu = torch.mlu.mem_get_info(dev)
+            mem_total_torch = mem_reserved
+            mem_total = mem_total_mlu
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         else:
             stats = torch.cuda.memory_stats(dev)
             mem_reserved = stats['reserved_bytes.all.current']
@@ -232,7 +265,11 @@ try:
         if torch_version_numeric[0] >= 2:
             if ENABLE_PYTORCH_ATTENTION == False and args.use_split_cross_attention == False and args.use_quad_cross_attention == False:
                 ENABLE_PYTORCH_ATTENTION = True
+<<<<<<< HEAD
     if is_intel_xpu() or is_ascend_npu():
+=======
+    if is_intel_xpu() or is_ascend_npu() or is_mlu():
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         if args.use_split_cross_attention == False and args.use_quad_cross_attention == False:
             ENABLE_PYTORCH_ATTENTION = True
 except:
@@ -259,9 +296,16 @@ if ENABLE_PYTORCH_ATTENTION:
 
 PRIORITIZE_FP16 = False  # TODO: remove and replace with something that shows exactly which dtype is faster than the other
 try:
+<<<<<<< HEAD
     if is_nvidia() and args.fast:
         torch.backends.cuda.matmul.allow_fp16_accumulation = True
         PRIORITIZE_FP16 = True  # TODO: limit to cards where it actually boosts performance
+=======
+    if is_nvidia() and PerformanceFeature.Fp16Accumulation in args.fast:
+        torch.backends.cuda.matmul.allow_fp16_accumulation = True
+        PRIORITIZE_FP16 = True  # TODO: limit to cards where it actually boosts performance
+        logging.info("Enabled fp16 accumulation.")
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
 except:
     pass
 
@@ -316,6 +360,11 @@ def get_torch_device_name(device):
         return "{} {}".format(device, torch.xpu.get_device_name(device))
     elif is_ascend_npu():
         return "{} {}".format(device, torch.npu.get_device_name(device))
+<<<<<<< HEAD
+=======
+    elif is_mlu():
+        return "{} {}".format(device, torch.mlu.get_device_name(device))
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
     else:
         return "CUDA {}: {}".format(device, torch.cuda.get_device_name(device))
 
@@ -651,7 +700,11 @@ def unet_inital_load_device(parameters, dtype):
 def maximum_vram_for_weights(device=None):
     return (get_total_memory(device) * 0.88 - minimum_inference_memory())
 
+<<<<<<< HEAD
 def unet_dtype(device=None, model_params=0, supported_dtypes=[torch.float16, torch.bfloat16, torch.float32]):
+=======
+def unet_dtype(device=None, model_params=0, supported_dtypes=[torch.float16, torch.bfloat16, torch.float32], weight_dtype=None):
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
     if model_params < 0:
         model_params = 1000000000000000000000
     if args.fp32_unet:
@@ -669,10 +722,15 @@ def unet_dtype(device=None, model_params=0, supported_dtypes=[torch.float16, tor
 
     fp8_dtype = None
     try:
+<<<<<<< HEAD
         for dtype in [torch.float8_e4m3fn, torch.float8_e5m2]:
             if dtype in supported_dtypes:
                 fp8_dtype = dtype
                 break
+=======
+        if weight_dtype in [torch.float8_e4m3fn, torch.float8_e5m2]:
+            fp8_dtype = weight_dtype
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
     except:
         pass
 
@@ -684,7 +742,11 @@ def unet_dtype(device=None, model_params=0, supported_dtypes=[torch.float16, tor
         if model_params * 2 > free_model_memory:
             return fp8_dtype
 
+<<<<<<< HEAD
     if PRIORITIZE_FP16:
+=======
+    if PRIORITIZE_FP16 or weight_dtype == torch.float16:
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         if torch.float16 in supported_dtypes and should_use_fp16(device=device, model_params=model_params):
             return torch.float16
 
@@ -720,12 +782,24 @@ def unet_manual_cast(weight_dtype, inference_device, supported_dtypes=[torch.flo
         return None
 
     fp16_supported = should_use_fp16(inference_device, prioritize_performance=True)
+<<<<<<< HEAD
     for dt in supported_dtypes:
         if dt == torch.float16 and fp16_supported:
             return torch.float16
         if dt == torch.bfloat16 and bf16_supported:
             return torch.bfloat16
 
+=======
+    if PRIORITIZE_FP16 and fp16_supported and torch.float16 in supported_dtypes:
+        return torch.float16
+
+    for dt in supported_dtypes:
+        if dt == torch.float16 and fp16_supported:
+            return torch.float16
+        if dt == torch.bfloat16 and bf16_supported:
+            return torch.bfloat16
+
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
     return torch.float32
 
 def text_encoder_offload_device():
@@ -905,6 +979,11 @@ def xformers_enabled():
         return False
     if is_ascend_npu():
         return False
+<<<<<<< HEAD
+=======
+    if is_mlu():
+        return False
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
     if directml_enabled:
         return False
     return XFORMERS_IS_AVAILABLE
@@ -936,6 +1015,11 @@ def pytorch_attention_flash_attention():
             return True
         if is_ascend_npu():
             return True
+<<<<<<< HEAD
+=======
+        if is_mlu():
+            return True
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         if is_amd():
             return True #if you have pytorch attention enabled on AMD it probably supports at least mem efficient attention
     return False
@@ -984,6 +1068,16 @@ def get_free_memory(dev=None, torch_free_too=False):
             mem_free_npu, _ = torch.npu.mem_get_info(dev)
             mem_free_torch = mem_reserved - mem_active
             mem_free_total = mem_free_npu + mem_free_torch
+<<<<<<< HEAD
+=======
+        elif is_mlu():
+            stats = torch.mlu.memory_stats(dev)
+            mem_active = stats['active_bytes.all.current']
+            mem_reserved = stats['reserved_bytes.all.current']
+            mem_free_mlu, _ = torch.mlu.mem_get_info(dev)
+            mem_free_torch = mem_reserved - mem_active
+            mem_free_total = mem_free_mlu + mem_free_torch
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
         else:
             stats = torch.cuda.memory_stats(dev)
             mem_active = stats['active_bytes.all.current']
@@ -1053,6 +1147,12 @@ def should_use_fp16(device=None, model_params=0, prioritize_performance=True, ma
     if is_ascend_npu():
         return True
 
+<<<<<<< HEAD
+=======
+    if is_mlu():
+        return True
+
+>>>>>>> 6b2f5048a4fcbe02cf4ee79147abc9dcc7c8d99d
     if torch.version.hip:
         return True
 
@@ -1121,6 +1221,11 @@ def should_use_bf16(device=None, model_params=0, prioritize_performance=True, ma
             return False
 
     props = torch.cuda.get_device_properties(device)
+
+    if is_mlu():
+        if props.major > 3:
+            return True
+
     if props.major >= 8:
         return True
 
