@@ -1,5 +1,5 @@
 base:
-  root: C:\Users\zhong\git\ComfyUI
+  root: Z:\Service\ComfyUI
 channels:
   huggingface: false
   civitai: false
@@ -206,6 +206,32 @@ models:
         file_name: 
     description: sssssssssssssssssssssssssssss
 
+  hunyuan3d-dit-v2-mv-turbo:
+    name: hunyuan3d-dit-v2-mv-turbo
+    category: 
+    type: 
+    save_as: models/checkpoints
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/AI-ModelScope/Hunyuan3D-2mv/resolve/master/hunyuan3d-dit-v2-mv-turbo/model.fp16.safetensors
+        file_name: hunyuan3d-dit-v2-mv-turbo-fp16.safetensors
+    description: hunyuan3d-dit-v2-mv-turbo
+  wan2.1-1.3b-control-lora-depth-v0.1_comfy:
+    name: wan2.1-1.3b-control-lora-depth-v0.1_comfy
+    category: 
+    type: 
+    save_as: models/lora
+    channels:
+      huggingface:
+      civitai:
+      modelscope:
+        method: wget
+        url: https://modelscope.cn/models/spacepxl/Wan2.1-control-loras/resolve/master/1.3b/depth/wan2.1-1.3b-control-lora-depth-v0.1_comfy.safetensors
+        file_name: wan2.1-1.3b-control-lora-depth-v0.1_comfy.safetensors
+    description: wan2.1-1.3b-control-lora-depth-v0.1_comfy
 
   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:
     name: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -221,6 +247,21 @@ models:
         # url: https://www.modelscope.cn/<xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>.git
         file_name: tttttttttttttt
     description: sssssssssssssssssssssssssssss
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 custom_nodes:
   ComfyUI_SLK_joy_caption_two:
     method: git

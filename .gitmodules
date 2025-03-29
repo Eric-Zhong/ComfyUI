@@ -1,0 +1,39 @@
+[submodule "custom_nodes/facerestore_cf"]
+	path = custom_nodes/facerestore_cf
+	url = https://github.com/mav-rik/facerestore_cf.git
+[submodule "custom_nodes/stability-ComfyUI-nodes"]
+	path = custom_nodes/stability-ComfyUI-nodes
+	url = https://github.com/Stability-AI/stability-ComfyUI-nodes.git
+[submodule "custom_nodes/ComfyUI-post-processing-nodes"]
+	path = custom_nodes/ComfyUI-post-processing-nodes
+	url = https://github.com/EllangoK/ComfyUI-post-processing-nodes.git
+[submodule "comfyui-art-venture"]
+	path = comfyui-art-venture
+	url = https://github.com/sipherxyz/comfyui-art-venture.git
+[submodule "custom_nodes/ComfyUI-LatentSyncWrapper"]
+	path = custom_nodes/ComfyUI-LatentSyncWrapper
+	url = https://github.com/ShmuelRonen/ComfyUI-LatentSyncWrapper.git
+[submodule "custom_node/ComfyUI-LivePortraitKJ"]
+	path = custom_node/ComfyUI-LivePortraitKJ
+	url = https://github.com/kijai/ComfyUI-LivePortraitKJ
+[submodule "custom_nodes/ComfyUI-Gemini"]
+	path = custom_nodes/ComfyUI-Gemini
+	url = https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini
+[submodule "custom_nodes/ComfyUI-Bringing-Old-Photos-Back-to-Life"]
+	path = custom_nodes/ComfyUI-Bringing-Old-Photos-Back-to-Life
+	url = https://github.com/cdb-boop/ComfyUI-Bringing-Old-Photos-Back-to-Life
+[submodule "custom_nodes/ComfyUI-AutomaticCFG"]
+	path = custom_nodes/ComfyUI-AutomaticCFG
+	url = https://github.com/Extraltodeus/ComfyUI-AutomaticCFG
+[submodule "custom_nodes/comfyui-art-venture"]
+	path = custom_nodes/comfyui-art-venture
+	url = https://github.com/sipherxyz/comfyui-art-venture
+[submodule "custom_nodes/comfyui-image-round"]
+	path = custom_nodes/comfyui-image-round
+	url = https://github.com/cdb-boop/comfyui-image-round
+[submodule "custom_nodes/ComfyUI-LivePortraitKJ"]
+	path = custom_nodes/ComfyUI-LivePortraitKJ
+	url = https://github.com/kijai/ComfyUI-LivePortraitKJ
+[submodule "custom_nodes/ComfyUI_HD_Node"]
+	path = custom_nodes/ComfyUI_HD_Node
+	url = https://github.com/xiaoxiaodesha/hd_node
