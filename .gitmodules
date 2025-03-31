@@ -52,3 +52,9 @@
 [submodule "custom_nodes/ComfyUI-NeuralMedia"]
 	path = custom_nodes/ComfyUI-NeuralMedia
 	url = https://github.com/YarvixPA/ComfyUI-NeuralMedia
+[submodule "custom_nodes/ComfyUI_essentials"]
+	path = custom_nodes/ComfyUI_essentials
+	url = https://github.com/cubiq/ComfyUI_essentials
+[submodule "custom_nodes/ComfyUI-Apply_Style_Model_Adjust"]
+	path = custom_nodes/ComfyUI-Apply_Style_Model_Adjust
+	url = https://github.com/ShmuelRonen/ComfyUI-Apply_Style_Model_Adjust
