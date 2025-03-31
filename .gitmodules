@@ -58,3 +58,6 @@
 [submodule "custom_nodes/ComfyUI-Apply_Style_Model_Adjust"]
 	path = custom_nodes/ComfyUI-Apply_Style_Model_Adjust
 	url = https://github.com/ShmuelRonen/ComfyUI-Apply_Style_Model_Adjust
+[submodule "custom_nodes/mikey_nodes"]
+	path = custom_nodes/mikey_nodes
+	url = https://github.com/bash-j/mikey_nodes.git
