@@ -46,3 +46,9 @@
 [submodule "custom_nodes/ComfyUI_AdvancedRefluxControl"]
 	path = custom_nodes/ComfyUI_AdvancedRefluxControl
 	url = https://github.com/kaibioinfo/ComfyUI_AdvancedRefluxControl
+[submodule "custom_nodes/comfyui-tensorops"]
+	path = custom_nodes/comfyui-tensorops
+	url = https://github.com/un-seen/comfyui-tensorops
+[submodule "custom_nodes/ComfyUI-NeuralMedia"]
+	path = custom_nodes/ComfyUI-NeuralMedia
+	url = https://github.com/YarvixPA/ComfyUI-NeuralMedia
