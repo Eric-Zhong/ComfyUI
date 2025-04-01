@@ -61,3 +61,6 @@
 [submodule "custom_nodes/mikey_nodes"]
 	path = custom_nodes/mikey_nodes
 	url = https://github.com/bash-j/mikey_nodes.git
+[submodule "custom_nodes/ComfyUI-Dragonfly-Agent"]
+	path = custom_nodes/ComfyUI-Dragonfly-Agent
+	url = https://github.com/Eric-Zhong/ComfyUI-Dragonfly-Agent.git
