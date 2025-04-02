@@ -64,3 +64,6 @@
 [submodule "custom_nodes/ComfyUI-Dragonfly-Agent"]
 	path = custom_nodes/ComfyUI-Dragonfly-Agent
 	url = https://github.com/Eric-Zhong/ComfyUI-Dragonfly-Agent.git
+[submodule "custom_nodes/ComfyUI-Copilot"]
+	path = custom_nodes/ComfyUI-Copilot
+	url = https://github.com/AIDC-AI/ComfyUI-Copilot.git
