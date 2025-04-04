@@ -67,3 +67,9 @@
 [submodule "custom_nodes/ComfyUI-Copilot"]
 	path = custom_nodes/ComfyUI-Copilot
 	url = https://github.com/AIDC-AI/ComfyUI-Copilot.git
+[submodule "ComfyUI-Inpaint-CropAndStitch"]
+	path = ComfyUI-Inpaint-CropAndStitch
+	url = https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch.git
+[submodule "custom_nodes/ComfyUI_EchoMimic"]
+	path = custom_nodes/ComfyUI_EchoMimic
+	url = https://github.com/smthemex/ComfyUI_EchoMimic.git
