@@ -42,8 +42,7 @@ download_model() {
 }
 
 
-# download_model "junweifeng/umt5_xxl_fp8_e4m3fn_scaled.safetensors" "umt5_xxl_fp8_e4m3fn_scaled.safetensors" "./models/clip/"
-
+download_model "junweifeng/umt5_xxl_fp8_e4m3fn_scaled.safetensors" "umt5_xxl_fp8_e4m3fn_scaled.safetensors" "./models/text_encoders/"
 
 WAN_MODEL="Comfy-Org/Wan_2.2_ComfyUI_Repackaged"
 # 下载Wan_2.2 i2v模型
@@ -57,3 +56,34 @@ download_model "$WAN_MODEL" "split_files/diffusion_models/wan2.2_t2v_low_noise_1
 download_model "$WAN_MODEL" "split_files/diffusion_models/wan2.2_t2v_high_noise_14B_fp8_scaled.safetensors" "./models/diffusion_models/"
 download_model "$WAN_MODEL" "split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors" "./models/loras/"
 download_model "$WAN_MODEL" "split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_low_noise.safetensors" "./models/loras/"
+
+# https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors
+download_model "xiangzi666/clip_vision_h.safetensors" "clip_vision_h.safetensors" "./models/clip_vision/"
+# https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_fun_camera_v1.1_1.3B_bf16.safetensors
+# download_model "$WAN_MODEL" "esolve/main/split_files/diffusion_models/wan2.1_fun_camera_v1.1_1.3B_bf16.safetensors" "./models/diffusion_models/"
+
+# LTX-2 / T2V
+LTX2_MODEL="Lightricks/LTX-2"
+download_model "$LTX2_MODEL" "ltx-2-19b-distilled.safetensors" "./models/checkpoints/"
+download_model "$LTX2_MODEL" "ltx-2-19b-dev-fp8.safetensors" "./models/checkpoints/"
+download_model "$LTX2_MODEL" "ltx-2-19b-distilled-lora-384.safetensors" "./models/loras/"
+download_model "$LTX2_MODEL" "lgemma_3_12B_it_fp4_mixed.safetensors" "./models/checkpoints/"
+download_model "$LTX2_MODEL" "ltx-2-spatial-upscaler-x2-1.0.safetensors" "./models/latent_upscale_models/"
+
+LTX2_LORA_MODEL="Lightricks/LTX-2-19b-IC-LoRA-Depth-Control"
+download_model "$LTX2_LORA_MODEL" "ltx-2-19b-ic-lora-depth-control.safetensors" "./models/loras/"
+
+COMFY_UI_LOTUS_MODEL="Comfy-Org/lotus"
+download_model "$COMFY_UI_LOTUS_MODEL" "lotus-depth-d-v1-1.safetensors" "./models/diffusion_models/"
+
+COMFY_UI_LTX_MODEL="Comfy-Org/ltx-2"
+# https://www.modelscope.cn/models/Comfy-Org/ltx-2/file/view/master/split_files%2Ftext_encoders%2Fgemma_3_12B_it_fp4_mixed.safetensors?status=2
+download_model "$COMFY_UI_LTX_MODEL" "split_files/text_encoders/gemma_3_12B_it_fp4_mixed.safetensors" "./models/text_encoders/"
+
+SD_VAE_FT_MSE="stabilityai/sd-vae-ft-mse-original"
+download_model "$SD_VAE_FT_MSE" "vae-ft-mse-840000-ema-pruned.safetensors" "./models/vae/"
+
+MODEL_SCOPE_NAME="Lightricks/LTX-2-19b-LoRA-Camera-Control-Dolly-Left"
+download_model "$MODEL_SCOPE_NAME" "ltx-2-19b-lora-camera-control-dolly-left.safetensors" "./models/loras/"
+
+
